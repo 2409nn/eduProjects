@@ -1,0 +1,20 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "Edu projects",
+  "homepage": "https://github.com/2409nn/eduProjects#readme",
+  "bugs": {
+    "url": "https://github.com/2409nn/eduProjects/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2409nn/eduProjects.git"
+  },
+  "license": "ISC",
+  "author": "Iskanderious",
+  "type": "commonjs",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
