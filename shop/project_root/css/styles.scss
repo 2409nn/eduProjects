@@ -1,10 +1,32 @@
+$linkColor: #00A5C2;
+$headerFontColor: white;
+$mainFontColor: #000000;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  font-family: "montserrat", sans-serif;
 }
 
 body {
-  background: red;
-  height: 100vh;
+  height: 5000px;
 }
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+}
+
+a.nav-link {
+  color: white;
+}
+
+ul, li {
+  list-style: none;
+}
+
+
+@import 'nav';
