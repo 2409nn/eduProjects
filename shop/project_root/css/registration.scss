@@ -1,0 +1,43 @@
+body {
+  background-color: $bodyBackgroundColor;
+}
+
+.reg {
+  background-color: white;
+  width: 550px;
+  height: 700px;
+  padding: 30px 20px;
+  border-radius: $borderRadius;
+  margin: auto;
+
+  &__heading {
+    user-select: none;
+    margin-top: 20px;
+  }
+
+  &__inner {
+    width: 80%;
+    margin: auto;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    input {
+      margin: 15px 0 30px;
+
+    }
+  }
+
+  &__google-signIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 50px 0;
+  }
+}

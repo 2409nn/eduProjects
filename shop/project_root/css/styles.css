@@ -6,8 +6,8 @@
   font-family: "montserrat", sans-serif;
 }
 
-body {
-  height: 5000px;
+h2 {
+  font-weight: 800;
 }
 
 main {
@@ -38,6 +38,46 @@ button:hover {
   filter: brightness(0.95);
   cursor: pointer;
   transition: filter 0.2s;
+}
+
+.main-btn {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.secondary-btn {
+  border: 3px solid #000000;
+  padding: 15px 10px;
+}
+
+.secondary-btn span {
+  font-weight: 700;
+}
+
+label {
+  font-weight: 700;
+}
+
+input {
+  border-radius: 11px;
+  padding: 20px;
+  border: black solid 3px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input::placeholder {
+  color: #989898;
+}
+
+input[type=submit] {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
 }
 
 .header {
@@ -125,6 +165,44 @@ section .heading {
   background: #00A5C2;
   height: 350px;
   border-radius: 11px;
+}
+
+body {
+  background-color: #EEEEEE;
+}
+
+.reg {
+  background-color: white;
+  width: 550px;
+  height: 700px;
+  padding: 30px 20px;
+  border-radius: 11px;
+  margin: auto;
+}
+.reg__heading {
+  user-select: none;
+  margin-top: 20px;
+}
+.reg__inner {
+  width: 80%;
+  margin: auto;
+}
+.reg__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.reg__form input {
+  margin: 15px 0 30px;
+}
+.reg__google-signIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 50px 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

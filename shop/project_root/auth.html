@@ -6,6 +6,30 @@
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    <main>
+        <section class="reg">
 
+            <div class="reg__inner">
+                <div class="reg__heading heading">
+                    <h2>Регистрация</h2>
+                </div>
+                <form action="#" class="reg__form" method="post">
+                    <label for="email">Электронная почта</label>
+                    <input placeholder="helloworld@gmail.com" type="email" class="reg__input" id="email">
+
+                    <label for="password">Пароль</label>
+                    <input placeholder="qwerty" type="password" class="reg__input" id="password">
+
+                    <button class="reg__google-signIn secondary-btn">
+                        <img src="imgs/logos/google.svg" alt="google_ico" width="30px">
+                        <span>Войти через Google</span>
+                    </button>
+
+                    <input type="submit" value="Войти" class="main-btn">
+                </form>
+            </div>
+
+        </section>
+    </main>
 </body>
 </html>

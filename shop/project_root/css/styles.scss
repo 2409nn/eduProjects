@@ -1,8 +1,14 @@
 $linkColor: #00A5C2;
 $headerFontColor: white;
 $mainFontColor: #000000;
+$mainButtonBackgroundColor: #000000;
+$mainButtonFontColor: #FFFFFF;
+$secondaryFontColor: #000000;
 $headerHeight: 80px;
 $borderRadius: 11px;
+$bodyBackgroundColor: #EEEEEE;
+$placeholderColor: #989898;
+$borderColor: #000000;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -13,8 +19,8 @@ $borderRadius: 11px;
   font-family: "montserrat", sans-serif;
 }
 
-body {
-  height: 5000px;
+h2 {
+  font-weight: 800;
 }
 
 main {
@@ -47,6 +53,46 @@ button:hover {
   transition: filter 0.2s;
 }
 
+.main-btn {
+  background-color: $mainButtonBackgroundColor;
+  color: $mainButtonFontColor;
+  font-size: 16px;
+}
+
+.secondary-btn {
+  border: 3px solid $borderColor;
+  padding: 15px 10px;
+}
+
+.secondary-btn span {
+  font-weight: 700;
+}
+
+label {
+  font-weight: 700;
+}
+
+input {
+  border-radius: $borderRadius;
+  padding: 20px;
+  border: black solid 3px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input::placeholder {
+  color: $placeholderColor;
+}
+
+input[type=submit] {
+  background-color: $mainButtonBackgroundColor;
+  color: $mainButtonFontColor;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+}
 
 @import 'nav';
 @import 'mainpage';
+@import 'registration';

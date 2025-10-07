@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8ced395-9143-478a-abc0-0010abf6aa98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/project_root/css/mainpage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/nav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/project_root/css/registration.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/logos/google.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/auth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript Debug.auth.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -59,12 +61,22 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Колледж\3 курс\projects\shop\project_root\imgs\logos" />
+      <recent name="D:\Колледж\3 курс\projects\shop\project_root\imgs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.auth.html">
+    <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/auth.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.auth.html" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
@@ -84,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759824715345</updated>
       <workItem from="1759824717013" duration="2551000" />
-      <workItem from="1759828542983" duration="1524000" />
+      <workItem from="1759828542983" duration="4824000" />
     </task>
     <servers />
   </component>
