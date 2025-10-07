@@ -1,6 +1,8 @@
 $linkColor: #00A5C2;
 $headerFontColor: white;
 $mainFontColor: #000000;
+$headerHeight: 80px;
+$borderRadius: 11px;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -13,6 +15,10 @@ $mainFontColor: #000000;
 
 body {
   height: 5000px;
+}
+
+main {
+  padding-top: $headerHeight;
 }
 
 a {
@@ -28,5 +34,19 @@ ul, li {
   list-style: none;
 }
 
+button {
+  border: none;
+  border-radius: $borderRadius;
+  transition: filter 0.2s;
+  user-select: none;
+}
+
+button:hover {
+  filter: brightness(0.95);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
 
 @import 'nav';
+@import 'mainpage';

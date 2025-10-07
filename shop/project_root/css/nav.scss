@@ -1,8 +1,9 @@
 .header {
   background-color: black;
-  height: 80px;
+  height: $headerHeight;
   position: fixed;
   width: 100vw;
+  z-index: 100;
 
   &__inner {
     width: 80%;

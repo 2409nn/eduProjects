@@ -10,6 +10,10 @@ body {
   height: 5000px;
 }
 
+main {
+  padding-top: 80px;
+}
+
 a {
   color: #00A5C2;
   text-decoration: none;
@@ -23,11 +27,25 @@ ul, li {
   list-style: none;
 }
 
+button {
+  border: none;
+  border-radius: 11px;
+  transition: filter 0.2s;
+  user-select: none;
+}
+
+button:hover {
+  filter: brightness(0.95);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
 .header {
   background-color: black;
   height: 80px;
   position: fixed;
   width: 100vw;
+  z-index: 100;
 }
 .header__inner {
   width: 80%;
@@ -55,6 +73,58 @@ ul, li {
   align-items: center;
   flex-direction: row;
   gap: 40px;
+}
+
+h2 {
+  text-align: center;
+}
+
+section .heading {
+  padding-bottom: 30px;
+}
+
+.ctgs {
+  width: 100%;
+}
+.ctgs__inner {
+  height: fit-content;
+  width: 100%;
+  margin-top: 80px;
+}
+.ctgs__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  height: 600px;
+  width: 60%;
+  margin: auto;
+}
+.ctgs__items .ctgs__item {
+  width: 100%;
+  height: 100%;
+  border-radius: 11px;
+}
+.ctgs__items .ctgs__item .ctgs__button {
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+}
+
+.products__inner {
+  margin-top: 80px;
+}
+.products__items {
+  width: 60%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.products__items .products__item {
+  background: #00A5C2;
+  height: 350px;
+  border-radius: 11px;
 }
 
 /*# sourceMappingURL=styles.css.map */
