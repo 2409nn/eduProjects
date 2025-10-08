@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8ced395-9143-478a-abc0-0010abf6aa98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/project_root/css/registration.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/logos/google.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/auth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/mainpage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/mainpage.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/mainpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/registration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/registration.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/registration.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_registration.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,35 +50,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.auth.html.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.auth.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.cart.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Колледж\3 курс\projects\shop\project_root\imgs\logos" />
       <recent name="D:\Колледж\3 курс\projects\shop\project_root\imgs" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.auth.html">
+  <component name="RunManager" selected="JavaScript Debug.cart.html">
     <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/auth.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="cart.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/cart.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
@@ -76,8 +90,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.auth.html" />
+        <item itemvalue="JavaScript Debug.cart.html" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.auth.html" />
       </list>
     </recent_temporary>
   </component>
@@ -96,7 +111,9 @@
       <option name="presentableId" value="Default" />
       <updated>1759824715345</updated>
       <workItem from="1759824717013" duration="2551000" />
-      <workItem from="1759828542983" duration="4824000" />
+      <workItem from="1759828542983" duration="4942000" />
+      <workItem from="1759844898036" duration="2330000" />
+      <workItem from="1759928331354" duration="1528000" />
     </task>
     <servers />
   </component>

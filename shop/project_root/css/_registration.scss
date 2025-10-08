@@ -3,21 +3,21 @@ body {
 }
 
 .reg {
-  background-color: white;
-  width: 550px;
-  height: 700px;
   padding: 30px 20px;
   border-radius: $borderRadius;
   margin: auto;
+  width: 500px;
 
   &__heading {
     user-select: none;
     margin-top: 20px;
+
   }
 
   &__inner {
-    width: 80%;
+    background-color: white;
     margin: auto;
+
   }
 
   &__form {

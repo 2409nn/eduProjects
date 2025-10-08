@@ -9,6 +9,7 @@ $borderRadius: 11px;
 $bodyBackgroundColor: #EEEEEE;
 $placeholderColor: #989898;
 $borderColor: #000000;
+$sectionBackgroundColor: #FFFFFF;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -93,6 +94,36 @@ input[type=submit]:hover {
   cursor: pointer;
 }
 
-@import 'nav';
-@import 'mainpage';
-@import 'registration';
+section {
+  background-color: $sectionBackgroundColor;
+  padding: 20px;
+  border-radius: $borderRadius;
+  width: 1200px;
+  margin: 20px  auto;
+
+  @media(max-width: 1300px) {
+    width: 900px;
+  }
+
+  @media(max-width: 1000px) {
+    width: 600px;
+  }
+
+  @media(max-width: 666px) {
+    width: 90%;
+  }
+}
+
+section [class*="__inner"] {
+  height: fit-content;
+  margin: 80px auto;
+}
+
+section [class*="__items"] {
+
+}
+
+@import '_nav';
+@import '_mainpage';
+@import '_registration';
+@import '_cart';

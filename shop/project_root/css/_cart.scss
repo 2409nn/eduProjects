@@ -1,0 +1,9 @@
+body {
+  background-color: $bodyBackgroundColor;
+}
+
+.products {
+  &__inner {
+    background-color: white;
+  }
+}

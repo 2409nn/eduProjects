@@ -7,13 +7,6 @@ section .heading {
 }
 
 .ctgs {
-  width: 100%;
-
-  &__inner {
-    height: fit-content;
-    width: 100%;
-    margin-top: 80px;
-  }
 
   &__items {
     display: grid;
@@ -21,7 +14,6 @@ section .heading {
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     height: 600px;
-    width: 60%;
     margin: auto;
 
     .ctgs__item {
@@ -40,14 +32,7 @@ section .heading {
 
 .products {
 
-  &__inner {
-    margin-top: 80px;
-  }
-
   &__items {
-    width: 60%;
-    margin: auto;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr); // 3 равные колонки
     gap: 10px; // расстояние между элементами

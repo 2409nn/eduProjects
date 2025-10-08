@@ -80,6 +80,34 @@ input[type=submit]:hover {
   cursor: pointer;
 }
 
+section {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 11px;
+  width: 1200px;
+  margin: 20px auto;
+}
+@media (max-width: 1300px) {
+  section {
+    width: 900px;
+  }
+}
+@media (max-width: 1000px) {
+  section {
+    width: 600px;
+  }
+}
+@media (max-width: 666px) {
+  section {
+    width: 90%;
+  }
+}
+
+section [class*=__inner] {
+  height: fit-content;
+  margin: 80px auto;
+}
+
 .header {
   background-color: black;
   height: 80px;
@@ -123,21 +151,12 @@ section .heading {
   padding-bottom: 30px;
 }
 
-.ctgs {
-  width: 100%;
-}
-.ctgs__inner {
-  height: fit-content;
-  width: 100%;
-  margin-top: 80px;
-}
 .ctgs__items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   height: 600px;
-  width: 60%;
   margin: auto;
 }
 .ctgs__items .ctgs__item {
@@ -151,12 +170,7 @@ section .heading {
   background-color: #d9d9d9;
 }
 
-.products__inner {
-  margin-top: 80px;
-}
 .products__items {
-  width: 60%;
-  margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
@@ -172,19 +186,17 @@ body {
 }
 
 .reg {
-  background-color: white;
-  width: 550px;
-  height: 700px;
   padding: 30px 20px;
   border-radius: 11px;
   margin: auto;
+  width: 500px;
 }
 .reg__heading {
   user-select: none;
   margin-top: 20px;
 }
 .reg__inner {
-  width: 80%;
+  background-color: white;
   margin: auto;
 }
 .reg__form {
@@ -203,6 +215,14 @@ body {
   font-weight: 600;
   font-size: 16px;
   margin: 50px 0;
+}
+
+body {
+  background-color: #EEEEEE;
+}
+
+.products__inner {
+  background-color: white;
 }
 
 /*# sourceMappingURL=styles.css.map */
