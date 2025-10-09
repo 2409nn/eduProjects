@@ -6,10 +6,6 @@
   font-family: "montserrat", sans-serif;
 }
 
-h2 {
-  font-weight: 800;
-}
-
 main {
   padding-top: 80px;
 }
@@ -32,6 +28,7 @@ button {
   border-radius: 11px;
   transition: filter 0.2s;
   user-select: none;
+  background: none;
 }
 
 button:hover {
@@ -106,6 +103,70 @@ section {
 section [class*=__inner] {
   height: fit-content;
   margin: 80px auto;
+}
+
+.heading {
+  font-weight: 800;
+}
+
+.close-btn {
+  color: #000000;
+}
+
+.close-btn:hover {
+  color: #dc3333;
+}
+
+.buy-button {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 20px 70px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.buy-button:hover {
+  transform: scale(105%);
+  transition: transform 0.2s;
+}
+
+.description {
+  color: #404040;
+  font-weight: 500;
+}
+
+.title {
+  font-weight: 700;
+  color: #000000;
+}
+
+.price {
+  color: #000000;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.counter-btn {
+  background-color: #000000;
+  color: #FFFFFF;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 25px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.counter-amount {
+  color: #000000;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.counter-btn:hover {
+  transform: scale(105%);
+  transition: transform 0.2s;
 }
 
 .header {
@@ -221,8 +282,44 @@ body {
   background-color: #EEEEEE;
 }
 
-.products__inner {
-  background-color: white;
+.cProducts__items .cProducts__product {
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #000000;
+}
+.cProducts__items .cProducts__product-pic {
+  width: 200px;
+  height: 200px;
+}
+.cProducts__items .cProducts__product-info {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 1fr 1fr;
+}
+.cProducts__items .cProducts__product-title {
+  text-align: left;
+  margin: auto 0;
+}
+.cProducts__items .cProducts__product-counter {
+  margin: auto 0;
+}
+.cProducts__items .cProducts__product-description {
+  grid-column: 1/3;
+}
+.cProducts__items .cProducts__product-decide {
+  display: grid;
+  grid-template-rows: 20% 80%;
+  text-align: right;
+}
+.cProducts__items .cProducts__product-buy {
+  margin-top: auto;
+}
+.cProducts__items .cProducts__product-buy .price {
+  padding-bottom: 20px;
+}
+.cProducts__items .cProducts__product-closeBtn {
+  text-align: right;
 }
 
 /*# sourceMappingURL=styles.css.map */

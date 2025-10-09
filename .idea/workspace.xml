@@ -4,116 +4,82 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8ced395-9143-478a-abc0-0010abf6aa98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" afterDir="false" />
+    <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/modal/сloseCross.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/videocard.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/mainpage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/mainpage.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/mainpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/registration.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/registration.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/registration.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_registration.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="SCSS File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="33jJnUs4IjXtNy3eYOJZljwDblI" />
+  <component name="ProjectId" id="33n3V4bZ9wW8xkwleGrCCJHZCEN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.auth.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.cart.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.cart.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Колледж\3 курс\projects\shop\project_root\imgs\logos" />
-      <recent name="D:\Колледж\3 курс\projects\shop\project_root\imgs" />
+      <recent name="$PROJECT_DIR$/shop/project_root/imgs" />
+      <recent name="$PROJECT_DIR$/shop/project_root/imgs/modal" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.cart.html">
-    <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/auth.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="cart.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/cart.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.cart.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="JavaScript Debug.auth.html" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e8ced395-9143-478a-abc0-0010abf6aa98" name="Changes" comment="" />
-      <created>1759824715345</created>
+      <changelist id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="" />
+      <created>1759939028912</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1759824715345</updated>
-      <workItem from="1759824717013" duration="2551000" />
-      <workItem from="1759828542983" duration="4942000" />
-      <workItem from="1759844898036" duration="2330000" />
-      <workItem from="1759928331354" duration="1528000" />
+      <updated>1759939028912</updated>
+      <workItem from="1759939030147" duration="309000" />
+      <workItem from="1759941917760" duration="554000" />
+      <workItem from="1759994074890" duration="7725000" />
     </task>
     <servers />
   </component>

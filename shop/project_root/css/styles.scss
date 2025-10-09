@@ -10,18 +10,26 @@ $bodyBackgroundColor: #EEEEEE;
 $placeholderColor: #989898;
 $borderColor: #000000;
 $sectionBackgroundColor: #FFFFFF;
+$hoverCloseBtn: #dc3333;
+$descFontColor: #404040;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@function roundToCircle($height, $width) {
+  @if ($height >= $width) {
+    @return $width / 2;
+  }
+
+  @else {
+    @return $height / 2;
+  }
+}
 
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
   font-family: "montserrat", sans-serif;
-}
-
-h2 {
-  font-weight: 800;
 }
 
 main {
@@ -46,6 +54,7 @@ button {
   border-radius: $borderRadius;
   transition: filter 0.2s;
   user-select: none;
+  background: none;
 }
 
 button:hover {
@@ -121,6 +130,70 @@ section [class*="__inner"] {
 
 section [class*="__items"] {
 
+}
+
+.heading {
+  font-weight: 800;
+}
+
+.close-btn {
+  color: $mainFontColor;
+}
+
+.close-btn:hover {
+  color: $hoverCloseBtn;
+}
+
+.buy-button {
+  background-color: $mainButtonBackgroundColor;
+  color: $mainButtonFontColor;
+  padding: 20px 70px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.buy-button:hover {
+  transform: scale(105%);
+  transition: transform 0.2s;
+}
+
+.description {
+  color: $descFontColor;
+  font-weight: 500;
+}
+
+.title {
+  font-weight: 700;
+  color: $mainFontColor;
+}
+
+.price {
+  color: $mainFontColor;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.counter-btn {
+  background-color: $mainButtonBackgroundColor;
+  color: $mainButtonFontColor;
+  width: 35px;
+  height: 35px;
+  border-radius: roundToCircle(35px, 35px);
+  font-size: 25px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.counter-amount {
+  color: $mainFontColor;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.counter-btn:hover {
+  transform: scale(105%);
+  transition: transform 0.2s;
 }
 
 @import '_nav';
