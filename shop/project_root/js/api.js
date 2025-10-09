@@ -1,13 +1,24 @@
-import axios from "axios";
+const API_URL = "https://fakestoreapi.com";
 
-async function getPosts() {
-    try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
-        console.log(response.data);
-
-    } catch(err) {
-        console.error(err);
-    }
+async function getProducts() {
+    const res = await fetch(`${API_URL}/products`);
+    return res.json();
+}
+async function getProductById(id) {
+    const res = await fetch(`${API_URL}/products/${id}`);
+    return res.json();
 }
 
-getPosts();
+async function getCategories() {
+    const res = await fetch(`${API_URL}/products/categories`);
+    return res.json();
+}
+async function getProductsByCategory(category) {
+    const res = await fetch(`${API_URL}/products/category/${category}`);
+    return res.json();
+}
+
+getProducts()
+    .then((res) => {
+        console.log(res)
+    })

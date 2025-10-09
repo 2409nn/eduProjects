@@ -231,15 +231,41 @@ section .heading {
   background-color: #d9d9d9;
 }
 
+.products .description {
+  font-size: 12px;
+}
 .products__items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
-.products__items .products__item {
-  background: #00A5C2;
-  height: 350px;
+.products__items .product {
+  border: 2px solid black;
+  width: 300px;
   border-radius: 11px;
+  transition: transform 0.2s;
+}
+.products__items .product__info {
+  color: #000000;
+  padding: 5px 20px 30px 20px;
+}
+.products__items .product__image {
+  width: 100%;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  border-bottom: 2px solid #000000;
+}
+.products__items .product__title {
+  font-size: 21px;
+}
+.products__items .product__price {
+  font-size: 25px;
+  font-weight: 500;
+}
+.products__items .product:hover {
+  transform: scale(102%);
+  transition: transform 0.2s;
 }
 
 body {
@@ -320,6 +346,9 @@ body {
 }
 .cProducts__items .cProducts__product-closeBtn {
   text-align: right;
+}
+.cProducts__item {
+  margin-top: 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */

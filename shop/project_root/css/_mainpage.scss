@@ -32,15 +32,47 @@ section .heading {
 
 .products {
 
-  &__items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); // 3 равные колонки
-    gap: 10px; // расстояние между элементами
+  .description {
+    font-size: 12px;
+  }
 
-    .products__item {
-      background: #00A5C2;
-      height: 350px;
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    .product {
+      border: 2px solid black;
+      width: 300px;
       border-radius: $borderRadius;
+      transition: transform 0.2s;
+
+      &__info {
+        color: $mainFontColor;
+        padding: 5px 20px 30px 20px;
+      }
+
+      &__image {
+        width: 100%;
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+        border-bottom: 2px solid $mainFontColor;
+      }
+
+      &__title {
+        font-size: 21px;
+      }
+
+      &__price {
+        font-size: 25px;
+        font-weight: 500;
+      }
     }
+
+    .product:hover {
+        transform: scale(102%);
+        transition: transform 0.2s;
+      }
   }
 }

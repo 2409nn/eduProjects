@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/modal/сloseCross.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/videocard.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JavaScript Debug.cart.html.executor": "Run",
+    "Node.js.api.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -43,6 +44,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -52,12 +54,20 @@
       <recent name="$PROJECT_DIR$/shop/project_root/imgs/modal" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="cart.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/cart.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="api.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/shop/project_root/js/api.js" working-dir="$PROJECT_DIR$/shop/project_root/js">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.api.js" />
         <item itemvalue="JavaScript Debug.cart.html" />
       </list>
     </recent_temporary>
@@ -79,7 +89,7 @@
       <updated>1759939028912</updated>
       <workItem from="1759939030147" duration="309000" />
       <workItem from="1759941917760" duration="554000" />
-      <workItem from="1759994074890" duration="7725000" />
+      <workItem from="1759994074890" duration="11378000" />
     </task>
     <servers />
   </component>

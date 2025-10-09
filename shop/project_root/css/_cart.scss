@@ -5,10 +5,8 @@ body {
 
 .cProducts {
   &__items {
-    //background-color: #96c6da;
 
     .cProducts__product {
-      //background-color: #59abcb;
       display: grid;
       grid-template-columns: 20% 50% 30%;
       padding-bottom: 10px;
@@ -57,5 +55,9 @@ body {
       }
 
     }
+  }
+
+  &__item {
+    margin-top: 40px;
   }
 }
