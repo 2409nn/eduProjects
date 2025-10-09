@@ -55,23 +55,34 @@ button {
   transition: filter 0.2s;
   user-select: none;
   background: none;
+  font-weight: 600;
 }
 
 button:hover {
   filter: brightness(0.95);
   cursor: pointer;
-  transition: filter 0.2s;
 }
 
 .main-btn {
   background-color: $mainButtonBackgroundColor;
   color: $mainButtonFontColor;
-  font-size: 16px;
+  padding: 15px 10px;
+  transition: transform 0.2s;
+}
+
+.main-btn:hover {
+    transform: scale(103%);
 }
 
 .secondary-btn {
-  border: 3px solid $borderColor;
+  outline: 3px solid $borderColor;
+  outline-offset: -3px;
   padding: 15px 10px;
+  transition: filter, transform 0.2s;
+}
+
+.secondary-btn:hover {
+  transform: scale(103%);
 }
 
 .secondary-btn span {
@@ -80,6 +91,7 @@ button:hover {
 
 label {
   font-weight: 700;
+  padding-bottom: 10px;
 }
 
 input {
@@ -90,18 +102,21 @@ input {
   font-weight: 600;
 }
 
+input:not([type="submit"]):not([type="checkbox"]):focus {
+  outline: 3.5px solid $linkColor;
+  transition: outline 0.2s;
+}
+
 input::placeholder {
   color: $placeholderColor;
 }
 
-input[type=submit] {
-  background-color: $mainButtonBackgroundColor;
-  color: $mainButtonFontColor;
+input[type="submit"]:hover {
+  cursor: pointer;
+  transform: scale(103%);
+  transition: transform 0.2s;
 }
 
-input[type=submit]:hover {
-  cursor: pointer;
-}
 
 section {
   background-color: $sectionBackgroundColor;
@@ -125,7 +140,7 @@ section {
 
 section [class*="__inner"] {
   height: fit-content;
-  margin: 80px auto;
+  margin: 20px auto;
 }
 
 section [class*="__items"] {
@@ -196,7 +211,69 @@ section [class*="__items"] {
   transition: transform 0.2s;
 }
 
+// modal windows
+.modal {
+  background-color: $sectionBackgroundColor;
+  border-radius: $borderRadius;
+  border: 3px solid $borderColor;
+  width: fit-content;
+  height: fit-content;
+  padding: 30px 20px;
+  margin: auto;
+  z-index: 100;
+
+  display: none;
+
+  &__heading {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px;
+  }
+
+  &__save-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+  }
+
+  &__inner {}
+
+  &__purchase-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+  }
+
+  &__small-inputs {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0;
+
+    .modal__expiry, .modal__cvv {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.close-btn {
+  text-align: right;
+  width: 100%;
+
+  svg {
+    width: 35px;
+  }
+}
+
 @import '_nav';
 @import '_mainpage';
 @import '_registration';
 @import '_cart';
+@import '_product';

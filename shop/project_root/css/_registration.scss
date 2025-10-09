@@ -31,6 +31,12 @@ body {
     }
   }
 
+  &__local-strategy {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px dashed $borderColor;
+  }
+
   &__google-signIn {
     display: flex;
     align-items: center;

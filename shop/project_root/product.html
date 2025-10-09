@@ -51,6 +51,74 @@
         </ul>
     </div>
 </header>
+<main>
+    <section class="productPage">
+        <div class="productPage__inner">
+            <h1 class="productPage__heading heading">СТРАНИЦА ТОВАРА</h1>
+            <img class="productPage__image" src="./imgs/videocard.jpg" alt="product_pic">
+            <div class="productPage__info">
 
+                <div class="productPage-main">
+                    <h2 class="productPage__title">Видеокарта</h2>
+                    <p class="productPage__price">42000тг</p>
+                </div>
+
+                <div class="productPage__description">
+                    <h3 class="productPage__description-heading">Описание:</h3>
+                    <p class="productPage__description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Ipsam porro quasi repellendus suscipit tenetur veniam, voluptatem! Iure, officiis, sint! Animi
+                        architecto cum delectus eius esse ex porro quidem rerum unde.
+                    </p>
+                </div>
+            </div>
+            <div class="productPage__buttons">
+                <button class="productPage__buy-btn main-btn" onclick="document.getElementById('purchase-modal')">Купить</button>
+                <button class="productPage__cart-btn secondary-btn">Карзина</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal purchase-modal">
+        <div class="modal__inner">
+
+            <button class="modal__closeBtn close-btn">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="36.8789" y="10.0001" width="4.95814" height="38.0124" rx="2.47907" transform="rotate(45 36.8789 10.0001)" fill="currentColor"></rect>
+                    <rect x="40.3848" y="36.8788" width="4.95814" height="38.0124" rx="2.47907" transform="rotate(135 40.3848 36.8788)" fill="currentColor"></rect>
+                </svg>
+            </button>
+
+            <h4 class="modal__heading">Оформление покупки</h4>
+            <form action="#" class="modal__purchase-form" method="post">
+
+                <label for="modal__card-number">Номер карты</label>
+                <input type="number" id="modal__card-number" placeholder="0123 4567 8901">
+
+                <div class="modal__small-inputs">
+                    <div class="modal__expiry">
+                        <label for="modal__expiry-date">Дата истечения</label>
+                        <input type="date" id="modal__expiry-date" placeholder="MM:YY">
+                    </div>
+
+                    <div class="modal__cvv">
+                        <label for="modal__cvv">CVV</label>
+                        <input type="password" maxlength="3" id="modal__cvv" placeholder="CVV">
+                    </div>
+                </div>
+
+                <label for="modal__card-user">Имя владельца</label>
+                <input type="text" id="modal__card-user" placeholder="Имя Фамилия">
+
+                <div class="modal__save-data">
+                    <label for="modal__save-data">Сохранить данные</label>
+                    <input type="checkbox" id="modal__save-data" style="margin-bottom: 10px">
+                </div>
+
+
+                <input type="submit" value="Оплатить" class="modal__pay-btn main-btn">
+            </form>
+        </div>
+    </div>
+</main>
 </body>
 </html>

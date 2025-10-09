@@ -1,0 +1,49 @@
+.productPage {
+  padding: 60px;
+
+  &__info {
+    border-bottom: 3px solid $borderColor;
+  }
+
+  &__image {
+    display: block;
+    margin: auto;
+    border-bottom: 3px solid $borderColor;
+    max-width: 100%;
+  }
+
+  &-main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price, &__title {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  &__description {
+    margin-top: 40px;
+    color: $descFontColor;
+
+    &-heading {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    &-text {
+      width: 70%;
+      padding: 20px 0;
+    }
+  }
+
+  &__buttons {
+
+    padding-top: 20px;
+    button {
+      padding: 20px 50px;
+      margin-top: 40px;
+    }
+  }
+
+}

@@ -29,23 +29,34 @@ button {
   transition: filter 0.2s;
   user-select: none;
   background: none;
+  font-weight: 600;
 }
 
 button:hover {
   filter: brightness(0.95);
   cursor: pointer;
-  transition: filter 0.2s;
 }
 
 .main-btn {
   background-color: #000000;
   color: #FFFFFF;
-  font-size: 16px;
+  padding: 15px 10px;
+  transition: transform 0.2s;
+}
+
+.main-btn:hover {
+  transform: scale(103%);
 }
 
 .secondary-btn {
-  border: 3px solid #000000;
+  outline: 3px solid #000000;
+  outline-offset: -3px;
   padding: 15px 10px;
+  transition: filter, transform 0.2s;
+}
+
+.secondary-btn:hover {
+  transform: scale(103%);
 }
 
 .secondary-btn span {
@@ -54,6 +65,7 @@ button:hover {
 
 label {
   font-weight: 700;
+  padding-bottom: 10px;
 }
 
 input {
@@ -64,17 +76,19 @@ input {
   font-weight: 600;
 }
 
+input:not([type=submit]):not([type=checkbox]):focus {
+  outline: 3.5px solid #00A5C2;
+  transition: outline 0.2s;
+}
+
 input::placeholder {
   color: #989898;
 }
 
-input[type=submit] {
-  background-color: #000000;
-  color: #FFFFFF;
-}
-
 input[type=submit]:hover {
   cursor: pointer;
+  transform: scale(103%);
+  transition: transform 0.2s;
 }
 
 section {
@@ -102,7 +116,7 @@ section {
 
 section [class*=__inner] {
   height: fit-content;
-  margin: 80px auto;
+  margin: 20px auto;
 }
 
 .heading {
@@ -169,6 +183,56 @@ section [class*=__inner] {
   transition: transform 0.2s;
 }
 
+.modal {
+  background-color: #FFFFFF;
+  border-radius: 11px;
+  border: 3px solid #000000;
+  width: fit-content;
+  height: fit-content;
+  padding: 30px 20px;
+  margin: auto;
+  z-index: 100;
+  display: none;
+}
+.modal__heading {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px;
+}
+.modal__save-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+}
+.modal__purchase-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+}
+.modal__small-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.modal__small-inputs .modal__expiry, .modal__small-inputs .modal__cvv {
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  text-align: right;
+  width: 100%;
+}
+.close-btn svg {
+  width: 35px;
+}
+
 .header {
   background-color: black;
   height: 80px;
@@ -180,6 +244,10 @@ section [class*=__inner] {
   width: 80%;
   height: 100%;
   margin: auto;
+}
+.header .nav-link {
+  font-size: 16px;
+  font-weight: 600;
 }
 .header__items {
   height: 100%;
@@ -294,6 +362,11 @@ body {
 .reg__form input {
   margin: 15px 0 30px;
 }
+.reg__local-strategy {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px dashed #000000;
+}
 .reg__google-signIn {
   display: flex;
   align-items: center;
@@ -348,6 +421,46 @@ body {
   text-align: right;
 }
 .cProducts__item {
+  margin-top: 40px;
+}
+
+.productPage {
+  padding: 60px;
+}
+.productPage__info {
+  border-bottom: 3px solid #000000;
+}
+.productPage__image {
+  display: block;
+  margin: auto;
+  border-bottom: 3px solid #000000;
+  max-width: 100%;
+}
+.productPage-main {
+  display: flex;
+  justify-content: space-between;
+}
+.productPage__price, .productPage__title {
+  font-size: 26px;
+  font-weight: 600;
+}
+.productPage__description {
+  margin-top: 40px;
+  color: #404040;
+}
+.productPage__description-heading {
+  font-size: 20px;
+  font-weight: 500;
+}
+.productPage__description-text {
+  width: 70%;
+  padding: 20px 0;
+}
+.productPage__buttons {
+  padding-top: 20px;
+}
+.productPage__buttons button {
+  padding: 20px 50px;
   margin-top: 40px;
 }
 
