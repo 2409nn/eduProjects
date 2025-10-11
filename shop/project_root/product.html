@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>product</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -15,6 +16,13 @@
             <li class="header__item" id="header__logo">
                 <p>logo</p>
                 <!--                <img class="header__icon svg" src="#" alt="logo">-->
+            </li>
+            <li class="header__item" id="header__burger-menu">
+                <button class="header__burger-pic">
+                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 9.16663C6.32082 9.16663 5.5 9.98745 5.5 11C5.5 12.0125 6.32082 12.8333 7.33333 12.8333H36.6667C37.6792 12.8333 38.5 12.0125 38.5 11C38.5 9.98745 37.6792 9.16663 36.6667 9.16663H7.33333ZM12.8333 22C12.8333 20.9874 13.6542 20.1666 14.6667 20.1666H36.6667C37.6792 20.1666 38.5 20.9874 38.5 22C38.5 23.0125 37.6792 23.8333 36.6667 23.8333H14.6667C13.6542 23.8333 12.8333 23.0125 12.8333 22ZM23.8333 33C23.8333 31.9874 24.6541 31.1666 25.6667 31.1666H36.6667C37.6792 31.1666 38.5 31.9874 38.5 33C38.5 34.0125 37.6792 34.8333 36.6667 34.8333H25.6667C24.6541 34.8333 23.8333 34.0125 23.8333 33Z" fill="currentColor"/>
+                    </svg>
+                </button>
             </li>
             <ul class="header__item" id="header__special-links">
                 <li class="header__special-link" id="header__cart">
@@ -47,7 +55,12 @@
                     </a>
                 </li>
             </ul>
+        </ul>
 
+        <ul class="header__burger-list">
+            <li class="header__burger-item" id="header__burger-main-page"><a class="main-btn" href="index.html">Главная страница</a></li>
+            <li class="header__burger-item" id="header__burger-cart-page"><a class="main-btn" href="cart.html">Карзина</a></li>
+            <li class="header__burger-item" id="header__burger-auth-page"><a class="danger-btn" href="auth.html">Выйти</a></li>
         </ul>
     </div>
 </header>
@@ -59,7 +72,7 @@
             <div class="productPage__info">
 
                 <div class="productPage-main">
-                    <h2 class="productPage__title">Видеокарта</h2>
+                    <h2 class="productPage__title">Видеокарта kdma;ls;kldmk;ldmaskldmas;l alksdmsadmals; adladamsk</h2>
                     <p class="productPage__price">42000тг</p>
                 </div>
 
@@ -72,13 +85,13 @@
                 </div>
             </div>
             <div class="productPage__buttons">
-                <button class="productPage__buy-btn main-btn" onclick="document.getElementById('purchase-modal')">Купить</button>
+                <button class="productPage__buy-btn main-btn">Купить</button>
                 <button class="productPage__cart-btn secondary-btn">Карзина</button>
             </div>
         </div>
     </section>
 
-    <div class="modal purchase-modal">
+    <div class="modal" id="purchase-modal">
         <div class="modal__inner">
 
             <button class="modal__closeBtn close-btn">
@@ -120,5 +133,7 @@
         </div>
     </div>
 </main>
+
+<script src="js/dom.js"></script>
 </body>
 </html>

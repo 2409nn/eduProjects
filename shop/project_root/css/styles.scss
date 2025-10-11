@@ -1,5 +1,6 @@
 $linkColor: #00A5C2;
 $headerFontColor: white;
+$burgerMenuBackgroundColor: #171717;
 $mainFontColor: #000000;
 $mainButtonBackgroundColor: #000000;
 $mainButtonFontColor: #FFFFFF;
@@ -12,6 +13,16 @@ $borderColor: #000000;
 $sectionBackgroundColor: #FFFFFF;
 $hoverCloseBtn: #dc3333;
 $descFontColor: #404040;
+$dangerButtonBackground: #E83D3D;
+$dangerButtonFontColor: #FFFFFF;
+
+@media (max-width: 900px) {
+  $borderRadius: 6px;
+}
+
+@media (max-width: 666px) {
+  $borderRadius: 3px;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -32,6 +43,12 @@ $descFontColor: #404040;
   font-family: "montserrat", sans-serif;
 }
 
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
 main {
   padding-top: $headerHeight;
 }
@@ -47,6 +64,7 @@ a.nav-link {
 
 ul, li {
   list-style: none;
+  margin: 0;
 }
 
 button {
@@ -67,11 +85,24 @@ button:hover {
   background-color: $mainButtonBackgroundColor;
   color: $mainButtonFontColor;
   padding: 15px 10px;
+  font-weight: 600;
   transition: transform 0.2s;
 }
 
 .main-btn:hover {
-    transform: scale(103%);
+  transform: scale(103%);
+}
+
+.danger-btn {
+  background-color: $dangerButtonBackground;
+  color: $dangerButtonFontColor;
+  font-weight: 600;
+  padding: 15px 10px;
+  transition: transform 0.2s;
+}
+
+.danger-btn:hover {
+  transform: scale(103%);
 }
 
 .secondary-btn {
@@ -122,19 +153,16 @@ section {
   background-color: $sectionBackgroundColor;
   padding: 20px;
   border-radius: $borderRadius;
-  width: 1200px;
+  width: 80%;
   margin: 20px  auto;
-
-  @media(max-width: 1300px) {
-    width: 900px;
-  }
+  min-width: 310px;
 
   @media(max-width: 1000px) {
-    width: 600px;
+    width: 90%;
   }
 
-  @media(max-width: 666px) {
-    width: 90%;
+  @media(max-width: 450px) {
+    width: 96%;
   }
 }
 
@@ -198,12 +226,24 @@ section [class*="__items"] {
   font-size: 25px;
   margin: 10px;
   transition: transform 0.2s;
+  
+  @media(max-width: 1100px) {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: roundToCircle(25px, 25px);
+    margin: 3px;
+  }
 }
 
 .counter-amount {
   color: $mainFontColor;
   font-weight: 500;
   font-size: 20px;
+
+  @media(max-width: 1100px) {
+    font-size: 15px;
+  }
 }
 
 .counter-btn:hover {
@@ -223,6 +263,10 @@ section [class*="__items"] {
   z-index: 100;
 
   display: none;
+
+  &.active {
+    display: block;
+  }
 
   &__heading {
     text-align: center;
@@ -264,8 +308,8 @@ section [class*="__items"] {
 }
 
 .close-btn {
-  text-align: right;
-  width: 100%;
+  margin-left: auto;
+  display: block;
 
   svg {
     width: 35px;

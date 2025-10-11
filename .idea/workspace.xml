@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/project_root/css/_product.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/nav/burger-menu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/project_root/js/dom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/auth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_registration.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_registration.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_product.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
@@ -26,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -45,6 +49,7 @@
   &quot;keyToString&quot;: {
     &quot;JavaScript Debug.cart.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.product.html.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.api.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -62,6 +67,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shop/project_root/imgs/nav" />
       <recent name="$PROJECT_DIR$/shop/project_root/imgs" />
       <recent name="$PROJECT_DIR$/shop/project_root/imgs/modal" />
     </key>
@@ -73,14 +79,18 @@
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="product.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/product.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="api.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/shop/project_root/js/api.js" working-dir="$PROJECT_DIR$/shop/project_root/js">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="Node.js.api.js" />
         <item itemvalue="JavaScript Debug.cart.html" />
+        <item itemvalue="JavaScript Debug.product.html" />
+        <item itemvalue="Node.js.api.js" />
       </list>
     </recent_temporary>
   </component>
@@ -103,7 +113,12 @@
       <workItem from="1759941917760" duration="554000" />
       <workItem from="1759994074890" duration="11648000" />
       <workItem from="1760014785541" duration="5023000" />
-      <workItem from="1760019924403" duration="3065000" />
+      <workItem from="1760019924403" duration="3750000" />
+      <workItem from="1760108502545" duration="6232000" />
+      <workItem from="1760114758550" duration="845000" />
+      <workItem from="1760115614366" duration="1000" />
+      <workItem from="1760118155450" duration="96000" />
+      <workItem from="1760188123453" duration="5860000" />
     </task>
     <servers />
   </component>
