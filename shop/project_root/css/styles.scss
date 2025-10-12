@@ -6,7 +6,6 @@ $mainButtonBackgroundColor: #000000;
 $mainButtonFontColor: #FFFFFF;
 $secondaryFontColor: #000000;
 $headerHeight: 80px;
-$borderRadius: 11px;
 $bodyBackgroundColor: #EEEEEE;
 $placeholderColor: #989898;
 $borderColor: #000000;
@@ -16,24 +15,26 @@ $descFontColor: #404040;
 $dangerButtonBackground: #E83D3D;
 $dangerButtonFontColor: #FFFFFF;
 
+:root {
+  --border-radius: 10px;
+}
+
 @media (max-width: 900px) {
-  $borderRadius: 6px;
+  :root {
+    --border-radius: 6px;
+  }
 }
 
 @media (max-width: 666px) {
-  $borderRadius: 3px;
+  :root {
+    --border-radius: 3px;
+  }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @function roundToCircle($height, $width) {
-  @if ($height >= $width) {
-    @return $width / 2;
-  }
-
-  @else {
-    @return $height / 2;
-  }
+  @return min($height, $height) / 2;
 }
 
 * {
@@ -69,7 +70,7 @@ ul, li {
 
 button {
   border: none;
-  border-radius: $borderRadius;
+  border-radius: var(--border-radius);
   transition: filter 0.2s;
   user-select: none;
   background: none;
@@ -122,11 +123,15 @@ button:hover {
 
 label {
   font-weight: 700;
-  padding-bottom: 10px;
+  padding: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 input {
-  border-radius: $borderRadius;
+  border-radius: var(--border-radius);
   padding: 20px;
   border: black solid 3px;
   font-size: 14px;
@@ -149,10 +154,39 @@ input[type="submit"]:hover {
 }
 
 
+input[type="checkbox"] {
+  //-webkit-appearance: none;
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border-radius: 50%;
+}
+
+.custom-checkbox {
+  position: absolute;
+  width: 20px; height: 20px;
+  border: 3px solid $borderColor;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $borderColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 section {
   background-color: $sectionBackgroundColor;
   padding: 20px;
-  border-radius: $borderRadius;
+  border-radius: var(--border-radius);
   width: 80%;
   margin: 20px  auto;
   min-width: 310px;
@@ -226,7 +260,7 @@ section [class*="__items"] {
   font-size: 25px;
   margin: 10px;
   transition: transform 0.2s;
-  
+
   @media(max-width: 1100px) {
     width: 25px;
     height: 25px;
@@ -254,7 +288,7 @@ section [class*="__items"] {
 // modal windows
 .modal {
   background-color: $sectionBackgroundColor;
-  border-radius: $borderRadius;
+  border-radius: var(--border-radius);
   border: 3px solid $borderColor;
   width: fit-content;
   height: fit-content;
@@ -264,6 +298,22 @@ section [class*="__items"] {
 
   display: none;
 
+  input:not([type="checkbox"]) {
+
+    @media (max-width: 420px) {
+      padding: 10px 20px;
+    }
+  }
+
+  @media(max-width: 600px) {
+    width: 400px;
+    padding: 15px 20px;
+  }
+
+  @media(max-width: 420px) {
+    width: 300px;
+  }
+
   &.active {
     display: block;
   }
@@ -271,7 +321,13 @@ section [class*="__items"] {
   &__heading {
     text-align: center;
     font-size: 24px;
+    font-weight: 800;
     margin: 20px;
+
+    @media (max-width: 420px) {
+      margin: 10px;
+      font-size: 18px;
+    }
   }
 
   &__save-data {
@@ -289,20 +345,48 @@ section [class*="__items"] {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 600px) {
+      padding: 0;
+    }
+
+    label {
+
+      @media (max-width: 420px) {
+        font-size: 14px;
+      }
+    }
   }
 
   &__small-inputs {
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 20px 0;
 
-    .modal__expiry, .modal__cvv {
+    @media (max-width: 600px) {
+      flex-direction: column;
+      //width: 100%;
+    }
+
+    .modal__expiry {
       display: flex;
       flex-direction: column;
+      margin-right: 10px;
+    }
+
+    .modal__cvv {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+    }
+
+    .modal__cvv, .modal__expiry {
+      @media (max-width: 600px) {
+        margin: 0;
+      }
     }
   }
 }
@@ -318,6 +402,5 @@ section [class*="__items"] {
 
 @import '_nav';
 @import '_mainpage';
-@import '_registration';
 @import '_cart';
 @import '_product';

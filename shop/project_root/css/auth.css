@@ -792,4 +792,237 @@ body {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+h2 {
+  text-align: center;
+}
+
+section .heading {
+  padding-bottom: 30px;
+}
+@media (max-width: 600px) {
+  section .heading {
+    font-size: 24px;
+  }
+}
+
+.ctgs__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  height: 600px;
+  margin: auto;
+}
+.ctgs__items .ctgs__item {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+}
+.ctgs__items .ctgs__item .ctgs__button {
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+}
+
+.products .description {
+  font-size: 12px;
+  border-bottom: 2px solid black;
+  padding: 10px 0;
+}
+.products .product__description-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+@media (max-width: 500px) {
+  .products .product__description-text {
+    -webkit-line-clamp: 7;
+  }
+}
+.products__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.products__items .product {
+  border: 2px solid black;
+  width: 400px;
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+@media (max-width: 1000px) {
+  .products__items .product {
+    width: 300px;
+  }
+}
+@media (max-width: 350px) {
+  .products__items .product {
+    width: 250px;
+  }
+}
+.products__items .product__info {
+  color: #000000;
+  padding: 5px 20px 30px 20px;
+}
+.products__items .product__image {
+  width: 100%;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  border-bottom: 2px solid #000000;
+}
+.products__items .product__title {
+  font-size: 21px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 500px) {
+  .products__items .product__title {
+    -webkit-line-clamp: 2;
+  }
+}
+.products__items .product__price {
+  font-size: 25px;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.products__items .product:hover {
+  transform: scale(102%);
+  transition: transform 0.2s;
+}
+
+.productPage {
+  padding: 60px;
+}
+.productPage__info {
+  border-bottom: 3px solid #000000;
+  padding-top: 20px;
+}
+.productPage__image {
+  display: block;
+  margin: auto;
+  border-bottom: 3px solid #000000;
+  max-width: 100%;
+}
+.productPage-main {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 800px) {
+  .productPage-main {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.productPage__price, .productPage__title {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: left;
+  max-width: 45%;
+}
+@media (max-width: 800px) {
+  .productPage__price, .productPage__title {
+    font-size: 20px;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+.productPage__description {
+  margin-top: 40px;
+  color: #404040;
+}
+.productPage__description-heading {
+  font-size: 20px;
+  font-weight: 500;
+}
+@media (max-width: 800px) {
+  .productPage__description-heading {
+    font-size: 14px;
+  }
+}
+.productPage__description-text {
+  width: 70%;
+  padding: 20px 0;
+}
+@media (max-width: 800px) {
+  .productPage__description-text {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+.productPage__buttons {
+  padding-top: 20px;
+  margin-top: 40px;
+}
+.productPage__buttons button {
+  padding: 20px 50px;
+  margin-top: 10px;
+}
+@media (max-width: 500px) {
+  .productPage__buttons button {
+    width: 100%;
+  }
+}
+
+main {
+  padding-top: 0;
+}
+
+.reg {
+  padding: 30px 20px;
+  border-radius: var(--border-radius);
+  margin: 40px auto auto;
+  width: 500px;
+}
+@media (max-width: 800px) {
+  .reg {
+    width: 90vw;
+    height: 90vh;
+  }
+}
+.reg__heading {
+  user-select: none;
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  .reg__heading h2 {
+    font-size: 21px !important;
+  }
+}
+.reg__inner {
+  background-color: white;
+  margin: auto;
+}
+.reg__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.reg__form input {
+  margin: 15px 0 30px;
+}
+.reg__local-strategy {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px dashed #000000;
+}
+.reg__google-signIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 50px 0;
+}
+
+/*# sourceMappingURL=auth.css.map */
