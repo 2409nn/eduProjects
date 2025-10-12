@@ -63,10 +63,11 @@
   &__buttons {
     padding-top: 20px;
     margin-top: 40px;
+    user-select: none;
 
     button {
       padding: 20px 50px;
-      margin-top: 10px;
+      margin: 10px 5px 0 0;
 
       @media (max-width: 500px) {
         width: 100%;

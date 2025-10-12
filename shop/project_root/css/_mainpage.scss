@@ -35,6 +35,7 @@ section .heading {
 }
 
 .products {
+  user-select: none;
 
   .description {
     font-size: 12px;

@@ -36,10 +36,12 @@ class Modal {
 }
 
 const modal = new Modal("purchase-modal");
-const modalTriggerBtn = document.querySelector(".productPage__buy-btn");
+const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
 
-modalTriggerBtn.addEventListener("click", (e) => {
-    modal.show();
+modalTriggerBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        modal.show();
+    })
 })
 
 modal.closeBtn.addEventListener("click", (e) => {

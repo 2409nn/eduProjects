@@ -10,31 +10,30 @@ $bodyBackgroundColor: #EEEEEE;
 $placeholderColor: #989898;
 $borderColor: #000000;
 $sectionBackgroundColor: #FFFFFF;
-$hoverCloseBtn: #dc3333;
 $descFontColor: #404040;
 $dangerButtonBackground: #E83D3D;
 $dangerButtonFontColor: #FFFFFF;
 
 :root {
-  --border-radius: 10px;
+  --border-radius: 11px;
 }
 
 @media (max-width: 900px) {
   :root {
-    --border-radius: 6px;
+    --border-radius: 7px;
   }
 }
 
-@media (max-width: 666px) {
-  :root {
-    --border-radius: 3px;
-  }
-}
+//@media (max-width: 666px) {
+//  :root {
+//    --border-radius: 3px;
+//  }
+//}
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @function roundToCircle($height, $width) {
-  @return min($height, $height) / 2;
+  @return calc(min($height, $height) / 2);
 }
 
 * {
@@ -111,6 +110,7 @@ button:hover {
   outline-offset: -3px;
   padding: 15px 10px;
   transition: filter, transform 0.2s;
+  font-size: 16px;
 }
 
 .secondary-btn:hover {
@@ -218,7 +218,7 @@ section [class*="__items"] {
 }
 
 .close-btn:hover {
-  color: $hoverCloseBtn;
+  color: $dangerButtonBackground;
 }
 
 .buy-button {
@@ -287,16 +287,23 @@ section [class*="__items"] {
 
 // modal windows
 .modal {
+  user-select: none;
+  position: fixed;
+  z-index: 50;
   background-color: $sectionBackgroundColor;
   border-radius: var(--border-radius);
   border: 3px solid $borderColor;
   width: fit-content;
   height: fit-content;
   padding: 30px 20px;
-  margin: auto;
-  z-index: 100;
+  max-height: 80vh;
+  overflow-y: scroll;
 
-  display: none;
+  top: 200%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: top 0.5s, opacity 0.5s;
 
   input:not([type="checkbox"]) {
 
@@ -316,16 +323,19 @@ section [class*="__items"] {
 
   &.active {
     display: block;
+    transform: translate(-50%, -40%);
+    top: 50%;
+    transition: top 0.5s, opacity 0.5s;
+    opacity: 1;
   }
 
   &__heading {
+    margin: 0 10px;
     text-align: center;
     font-size: 24px;
     font-weight: 800;
-    margin: 20px;
 
     @media (max-width: 420px) {
-      margin: 10px;
       font-size: 18px;
     }
   }
@@ -366,6 +376,8 @@ section [class*="__items"] {
     justify-content: space-between;
     margin: 20px 0;
 
+    margin: 0;
+
     @media (max-width: 600px) {
       flex-direction: column;
       //width: 100%;
@@ -389,6 +401,10 @@ section [class*="__items"] {
       }
     }
   }
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
 }
 
 .close-btn {
