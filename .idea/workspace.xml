@@ -7,16 +7,15 @@
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_cart.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_mainpage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_product.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/catalog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/dom.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/dom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +123,7 @@
       <workItem from="1760188123453" duration="6398000" />
       <workItem from="1760251491901" duration="5266000" />
       <workItem from="1760257948266" duration="3457000" />
+      <workItem from="1760348849496" duration="5469000" />
     </task>
     <servers />
   </component>

@@ -509,7 +509,8 @@ section .heading {
 }
 @media (max-width: 500px) {
   .products .product__description-text {
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
   }
 }
 .products__items {
@@ -521,8 +522,14 @@ section .heading {
 .products__items .product {
   border: 2px solid black;
   width: 400px;
+  height: 600px;
   border-radius: var(--border-radius);
   transition: transform 0.2s;
+}
+.products__items .product a {
+  display: grid;
+  grid-template-rows: 60% 40%;
+  height: 100%;
 }
 @media (max-width: 1000px) {
   .products__items .product {
@@ -537,12 +544,17 @@ section .heading {
 .products__items .product__info {
   color: #000000;
   padding: 5px 20px 30px 20px;
+  display: grid;
+  grid-template-rows: 30% 50% 20%;
 }
 .products__items .product__image {
-  width: 100%;
+  width: 60%;
+  height: 100%;
+  margin: auto;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   border-bottom: 2px solid #000000;
+  padding: 20px 0;
 }
 .products__items .product__title {
   font-size: 21px;
@@ -551,6 +563,7 @@ section .heading {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-height: 2.4em;
 }
 @media (max-width: 500px) {
   .products__items .product__title {
@@ -846,7 +859,8 @@ section .heading {
 }
 @media (max-width: 500px) {
   .products .product__description-text {
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
   }
 }
 .products__items {
@@ -858,8 +872,14 @@ section .heading {
 .products__items .product {
   border: 2px solid black;
   width: 400px;
+  height: 600px;
   border-radius: var(--border-radius);
   transition: transform 0.2s;
+}
+.products__items .product a {
+  display: grid;
+  grid-template-rows: 60% 40%;
+  height: 100%;
 }
 @media (max-width: 1000px) {
   .products__items .product {
@@ -874,12 +894,17 @@ section .heading {
 .products__items .product__info {
   color: #000000;
   padding: 5px 20px 30px 20px;
+  display: grid;
+  grid-template-rows: 30% 50% 20%;
 }
 .products__items .product__image {
-  width: 100%;
+  width: 60%;
+  height: 100%;
+  margin: auto;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   border-bottom: 2px solid #000000;
+  padding: 20px 0;
 }
 .products__items .product__title {
   font-size: 21px;
@@ -888,6 +913,7 @@ section .heading {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-height: 2.4em;
 }
 @media (max-width: 500px) {
   .products__items .product__title {

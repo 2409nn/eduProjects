@@ -18,7 +18,4 @@ async function getProductsByCategory(category) {
     return res.json();
 }
 
-getProducts()
-    .then((res) => {
-        console.log(res)
-    })
+export {getProducts, getProductById, getCategories, getProductsByCategory};

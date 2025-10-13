@@ -83,43 +83,65 @@
         <div class="products__inner">
             <h2 class="products__heading heading">ТОВАРЫ</h2>
             <ul class="products__items">
-                <li class="products__item product">
-                    <a href="./product.html" target="_blank">
-                        <img src="./imgs/videocard.jpg" alt="product_pic" class="product__image">
-                        <div class="product__info">
-                            <h3 class="product__title" style="border-bottom: 2px solid black">Видеокарта oaisdi ajdioa sdjioapsdjs</h3>
-                            <div class="product__description description">
-                                <p class="product__description-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet at aut autem ex fugiat
-                                    harum, illum laboriosam magni nemo neque numquam odio praesentium similique sit suscipit
-                                    tempore unde voluptatibus jasdlkasdjandkndlkajnajsd ajdnslakddnjaksnlkdnadnakldnldnlndnal.
-                                </p>
-                            </div>
-                            <p class="product__price" style="text-align: center; margin-top: 15px;">42000 тг</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="products__item product">
-                    <a href="./product.html" target="_blank">
-                        <img src="./imgs/videocard.jpg" alt="product_pic" class="product__image">
-                        <div class="product__info">
-                            <h3 class="product__title" style="border-bottom: 2px solid black">Видеокарта oaisdi ajdioa sdjioapsdjs</h3>
-                            <div class="product__description description">
-                                <p class="product__description-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet at aut autem ex fugiat
-                                    harum, illum laboriosam magni nemo neque numquam odio praesentium similique sit suscipit
-                                    tempore unde voluptatibus jasdlkasdjandkndlkajnajsd ajdnslakddnjaksnlkdnadnakldnldnlndnal.
-                                </p>
-                            </div>
-                            <p class="product__price" style="text-align: center; margin-top: 15px;">42000 тг</p>
-                        </div>
-                    </a>
-                </li>
+<!--                <li class="products__item product">-->
+<!--                    <a href="./product.html" target="_blank">-->
+<!--                        <img src="./imgs/videocard.jpg" alt="product_pic" class="product__image">-->
+<!--                        <div class="product__info">-->
+<!--                            <h3 class="product__title" style="border-bottom: 2px solid black">Видеокарта oaisdi ajdioa sdjioapsdjs</h3>-->
+<!--                            <div class="product__description description">-->
+<!--                                <p class="product__description-text">-->
+<!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet at aut autem ex fugiat-->
+<!--                                    harum, illum laboriosam magni nemo neque numquam odio praesentium similique sit suscipit-->
+<!--                                    tempore unde voluptatibus jasdlkasdjandkndlkajnajsd ajdnslakddnjaksnlkdnadnakldnldnlndnal.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <p class="product__price" style="text-align: center; margin-top: 15px;">42000 тг</p>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="products__item product">-->
+<!--                    <a href="./product.html" target="_blank">-->
+<!--                        <img src="./imgs/videocard.jpg" alt="product_pic" class="product__image">-->
+<!--                        <div class="product__info">-->
+<!--                            <h3 class="product__title" style="border-bottom: 2px solid black">Видеокарта oaisdi ajdioa sdjioapsdjs</h3>-->
+<!--                            <div class="product__description description">-->
+<!--                                <p class="product__description-text">-->
+<!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet at aut autem ex fugiat-->
+<!--                                    harum, illum laboriosam magni nemo neque numquam odio praesentium similique sit suscipit-->
+<!--                                    tempore unde voluptatibus jasdlkasdjandkndlkajnajsd ajdnslakddnjaksnlkdnadnakldnldnlndnal.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <p class="product__price" style="text-align: center; margin-top: 15px;">42000 тг</p>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </li>-->
             </ul>
         </div>
     </section>
 </main>
 
-<script src="js/dom.js"></script>
+<script src="./js/dom.js"></script>
+<script type="module">
+
+    import Product from './js/catalog.js';
+    import * as api from './js/api.js';
+
+    const appendBlock = document.querySelector('.products__items');
+
+    // получение данных из fakeAPI:
+    api.getProducts()
+        .then(products => {
+            products.forEach(product => {
+
+                // рендеринг каждого товара в карты
+                let item = new Product(product.id, product.title, product.price, product.description, product.image, product.category);
+                let card = item.renderCard();
+                appendBlock.insertAdjacentHTML('beforeend', card);
+            })
+        })
+
+
+</script>
+
 </body>
 </html>
