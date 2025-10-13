@@ -1,9 +1,10 @@
 .header {
   background-color: black;
-  height: $headerHeight;
+  height: 80px; /* вместо $headerHeight */
   position: fixed;
   width: 100vw;
   z-index: 100;
+  user-select: none;
 
   &__inner {
     height: 100%;
@@ -11,21 +12,17 @@
 
   &__burger-list {
     width: 100vw;
-    background-color: $burgerMenuBackgroundColor;
+    background-color: #171717; /* вместо $burgerMenuBackgroundColor */
     text-align: center;
     padding: 10px 0 40px;
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: 11px; /* вместо var(--border-radius) */
+    border-bottom-right-radius: 11px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     display: none;
 
     @media (min-width: 700px) {
       display: none;
     }
-
-    //@media (max-width: 700px) {
-    //  display: block;
-    //}
 
     &.active {
       display: block;
@@ -41,11 +38,10 @@
     display: inline-block;
     padding: 20px 30px;
     width: 70%;
-    border-radius: var(--border-radius);
+    border-radius: 11px; /* вместо var(--border-radius) */
   }
 
   #header__links {
-
     @media (max-width: 700px) {
       display: none;
     }
@@ -89,7 +85,6 @@
     }
 
     #header__burger-menu {
-
       @media (min-width: 700px) {
         display: none;
       }
@@ -107,5 +102,5 @@
   padding: 2px 10px;
   font-size: 12px;
   font-weight: 600;
-  border-radius: var(--border-radius);
+  border-radius: 11px; /* вместо var(--border-radius) */
 }

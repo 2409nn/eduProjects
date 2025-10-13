@@ -2,28 +2,29 @@
   padding: 60px;
 
   &__info {
-    border-bottom: 3px solid $borderColor;
+    border-bottom: 3px solid var(--border-color); /* вместо $borderColor */
     padding-top: 20px;
   }
 
   &__image {
     display: block;
     margin: auto;
-    border-bottom: 3px solid $borderColor;
+    border-bottom: 3px solid var(--border-color); /* вместо $borderColor */
     max-width: 100%;
   }
 
   &-main {
     display: flex;
     justify-content: space-between;
-    
+
     @media (max-width: 800px) {
       flex-direction: column;
       gap: 20px;
     }
   }
 
-  &__price, &__title {
+  &__price,
+  &__title {
     font-size: 26px;
     font-weight: 600;
     text-align: left;
@@ -38,7 +39,7 @@
 
   &__description {
     margin-top: 40px;
-    color: $descFontColor;
+    color: #444444; /* вместо $descFontColor */
 
     &-heading {
       font-size: 20px;
@@ -71,9 +72,7 @@
 
       @media (max-width: 500px) {
         width: 100%;
-
       }
     }
   }
-
 }

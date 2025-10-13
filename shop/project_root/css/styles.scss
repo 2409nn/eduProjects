@@ -1,4 +1,3 @@
-
 :root {
   --border-radius: 11px;
   --link-color: #00A5C2;
@@ -43,18 +42,24 @@
   font-family: "montserrat", sans-serif;
 }
 
+body {
+  background: var(--body-background-color);
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+  color: var(--main-font-color);
 }
 
 main {
-  padding-top: $headerHeight;
+  padding-top: var(--header-height);
+  background-color: var(--body-background-color);
 }
 
 a {
-  color: $linkColor;
+  color: var(--link-color);
   text-decoration: none;
   font-weight: 500;
 
@@ -88,8 +93,8 @@ button:hover {
 }
 
 .main-btn {
-  background-color: $mainButtonBackgroundColor;
-  color: $mainButtonFontColor;
+  background-color: var(--main-button-background-color);
+  color: var(--main-button-font-color);
   padding: 15px 10px;
   font-weight: 600;
   transition: transform 0.2s;
@@ -100,8 +105,8 @@ button:hover {
 }
 
 .danger-btn {
-  background-color: $dangerButtonBackground;
-  color: $dangerButtonFontColor;
+  background-color: var(--danger-button-background);
+  color: var(--danger-button-font-color);
   font-weight: 600;
   padding: 15px 10px;
   transition: transform 0.2s;
@@ -112,11 +117,12 @@ button:hover {
 }
 
 .secondary-btn {
-  outline: 3px solid $borderColor;
+  outline: 3px solid var(--border-color);
   outline-offset: -3px;
   padding: 15px 10px;
   transition: filter, transform 0.2s;
   font-size: 16px;
+  color: var(--secondary-font-color);
 }
 
 .secondary-btn:hover {
@@ -139,18 +145,18 @@ label {
 input {
   border-radius: var(--border-radius);
   padding: 20px;
-  border: black solid 3px;
+  border: 3px solid var(--border-color);
   font-size: 14px;
   font-weight: 600;
 }
 
 input:not([type="submit"]):not([type="checkbox"]):focus {
-  outline: 3.5px solid $linkColor;
+  outline: 3.5px solid var(--link-color);
   transition: outline 0.2s;
 }
 
 input::placeholder {
-  color: $placeholderColor;
+  color: var(--placeholder-color);
 }
 
 input[type="submit"]:hover {
@@ -159,9 +165,7 @@ input[type="submit"]:hover {
   transition: transform 0.2s;
 }
 
-
 input[type="checkbox"] {
-  //-webkit-appearance: none;
   position: absolute;
   width: 1px; height: 1px;
   overflow: hidden;
@@ -172,7 +176,7 @@ input[type="checkbox"] {
 .custom-checkbox {
   position: absolute;
   width: 20px; height: 20px;
-  border: 3px solid $borderColor;
+  border: 3px solid var(--border-color);
   border-radius: 50%;
   margin-left: 10px;
 }
@@ -182,7 +186,7 @@ input[type="checkbox"]:checked + .custom-checkbox::before {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: $borderColor;
+  background-color: var(--border-color);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -190,7 +194,7 @@ input[type="checkbox"]:checked + .custom-checkbox::before {
 }
 
 section {
-  background-color: $sectionBackgroundColor;
+  background-color: var(--section-background-color);
   padding: 20px;
   border-radius: var(--border-radius);
   width: 80%;
@@ -211,25 +215,21 @@ section [class*="__inner"] {
   margin: 20px auto;
 }
 
-section [class*="__items"] {
-
-}
-
 .heading {
   font-weight: 800;
 }
 
 .close-btn {
-  color: $mainFontColor;
+  color: var(--main-font-color);
 }
 
 .close-btn:hover {
-  color: $dangerButtonBackground;
+  color: var(--danger-button-background);
 }
 
 .buy-button {
-  background-color: $mainButtonBackgroundColor;
-  color: $mainButtonFontColor;
+  background-color: var(--main-button-background-color);
+  color: var(--main-button-font-color);
   padding: 20px 70px;
   font-size: 16px;
   font-weight: 600;
@@ -242,24 +242,24 @@ section [class*="__items"] {
 }
 
 .description {
-  color: $descFontColor;
+  color: var(--desc-font-color);
   font-weight: 500;
 }
 
 .title {
   font-weight: 700;
-  color: $mainFontColor;
+  color: var(--main-font-color);
 }
 
 .price {
-  color: $mainFontColor;
+  color: var(--main-font-color);
   font-weight: 600;
   font-size: 24px;
 }
 
 .counter-btn {
-  background-color: $mainButtonBackgroundColor;
-  color: $mainButtonFontColor;
+  background-color: var(--main-button-background-color);
+  color: var(--main-button-font-color);
   width: 35px;
   height: 35px;
   border-radius: roundToCircle(35px, 35px);
@@ -277,7 +277,7 @@ section [class*="__items"] {
 }
 
 .counter-amount {
-  color: $mainFontColor;
+  color: var(--main-font-color);
   font-weight: 500;
   font-size: 20px;
 
@@ -296,9 +296,9 @@ section [class*="__items"] {
   user-select: none;
   position: fixed;
   z-index: 50;
-  background-color: $sectionBackgroundColor;
+  background-color: var(--section-background-color);
   border-radius: var(--border-radius);
-  border: 3px solid $borderColor;
+  border: 3px solid var(--border-color);
   width: fit-content;
   height: fit-content;
   padding: 30px 20px;
@@ -355,8 +355,6 @@ section [class*="__items"] {
     margin: 20px;
   }
 
-  &__inner {}
-
   &__purchase-form {
     display: flex;
     flex-direction: column;
@@ -369,7 +367,6 @@ section [class*="__items"] {
     }
 
     label {
-
       @media (max-width: 420px) {
         font-size: 14px;
       }
@@ -386,7 +383,6 @@ section [class*="__items"] {
 
     @media (max-width: 600px) {
       flex-direction: column;
-      //width: 100%;
     }
 
     .modal__expiry {
@@ -424,7 +420,6 @@ section [class*="__items"] {
 
 .toggle-container {
   position: relative;
-
 }
 
 .toggle-input {

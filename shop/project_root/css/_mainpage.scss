@@ -4,14 +4,13 @@ h2 {
 
 section .heading {
   padding-bottom: 30px;
-  
+
   @media (max-width: 600px) {
     font-size: 24px;
   }
 }
 
 .ctgs {
-
   &__items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -39,7 +38,8 @@ section .heading {
 
   .description {
     font-size: 12px;
-    border-bottom: 2px solid black; padding: 10px 0;
+    border-bottom: 2px solid var(--main-font-color);
+    padding: 10px 0;
   }
 
   .product__description-text {
@@ -48,7 +48,6 @@ section .heading {
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-
 
     @media (max-width: 500px) {
       -webkit-line-clamp: 6;
@@ -63,17 +62,15 @@ section .heading {
     gap: 10px;
 
     .product {
-      border: 2px solid black;
+      border: 2px solid var(--main-font-color);
       width: 400px;
       height: 600px;
-
       border-radius: var(--border-radius);
       transition: transform 0.2s;
 
       a {
         display: grid;
         grid-template-rows: 60% 40%;
-        //background-color: yellow;
         height: 100%;
       }
 
@@ -86,7 +83,7 @@ section .heading {
       }
 
       &__info {
-        color: $mainFontColor;
+        color: var(--main-font-color);
         padding: 5px 20px 30px 20px;
         display: grid;
         grid-template-rows: 30% 50% 20%;
@@ -98,7 +95,7 @@ section .heading {
         margin: auto;
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
-        border-bottom: 2px solid $mainFontColor;
+        border-bottom: 2px solid var(--main-font-color);
         padding: 20px 0;
       }
 
@@ -128,8 +125,8 @@ section .heading {
     }
 
     .product:hover {
-        transform: scale(102%);
-        transition: transform 0.2s;
-      }
+      transform: scale(102%);
+      transition: transform 0.2s;
+    }
   }
 }

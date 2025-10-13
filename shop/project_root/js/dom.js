@@ -30,6 +30,36 @@ function checkoutRegTable(optionalInputs, switchTab) {
     }
 }
 
+function toggleTheme(mode) {
+    const root = document.documentElement;
+    const currentBg = getComputedStyle(root).getPropertyValue('--body-background-color').trim();
+
+    if (mode === 'dark') {
+        // Тёмная тема
+        root.style.setProperty('--body-background-color', '#0A0A0A');
+        root.style.setProperty('--main-font-color', '#FFFFFF');
+        root.style.setProperty('--section-background-color', '#171717');
+        root.style.setProperty('--secondary-font-color', '#D0D0D0');
+        root.style.setProperty('--border-color', '#e8e8e8');
+        root.style.setProperty('--desc-font-color', '#D0D0D0');
+        root.style.setProperty('--secondary-font-color', '#FFFFFF');
+        root.style.setProperty('--main-button-background-color', '#FFFFFF');
+        root.style.setProperty('--main-button-font-color', '#000000');
+        root.style.setProperty('--secondary-button-font-color', '#FFFFFF');
+    } else if (mode === 'light') {
+        // Светлая тема
+        root.style.setProperty('--body-background-color', '#EEEEEE');
+        root.style.setProperty('--section-background-color', '#FFFFFF');
+        root.style.setProperty('--secondary-font-color', '#000000');
+        root.style.setProperty('--border-color', '#000000');
+        root.style.setProperty('--desc-font-color', '#404040');
+        root.style.setProperty('--main-font-color', '#000000');
+        root.style.setProperty('--main-button-background-color', '#000000');
+        root.style.setProperty('--main-button-font-color', '#FFFFFF');
+        root.style.setProperty('--secondary-button-font-color', '#000000');
+    }
+}
+
 // ===== BURGER =====
 
 try {
@@ -62,10 +92,12 @@ const toggle = document.getElementById('toggle');
 toggle.addEventListener('change', () => {
     if (toggle.checked) {
         console.log('Включено');
-        document.body.style.backgroundColor = '#d1ffd6';
+
+        toggleTheme('dark');
+
     } else {
         console.log('Выключено');
-        document.body.style.backgroundColor = '#f0f0f0';
+        toggleTheme('light');
     }
 });
 

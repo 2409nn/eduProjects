@@ -48,7 +48,7 @@ main {
   &__local-strategy {
     display: flex;
     flex-direction: column;
-    border-bottom: 3px dashed $borderColor;
+    border-bottom: 3px dashed var(--border-color);
   }
 
   &__google-signIn {
