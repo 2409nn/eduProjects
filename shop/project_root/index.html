@@ -14,8 +14,7 @@
                 <a href="./index.html" class="header__link nav-link">Главная</a>
             </li>
             <li class="header__item" id="header__logo">
-                <p>logo</p>
-<!--                <img class="header__icon svg" src="#" alt="logo">-->
+                <img class="header__icon svg" src="./imgs/logos/logo.png" alt="logo" style="width: 80px">
             </li>
             <li class="header__item" id="header__burger-menu">
                 <button class="header__burger-pic">
@@ -25,7 +24,16 @@
                 </button>
             </li>
             <ul class="header__item" id="header__special-links">
+
+                <li class="header__special-link">
+                    <p style="color: white; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
+                    <div class="toggle-container">
+                        <input type="checkbox" id="toggle" class="toggle-input">
+                        <label for="toggle" class="toggle-label"></label>
+                    </div>
+                </li>
                 <li class="header__special-link" id="header__cart">
+                    <span class="header__cart-amount">0</span>
                     <a href="./cart.html" class="header__cart">
                         <svg fill="currentColor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              viewBox="0 0 902.86 902.86"
@@ -65,19 +73,18 @@
     </div>
 </header>
 <main>
-<!--    <section class="ctgs">-->
-<!--        <div class="ctgs__inner">-->
-<!--            <h2 class="ctgs__heading heading">КАТЕГОРИИ</h2>-->
-<!--            <ul class="ctgs__items">-->
-<!--                <li class="ctgs__item"><button class="ctgs__button"></button></li>-->
-<!--                <li class="ctgs__item"><button class="ctgs__button"></button></li>-->
-<!--                <li class="ctgs__item"><button class="ctgs__button"></button></li>-->
-<!--                <li class="ctgs__item"><button class="ctgs__button"></button></li>-->
-<!--                <li class="ctgs__item"><button class="ctgs__button"></button></li>-->
-<!--                <li class="ctgs__item"><button class="ctgs__button"></button></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </section>-->
+
+    <section class="ctgs">
+        <div class="ctgs__inner">
+            <h2 class="ctgs__heading heading">КАТЕГОРИИ</h2>
+            <ul class="ctgs__items">
+                <li class="ctgs__item"><button class="ctgs__button"></button></li>
+                <li class="ctgs__item"><button class="ctgs__button"></button></li>
+                <li class="ctgs__item"><button class="ctgs__button"></button></li>
+                <li class="ctgs__item"><button class="ctgs__button"></button></li>
+            </ul>
+        </div>
+    </section>
 
     <section class="products">
         <div class="products__inner">
