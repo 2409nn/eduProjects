@@ -1,3 +1,5 @@
+import {db} from './db.js'
+
 function calcPrice(priceElem, amount, operation=null) {
 
     let priceValue = Number(priceElem.innerText.match(/\d+/g));
@@ -23,10 +25,12 @@ function calcPrice(priceElem, amount, operation=null) {
 function checkoutRegTable(optionalInputs, switchTab) {
     if (optionalInputs.classList.contains("active")) {
         switchTab.innerText = "Уже есть аккаунт";
+        switchTab.setAttribute("data-status", "noAccount");
     }
 
     else {
         switchTab.innerText = "Еще нет аккаунта";
+        switchTab.setAttribute("data-status", "haveAccount");
     }
 }
 
@@ -225,35 +229,56 @@ document.querySelectorAll(".cProducts__product").forEach(cProduct => {
 
 try {
 
+    function setEditModalData() {
+
+        const editModalData = document.querySelector(".profile__info");
+        const editDataObject = {};
+        editModalData.querySelectorAll("li p").forEach(p => {
+            editDataObject[p.getAttribute("data-inputName")] = p.textContent;
+        });
+
+        Object.keys(editDataObject).forEach((key) => {
+            const input = Array.from(editModal.getInputs()).find(input => input.name === key);
+            if (input) {
+                input.value = editDataObject[key]; // например, подставляем данные
+            }
+        });
+    }
+
     const editModal = new Modal('edit-modal');
+    const editModalSubmit = document.querySelector("#edit-modal .modal__edit-btn");
     const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
+
     editModalTriggerBtns.forEach(btn => {
 
         btn.addEventListener("click", (e) => {
+            setEditModalData();
             editModal.show();
         })
 
         editModal.closeBtn.addEventListener("click", (e) => {
             editModal.close();
         })
-
     })
 
-    const editModalData = document.querySelector(".profile__info");
-    const editDataObject = {};
-    editModalData.querySelectorAll("li p").forEach(p => {
-        editDataObject[p.getAttribute("data-inputName")] = p.textContent;
-    });
+    editModalSubmit.addEventListener("click", (e) => {
+        e.preventDefault();
+        editModal.close();
 
-    Object.keys(editDataObject).forEach((key) => {
-        const input = Array.from(editModal.getInputs()).find(input => input.name === key);
-        if (input) {
-            input.value = editDataObject[key]; // например, подставляем данные
-        }
-    });
+        let inputs = document.querySelectorAll("#edit-modal input[name]");
+        inputs.forEach(input => {
+
+            let inputName = input.getAttribute("name");
+            let inputValue = input.value;
+
+            document.querySelector(`.profile__info li p[data-inputName="${inputName}"]`).innerText = inputValue;
+        })
+    })
+
 } catch (e) {
     console.log('edit modal not found')
 }
+
 
 function checkEmptyState() {
     document.querySelectorAll("section").forEach((section) => {
@@ -289,4 +314,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ===== сохранение темы в localstorage =====
+// ===== счетчик товаров в карзине =====
+
+const counter = document.querySelector("header .header__cart-amount");
+const cartProducts = await db.getCartProducts().then()
+const cartProductsAmount = cartProducts.length;
+
+counter.textContent = cartProductsAmount;

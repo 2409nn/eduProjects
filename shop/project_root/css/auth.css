@@ -480,6 +480,31 @@ section [class*=__inner] {
   color: var(--desc-font-color);
 }
 
+#loader {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, 50%);
+  z-index: 1000;
+  padding: 50px;
+}
+
+#loader .spinner {
+  color: var(--main-button-background-color);
+  opacity: 0.6;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .header {
   background-color: black;
   height: 80px; /* вместо $headerHeight */
@@ -586,6 +611,11 @@ section [class*=__inner] {
   font-size: 12px;
   font-weight: 600;
   border-radius: 11px; /* вместо var(--border-radius) */
+}
+
+.header__icon {
+  display: block;
+  margin: auto;
 }
 
 h2 {
