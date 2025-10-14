@@ -10,6 +10,30 @@ section .heading {
   }
 }
 
+.profile {
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+  &__info span {
+    font-weight: 500;
+  }
+
+  &__info p {
+    display: inline;
+    font-weight: 600;
+  }
+
+  .edit-btn {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
 .ctgs {
   &__items {
     display: grid;

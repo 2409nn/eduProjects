@@ -35,7 +35,7 @@
 
                     </div>
 
-                    <button class="reg__google-signIn secondary-btn">
+                    <button id="reg__google-signIn" class="reg__google-signIn secondary-btn">
                         <img src="imgs/logos/google.svg" alt="google_ico" width="30px">
                         <span>Войти через Google</span>
                     </button>
@@ -77,4 +77,33 @@
 
     </script>
 </body>
+
+<script type="module">
+    import { auth, signInWithGoogle } from './js/auth.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js';
+
+    const signInGoogle = document.getElementById('reg__google-signIn');
+
+    // подписка на состояние авторизации
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log('Пользователь вошёл:', user.displayName);
+            window.location.href = './index.html';
+        } else {
+            console.log('Пользователь не авторизован');
+        }
+    });
+
+    // кнопка входа
+    signInGoogle.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+            const user = await signInWithGoogle();
+            console.log('Вход выполнен:', user.displayName);
+        } catch (e) {
+            console.error('Ошибка входа:', e);
+        }
+    });
+</script>
+
 </html>

@@ -87,19 +87,21 @@ try {
 
 // ===== SWITCH THEME =====
 
-const toggle = document.getElementById('toggle');
+const toggles = document.querySelectorAll('.toggle');
 
-toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-        console.log('Включено');
+toggles.forEach(toggle => {
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            console.log('Включено');
 
-        toggleTheme('dark');
+            toggleTheme('dark');
 
-    } else {
-        console.log('Выключено');
-        toggleTheme('light');
-    }
-});
+        } else {
+            console.log('Выключено');
+            toggleTheme('light');
+        }
+    });
+})
 
 // ===== MODAL =====
 
@@ -115,6 +117,10 @@ class Modal {
 
     show() {
         this.modal.classList.add("active");
+    }
+
+    getInputs() {
+        return this.modal.querySelectorAll('input[name]')
     }
 }
 
@@ -194,3 +200,81 @@ try {
     })
 
 } catch (e) {}
+
+// ===== remove cart item =====
+
+document.querySelectorAll(".cProducts__product").forEach(cProduct => {
+    let closeBtn = cProduct.querySelector(".close-btn");
+    closeBtn.addEventListener("click", (e) => {
+        cProduct.remove();
+        checkEmptyState();
+    })
+})
+
+// ===== modal edit =====
+
+try {
+
+    const editModal = new Modal('edit-modal');
+    const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
+    editModalTriggerBtns.forEach(btn => {
+
+        btn.addEventListener("click", (e) => {
+            editModal.show();
+        })
+
+        editModal.closeBtn.addEventListener("click", (e) => {
+            editModal.close();
+        })
+
+    })
+
+    const editModalData = document.querySelector(".profile__info");
+    const editDataObject = {};
+    editModalData.querySelectorAll("li p").forEach(p => {
+        editDataObject[p.getAttribute("data-inputName")] = p.textContent;
+    });
+
+    Object.keys(editDataObject).forEach((key) => {
+        const input = Array.from(editModal.getInputs()).find(input => input.name === key);
+        if (input) {
+            input.value = editDataObject[key]; // например, подставляем данные
+        }
+    });
+} catch (e) {
+    console.log('edit modal not found')
+}
+
+function checkEmptyState() {
+    document.querySelectorAll("section").forEach((section) => {
+        const list = section.querySelector("ul");
+        const emptyState = section.querySelector(".empty-state");
+        if (!list || !emptyState) return; // защита от ошибок
+
+        console.log(list.children.length);
+
+        if (list.children.length === 0) {
+            emptyState.classList.add("active");
+        } else {
+            emptyState.classList.remove("active");
+        }
+    });
+}
+
+// --- 1️⃣ Запускаем при загрузке страницы
+document.addEventListener("DOMContentLoaded", () => {
+    checkEmptyState();
+
+    // --- 2️⃣ Наблюдатель за изменениями в DOM
+    const observer = new MutationObserver(() => {
+        checkEmptyState();
+    });
+
+    // --- 3️⃣ Следим за изменениями внутри всех секций
+    document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section, {
+            childList: true,  // следить за добавлением/удалением элементов
+            subtree: true     // учитывать вложенные элементы (например, ul > li)
+        });
+    });
+});

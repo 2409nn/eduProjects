@@ -35,6 +35,10 @@ body {
   background: var(--body-background-color);
 }
 
+span {
+  color: var(--main-font-color);
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   word-break: break-word;
@@ -45,6 +49,7 @@ p, h1, h2, h3, h4, h5, h6 {
 main {
   padding-top: var(--header-height);
   background-color: var(--body-background-color);
+  min-height: 100vh;
 }
 
 a {
@@ -124,6 +129,7 @@ button:hover {
 label {
   font-weight: 700;
   padding: 10px;
+  color: var(--main-font-color);
 }
 label:hover {
   cursor: pointer;
@@ -135,6 +141,7 @@ input {
   border: 3px solid var(--border-color);
   font-size: 14px;
   font-weight: 600;
+  background-color: var(--section-background-color);
 }
 
 input:not([type=submit]):not([type=checkbox]):focus {
@@ -307,6 +314,9 @@ section [class*=__inner] {
     padding: 10px 20px;
   }
 }
+.modal input[type=submit] {
+  margin-top: 20px;
+}
 @media (max-width: 600px) {
   .modal {
     width: 400px;
@@ -344,7 +354,7 @@ section [class*=__inner] {
   gap: 10px;
   margin: 20px;
 }
-.modal__purchase-form {
+.modal form {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -352,12 +362,12 @@ section [class*=__inner] {
   height: 100%;
 }
 @media (max-width: 600px) {
-  .modal__purchase-form {
+  .modal form {
     padding: 0;
   }
 }
 @media (max-width: 420px) {
-  .modal__purchase-form label {
+  .modal form label {
     font-size: 14px;
   }
 }
@@ -391,6 +401,15 @@ section [class*=__inner] {
 
 .modal::-webkit-scrollbar {
   display: none;
+}
+
+#edit-modal {
+  width: 400px;
+}
+@media (max-width: 440px) {
+  #edit-modal {
+    width: 300px;
+  }
 }
 
 .close-btn {
@@ -433,12 +452,31 @@ section [class*=__inner] {
   transition: transform 0.3s;
 }
 
-.toggle-input:checked + .toggle-label {
+.toggle-label:has(.toggle-input:checked) {
   background-color: #4caf50;
 }
 
-.toggle-input:checked + .toggle-label::after {
+.toggle-label:has(.toggle-input:checked)::after {
   transform: translateX(30px);
+}
+
+.empty-state {
+  display: none;
+}
+.empty-state.active {
+  display: block;
+  text-align: center;
+  color: var(--desc-font-color);
+  user-select: none;
+}
+.empty-state.active svg {
+  width: 200px;
+  height: 200px;
+}
+.empty-state.active .empty-state-title {
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--desc-font-color);
 }
 
 .header {
@@ -550,6 +588,24 @@ section .heading {
   section .heading {
     font-size: 24px;
   }
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+.profile__info span {
+  font-weight: 500;
+}
+.profile__info p {
+  display: inline;
+  font-weight: 600;
+}
+.profile .edit-btn {
+  display: block;
+  margin: 20px auto;
 }
 
 .ctgs__items {
@@ -885,6 +941,63 @@ section .heading {
   }
 }
 
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  padding-bottom: 30px;
+}
+.footer__items {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+.footer__item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 33.3333333333%;
+}
+@media (max-width: 600px) {
+  .footer__item {
+    flex-direction: row;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+  }
+}
+.footer__item p {
+  color: white;
+  font-weight: 500;
+}
+.footer svg {
+  fill: white;
+  color: white;
+}
+.footer #footer__copyright {
+  display: block;
+  width: 100%;
+  padding: 50px 0;
+  font-weight: 500;
+}
+.footer__social-networks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 50px;
+}
+@media (max-width: 600px) {
+  .footer__social-networks {
+    flex-direction: column;
+  }
+}
+
 h2 {
   text-align: center;
 }
@@ -896,6 +1009,24 @@ section .heading {
   section .heading {
     font-size: 24px;
   }
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+.profile__info span {
+  font-weight: 500;
+}
+.profile__info p {
+  display: inline;
+  font-weight: 600;
+}
+.profile .edit-btn {
+  display: block;
+  margin: 20px auto;
 }
 
 .ctgs__items {
