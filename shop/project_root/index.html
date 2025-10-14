@@ -228,28 +228,7 @@
     </div>
 </footer>
 
-<script src="./js/dom.js"></script>
-<script type="module">
-
-    import Product from './js/catalog.js';
-    import * as api from './js/api.js';
-
-    const appendBlock = document.querySelector('.products__items');
-
-    // получение данных из fakeAPI:
-    api.getProducts()
-        .then(products => {
-            products.forEach(product => {
-
-                // рендеринг каждого товара в карты
-                let item = new Product(product.id, product.title, product.price, product.description, product.image, product.category);
-                let card = item.renderCard();
-                appendBlock.insertAdjacentHTML('beforeend', card);
-            })
-        })
-
-
-</script>
-
+<script src="./js/common.js"></script>
+<script type="module" src="./js/catalog.js"></script>
 </body>
 </html>

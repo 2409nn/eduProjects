@@ -1,31 +1,16 @@
-class Product {
-    constructor(id, title, price, description, image, category) {
-        this.id = id;
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.image = image;
-        this.category = category;
-    }
+import * as api from './api.js';
+import {Product} from './models.js';
 
-    renderCard() {
-        const html = `<li class="products__item product">
-                    <a href="./product.html" target="_blank">
-                        <img src="${this.image}" alt="product_pic" class="product__image">
-                        <div class="product__info">
-                            <h3 class="product__title" style="border-bottom: 2px solid var(--border-color)">${this.title}</h3>
-                            <div class="product__description description">
-                                <p class="product__description-text">
-                                    ${this.description}
-                                </p>
-                            </div>
-                            <p class="product__price" style="text-align: center; margin-top: 15px;">${this.price} $</p>
-                        </div>
-                    </a>
-                </li>`
+const appendBlock = document.querySelector('.products__items');
 
-        return html;
-    }
-}// вернёт HTML карточки } 👉 используется в catalog.js и product.js.
+// получение данных из fakeAPI:
+api.getProducts()
+    .then(products => {
+        products.forEach(product => {
 
-export default Product;
+            // рендеринг каждого товара в карты
+            let item = new Product(product.id, product.title, product.price, product.description, product.image, product.category);
+            let card = item.renderCard();
+            appendBlock.insertAdjacentHTML('beforeend', card);
+        })
+    })

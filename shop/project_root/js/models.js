@@ -1,4 +1,4 @@
-class User {
+export class User {
     constructor(name, email, password, address) {
         this.name = name;
         this.email = email;
@@ -14,7 +14,7 @@ class User {
     }
 }
 
-class CartItem {
+export class CartItem {
     constructor(product, quantity = 1) {
         this.product = product;
         this.quantity = quantity;
@@ -25,7 +25,7 @@ class CartItem {
     }
 }
 
-class Cart {
+export class Cart {
     constructor() {}
 
     addProduct(product) {
@@ -38,5 +38,35 @@ class Cart {
     }
 
     clear() {
+    }
+}
+
+export class Product {
+    constructor(id, title, price, description, image, category) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.category = category;
+    }
+
+    renderCard() {
+        const html = `<li class="products__item product">
+                    <a href="./product.html" target="_blank">
+                        <img src="${this.image}" alt="product_pic" class="product__image">
+                        <div class="product__info">
+                            <h3 class="product__title" style="border-bottom: 2px solid var(--border-color)">${this.title}</h3>
+                            <div class="product__description description">
+                                <p class="product__description-text">
+                                    ${this.description}
+                                </p>
+                            </div>
+                            <p class="product__price" style="text-align: center; margin-top: 15px;">${this.price} $</p>
+                        </div>
+                    </a>
+                </li>`
+
+        return html;
     }
 }
