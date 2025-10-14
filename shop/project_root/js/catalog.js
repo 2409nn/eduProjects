@@ -10,7 +10,7 @@ api.getProducts()
 
             // рендеринг каждого товара в карты
             let item = new Product(product.id, product.title, product.price, product.description, product.image, product.category);
-            let card = item.renderCard();
+            let card = item.renderCard(item.image, product.title, product.description, product.price);
             appendBlock.insertAdjacentHTML('beforeend', card);
         })
     })

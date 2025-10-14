@@ -6,15 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/auth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_product.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_product.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/catalog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/dom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/firebase_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/firebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +83,7 @@
       <recent name="$PROJECT_DIR$/shop/project_root/imgs/modal" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.auth.html">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/auth.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -93,8 +101,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.auth.html" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.auth.html" />
         <item itemvalue="JavaScript Debug.cart.html" />
         <item itemvalue="JavaScript Debug.product.html" />
         <item itemvalue="Node.js.api.js" />
@@ -131,7 +139,7 @@
       <workItem from="1760370107045" duration="3323000" />
       <workItem from="1760375343962" duration="7843000" />
       <workItem from="1760419070963" duration="4027000" />
-      <workItem from="1760424040095" duration="12423000" />
+      <workItem from="1760424040095" duration="19102000" />
     </task>
     <servers />
   </component>

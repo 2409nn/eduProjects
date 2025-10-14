@@ -51,9 +51,11 @@ export class Product {
         this.category = category;
     }
 
-    renderCard() {
+    renderCard(imageURL, title, description, price) {
+
+        let href = "./product.html?" + `image=${imageURL}&title=${title}&description=${description}&price=${price}`;
         const html = `<li class="products__item product">
-                    <a href="./product.html" target="_blank">
+                    <a href=${href} target="_blank">
                         <img src="${this.image}" alt="product_pic" class="product__image">
                         <div class="product__info">
                             <h3 class="product__title" style="border-bottom: 2px solid var(--border-color)">${this.title}</h3>

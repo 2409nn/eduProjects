@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+<script type="module" src="./js/db.js"></script>
 <header class="header">
     <div class="header__inner">
         <ul class="header__items">
@@ -14,7 +15,7 @@
                 <a href="./index.html" class="header__link nav-link">Главная</a>
             </li>
             <li class="header__item" id="header__logo">
-                <img class="header__icon svg" src="./imgs/logos/logo.png" alt="logo" style="width: 80px">
+                <img class="header__icon svg" src="./imgs/logos/logo.png" alt="logo" style="width: 80px; display: block; margin: auto">
             </li>
             <li class="header__item" id="header__burger-menu">
                 <button class="header__burger-pic">
@@ -26,7 +27,7 @@
             <ul class="header__item" id="header__special-links">
 
                 <li class="header__special-link">
-                    <p style="color: white; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
+                    <p style="color: white; white-space: nowrap; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
                     <div class="toggle-container">
 
                         <label class="toggle-label">

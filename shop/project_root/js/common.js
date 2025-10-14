@@ -46,6 +46,8 @@ function toggleTheme(mode) {
         root.style.setProperty('--main-button-background-color', '#FFFFFF');
         root.style.setProperty('--main-button-font-color', '#000000');
         root.style.setProperty('--secondary-button-font-color', '#FFFFFF');
+        localStorage.setItem("theme", "dark");
+
     } else if (mode === 'light') {
         // Светлая тема
         root.style.setProperty('--body-background-color', '#EEEEEE');
@@ -57,8 +59,13 @@ function toggleTheme(mode) {
         root.style.setProperty('--main-button-background-color', '#000000');
         root.style.setProperty('--main-button-font-color', '#FFFFFF');
         root.style.setProperty('--secondary-button-font-color', '#000000');
+        localStorage.setItem("theme", "light");
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    toggleTheme(localStorage.getItem("theme"));
+});
 
 // ===== BURGER =====
 
@@ -90,6 +97,12 @@ try {
 const toggles = document.querySelectorAll('.toggle');
 
 toggles.forEach(toggle => {
+
+    if (localStorage.getItem("theme") === "dark") {
+        toggle.setAttribute("checked", "true");
+    }
+
+
     toggle.addEventListener('change', () => {
         if (toggle.checked) {
             toggleTheme('dark');
@@ -275,3 +288,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// ===== сохранение темы в localstorage =====
