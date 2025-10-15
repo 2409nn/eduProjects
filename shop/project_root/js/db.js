@@ -25,7 +25,7 @@ export class DataBase {
                 password,
                 address
             });
-            console.log("Добавлен документ с ID:", docRef.id);
+            // console.log("Добавлен документ с ID:", docRef.id);
         } catch (e) {
             console.error("Ошибка при добавлении:", e);
         }
@@ -50,7 +50,7 @@ export class DataBase {
                 price,
                 createdAt: new Date()
             });
-            console.log("Товар добавлен с ID:", docRef.id);
+            // console.log("Товар добавлен с ID:", docRef.id);
         } catch (e) {
             console.error("Ошибка при сохранении товара:", e);
         }
@@ -78,7 +78,7 @@ export class DataBase {
         try {
             const userRef = doc(this.db, "users", userId);
             await updateDoc(userRef, newData);
-            console.log(`Данные пользователя ${userId} успешно обновлены`);
+            // console.log(`Данные пользователя ${userId} успешно обновлены`);
         } catch (e) {
             console.error("Ошибка при обновлении пользователя:", e);
         }
@@ -89,7 +89,7 @@ export class DataBase {
         try {
             const productRef = doc(this.db, "catalog", productId);
             await deleteDoc(productRef);
-            console.log(`Товар с ID ${productId} успешно удалён из корзины`);
+            // console.log(`Товар с ID ${productId} успешно удалён из корзины`);
         } catch (e) {
             console.error("Ошибка при удалении товара:", e);
         }

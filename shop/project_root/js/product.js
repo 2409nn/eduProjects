@@ -31,7 +31,6 @@ cartBtn.addEventListener("click", async (e) => {
 const modal = new Modal("purchase-modal");
 const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
 const purchaseModalSubmit = document.querySelector("#purchase-modal input[type='submit']");
-console.log(modalTriggerBtns);
 
 purchaseModalSubmit.addEventListener("click", (e) => {
     e.preventDefault();

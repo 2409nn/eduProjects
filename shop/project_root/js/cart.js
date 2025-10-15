@@ -7,7 +7,6 @@ function calcPrice(priceElem, amount, operation=null) {
     let priceValue = parseFloat(priceElem.innerText.replace(/[^0-9.]/g, ""));
     if (Number.isNaN(priceValue)) priceValue = 0;
     priceValue = Math.round(priceValue * 100) / 100; // Number
-    console.log(priceValue); // например: 12.3 или 12.34 или 12
 
     let total;
 
@@ -53,7 +52,6 @@ if (isLoaded) {
     const modal = new Modal("purchase-modal");
     const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
     const purchaseModalSubmit = document.querySelector("#purchase-modal input[type='submit']");
-    console.log(modalTriggerBtns);
 
     purchaseModalSubmit.addEventListener("click", (e) => {
         e.preventDefault();
@@ -73,6 +71,13 @@ if (isLoaded) {
 
 
 // ===== counter ======
+
+    // ===== счетчик товаров в карзине =====
+
+    const counter = document.querySelector("header .header__cart-amount");
+    const cartProductsAmount = cartProducts.length;
+
+    counter.textContent = cartProductsAmount;
 
     document.querySelectorAll(".counter").forEach(counter => {
         let minusButton = counter.querySelector(".counter-minus");

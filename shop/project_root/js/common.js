@@ -79,7 +79,7 @@ try {
     })
 
 } catch (e) {
-    console.log("burger menu not found");
+    // console.log("burger menu not found");
 }
 
 // ===== SWITCH THEME =====
@@ -160,7 +160,7 @@ try {
 
 
 } catch (e) {
-    console.log('edit modal not found')
+    // console.log('edit modal not found')
 }
 
 
@@ -182,9 +182,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ===== счетчик товаров в карзине =====
-
-const counter = document.querySelector("header .header__cart-amount");
-const cartProductsAmount = cartProducts.length;
-
-counter.textContent = cartProductsAmount;

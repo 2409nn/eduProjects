@@ -19,18 +19,18 @@
 
                     <div class="reg__local-strategy">
                         <label for="email">Электронная почта</label>
-                        <input placeholder="helloworld@gmail.com" type="email" class="reg__input" id="email">
+                        <input required placeholder="helloworld@gmail.com" type="email" class="reg__input" id="email">
 
                         <label for="password">Пароль</label>
-                        <input placeholder="qwerty" type="password" class="reg__input" id="password">
+                        <input required placeholder="qwerty" type="password" class="reg__input" id="password" minlength="6">
 
                         <div class="reg__optional-inputs active">
 
                             <label for="username">Имя пользователя</label>
-                            <input placeholder="Neo Anderson" type="text" id="username">
+                            <input required placeholder="Neo Anderson" type="text" id="username">
 
                             <label for="address">Адрес</label>
-                            <input placeholder="Бекерстрит 221" type="text" id="address">
+                            <input required placeholder="Бекерстрит 221" type="text" id="address">
                         </div>
 
                     </div>
@@ -49,7 +49,7 @@
         </section>
     </main>
 
-    <script tyle="module" src="js/common.js"></script>
+    <script type="module" src="./js/common.js"></script>
     <script type="module" src="./js/auth.js"></script>
 </body>
 </html>
