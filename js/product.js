@@ -32,7 +32,7 @@ cartBtn.addEventListener("click", async (e) => {
     await db.addToCart(image, title, description, price);
     loaderSpinner.classList.add('hidden');
 
-    alert("Товар добавлен в карзину");
+    alert("Товар добавлен в корзину");
 })
 
 // ===== modals =====

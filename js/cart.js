@@ -72,7 +72,7 @@ if (isLoaded) {
 
 // ===== counter ======
 
-    // ===== счетчик товаров в карзине =====
+    // ===== счетчик товаров в корзине =====
 
     const counter = document.querySelector("header .header__cart-amount");
     const cartProductsAmount = cartProducts.length;
