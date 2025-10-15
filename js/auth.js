@@ -87,7 +87,7 @@ signInGoogle.addEventListener('click', async (e) => {
 
         users.forEach((user) => {
             if (userEmail === user.data().email) {
-                window.location.href = './index.html';
+                window.location.href = './catalog.html';
                 isTransfered = true;
                 localStorage.setItem("email", userEmail);
             }
@@ -134,7 +134,7 @@ submitBtn.addEventListener('click', async (e) => {
                 await db.addUser(username, email, password, address);
                 localStorage.setItem("email", email);
                 alert("Регистрация успешна!");
-                window.location.href = './index.html';
+                window.location.href = './catalog.html';
             }
 
         } else if (status === 'haveAccount') {
@@ -151,7 +151,7 @@ submitBtn.addEventListener('click', async (e) => {
             if (password === result.password) {
                 localStorage.setItem("email", email);
                 alert("Вход выполнен успешно!");
-                window.location.href = './index.html';
+                window.location.href = './catalog.html';
             } else {
                 alert("Неверный пароль");
             }
