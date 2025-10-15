@@ -129,22 +129,22 @@
             <form action="#" class="modal__purchase-form" method="post">
 
                 <label for="modal__card-number">Номер карты</label>
-                <input type="number" name="card-number" id="modal__card-number" placeholder="0123 4567 8901">
+                <input required type="number" name="card-number" id="modal__card-number" placeholder="0123 4567 8901">
 
                 <div class="modal__small-inputs">
                     <div class="modal__expiry">
                         <label for="modal__expiry-date">Дата истечения</label>
-                        <input type="date" name="expiry-date" id="modal__expiry-date" placeholder="MM:YY">
+                        <input required type="date" name="expiry-date" id="modal__expiry-date" placeholder="MM:YY">
                     </div>
 
                     <div class="modal__cvv">
                         <label for="modal__cvv">CVV</label>
-                        <input type="password" name="password" maxlength="3" id="modal__cvv" placeholder="CVV">
+                        <input required type="password" name="password" maxlength="3" id="modal__cvv" placeholder="CVV">
                     </div>
                 </div>
 
                 <label for="modal__card-user">Имя владельца</label>
-                <input type="text" id="modal__card-user" placeholder="Имя Фамилия">
+                <input required type="text" id="modal__card-user" placeholder="Имя Фамилия">
 
                 <div class="modal__save-data" style="padding: 0">
                     <label>

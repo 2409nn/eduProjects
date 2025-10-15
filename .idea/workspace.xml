@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="" />
+    <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/product.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +41,7 @@
     "JavaScript Debug.cart.html.executor": "Run",
     "JavaScript Debug.index.html (1).executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.product.html (1).executor": "Run",
     "JavaScript Debug.product.html.executor": "Run",
     "Node.js.api.js.executor": "Run",
     "Node.js.db.js.executor": "Run",
@@ -66,14 +72,14 @@
       <recent name="$PROJECT_DIR$/shop/project_root/imgs/nav" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
-    <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/auth.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.product.html (1)">
     <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="product.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/product.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="product.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/product.html" useBuiltInWebServerPort="true">
@@ -84,11 +90,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.product.html (1)" />
         <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.product.html" />
         <item itemvalue="Node.js.db.js" />
-        <item itemvalue="JavaScript Debug.auth.html" />
       </list>
     </recent_temporary>
   </component>
@@ -126,7 +132,7 @@
       <workItem from="1760453984928" duration="165000" />
       <workItem from="1760454157549" duration="24830000" />
       <workItem from="1760548821104" duration="82000" />
-      <workItem from="1760548904723" duration="1572000" />
+      <workItem from="1760548904723" duration="4226000" />
     </task>
     <servers />
   </component>
