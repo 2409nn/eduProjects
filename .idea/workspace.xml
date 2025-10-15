@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shop/project_root/imgs/main/spinner-fill-svgrepo-com.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/auth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/_nav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/auth.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/auth.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/catalog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/common.js" afterDir="false" />
@@ -142,7 +132,7 @@
       <workItem from="1760419070963" duration="4027000" />
       <workItem from="1760424040095" duration="19102000" />
       <workItem from="1760453984928" duration="165000" />
-      <workItem from="1760454157549" duration="16547000" />
+      <workItem from="1760454157549" duration="24830000" />
     </task>
     <servers />
   </component>

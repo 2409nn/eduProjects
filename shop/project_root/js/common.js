@@ -1,26 +1,16 @@
 import {db} from './db.js'
+import {Modal} from './models.js'
 
-function calcPrice(priceElem, amount, operation=null) {
+document.addEventListener('DOMContentLoaded', () => {
+    toggleTheme(localStorage.getItem("theme"));
+});
 
-    let priceValue = Number(priceElem.innerText.match(/\d+/g));
-    let total;
+let isLoaded = false;
+const cartProducts = await db.getCartProducts().then((res) => {
+    isLoaded = true;
+    return res;
+}).catch(e => console.error(e));
 
-    switch (operation) {
-        case null:
-            total = Number(amount) * Number(priceValue);
-            break;
-
-        case "plus":
-            total = priceValue + (Number(priceValue / (Number(amount) - 1)));
-            break;
-
-        case "minus":
-            total = priceValue - (Number(priceValue) / (Number(amount) + 1));
-    }
-
-    priceElem.innerText = total;
-    return total;
-}
 
 function checkoutRegTable(optionalInputs, switchTab) {
     if (optionalInputs.classList.contains("active")) {
@@ -66,10 +56,6 @@ function toggleTheme(mode) {
         localStorage.setItem("theme", "light");
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    toggleTheme(localStorage.getItem("theme"));
-});
 
 // ===== BURGER =====
 
@@ -117,86 +103,6 @@ toggles.forEach(toggle => {
     });
 })
 
-// ===== MODAL =====
-
-class Modal {
-    constructor(id) {
-        this.modal = document.getElementById(id);
-        this.closeBtn = document.querySelector(`#${id} .close-btn`);
-    }
-
-    close() {
-        this.modal.classList.remove("active");
-    }
-
-    show() {
-        this.modal.classList.add("active");
-    }
-
-    getInputs() {
-        return this.modal.querySelectorAll('input[name]')
-    }
-}
-
-try {
-    const modal = new Modal("purchase-modal");
-    const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
-
-    modalTriggerBtns.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            modal.show();
-        })
-    })
-
-    modal.closeBtn.addEventListener("click", (e) => {
-        modal.close();
-    })
-}
-
-catch (e) {
-    console.log('modal not found')
-}
-
-// ===== counter ======
-
-try {
-    document.querySelectorAll(".counter").forEach(counter => {
-        let minusButton = counter.querySelector(".counter-minus");
-        let plusButton = counter.querySelector(".counter-plus");
-        let amount = counter.querySelector(".counter-amount");
-        let amountValue = Number(amount.innerText);
-        const product = counter.closest(".cProducts__product");
-        const priceElement = product.querySelector(".price");
-
-        const MIN = 1;
-        const MAX = 99;
-
-        minusButton.addEventListener("click", (e) => {
-
-            if (amountValue > MIN) {
-                amountValue -= 1;
-                amount.innerText = amountValue;
-
-                calcPrice(priceElement, amountValue, "minus");
-            }
-
-        })
-
-        plusButton.addEventListener("click", (e) => {
-
-            if (amountValue < MAX) {
-                amountValue += 1;
-                amount.innerText = amountValue;
-
-                calcPrice(priceElement, amountValue, "plus");
-            }
-        })
-
-    })
-
-} catch (e) {
-    console.log('counter not found')
-}
 
 // ===== registration switch tab =====
 
@@ -214,16 +120,6 @@ try {
     })
 
 } catch (e) {}
-
-// ===== remove cart item =====
-
-document.querySelectorAll(".cProducts__product").forEach(cProduct => {
-    let closeBtn = cProduct.querySelector(".close-btn");
-    closeBtn.addEventListener("click", (e) => {
-        cProduct.remove();
-        checkEmptyState();
-    })
-})
 
 // ===== modal edit =====
 
@@ -246,8 +142,8 @@ try {
     }
 
     const editModal = new Modal('edit-modal');
-    const editModalSubmit = document.querySelector("#edit-modal .modal__edit-btn");
     const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
+    const editModalSubmit = document.querySelector("#edit-modal input[type='submit']");
 
     editModalTriggerBtns.forEach(btn => {
 
@@ -261,40 +157,12 @@ try {
         })
     })
 
-    editModalSubmit.addEventListener("click", (e) => {
-        e.preventDefault();
-        editModal.close();
 
-        let inputs = document.querySelectorAll("#edit-modal input[name]");
-        inputs.forEach(input => {
-
-            let inputName = input.getAttribute("name");
-            let inputValue = input.value;
-
-            document.querySelector(`.profile__info li p[data-inputName="${inputName}"]`).innerText = inputValue;
-        })
-    })
 
 } catch (e) {
     console.log('edit modal not found')
 }
 
-
-function checkEmptyState() {
-    document.querySelectorAll("section").forEach((section) => {
-        const list = section.querySelector("ul");
-        const emptyState = section.querySelector(".empty-state");
-        if (!list || !emptyState) return; // защита от ошибок
-
-        console.log(list.children.length);
-
-        if (list.children.length === 0) {
-            emptyState.classList.add("active");
-        } else {
-            emptyState.classList.remove("active");
-        }
-    });
-}
 
 // --- 1️⃣ Запускаем при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
@@ -317,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===== счетчик товаров в карзине =====
 
 const counter = document.querySelector("header .header__cart-amount");
-const cartProducts = await db.getCartProducts().then()
 const cartProductsAmount = cartProducts.length;
 
 counter.textContent = cartProductsAmount;

@@ -1,5 +1,8 @@
 import {db} from './db.js'
+import {Modal} from "./models.js";
 
+const loaderSpinner = document.getElementById('loader');
+loaderSpinner.classList.add('hidden');
 const params = new URLSearchParams(window.location.search);
 
 // Например, получить параметр "image"
@@ -16,6 +19,32 @@ document.querySelector(".productPage__price").innerText = "$ " + price;
 const cartBtn = document.querySelector(".productPage__cart-btn");
 
 cartBtn.addEventListener("click", async (e) => {
+
+    loaderSpinner.classList.remove('hidden');
     await db.addToCart(image, title, description, price);
+    loaderSpinner.classList.add('hidden');
+
     alert("Товар добавлен в карзину");
+})
+
+// ===== modals =====
+const modal = new Modal("purchase-modal");
+const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
+const purchaseModalSubmit = document.querySelector("#purchase-modal input[type='submit']");
+console.log(modalTriggerBtns);
+
+purchaseModalSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("Заказ оформлен!");
+    modal.close();
+})
+
+modalTriggerBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        modal.show();
+    })
+})
+
+modal.closeBtn.addEventListener("click", (e) => {
+    modal.close();
 })

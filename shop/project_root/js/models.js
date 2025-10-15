@@ -26,19 +26,20 @@ export class CartItem {
 }
 
 export class Cart {
-    constructor(product) {
+    constructor(product, id) {
+        this.id = id;
         this.title = product.title;
         this.price = product.price;
         this.description = product.description;
         this.image = product.imageURL;
     }
 
-    renderProduct(product) {
+    renderProduct() {
 
         const insertBlock = document.querySelector(".cProducts .cProducts__items")
 
         const html = `<li class="cProducts__item">
-                    <div class="cProducts__product">
+                    <div class="cProducts__product" data-productID="${this.id}">
                         <img class="cProducts__product-pic" src="${this.image}" alt="product_pic">
                         <div class="cProducts__product-info">
                             <h2 class="cProducts__product-title title">${this.title}</h2>
@@ -115,5 +116,24 @@ export class Product {
                 </li>`
 
         return html;
+    }
+}
+
+export class Modal {
+    constructor(id) {
+        this.modal = document.getElementById(id);
+        this.closeBtn = document.querySelector(`#${id} .close-btn`);
+    }
+
+    close() {
+        this.modal.classList.remove("active");
+    }
+
+    show() {
+        this.modal.classList.add("active");
+    }
+
+    getInputs() {
+        return this.modal.querySelectorAll('input[name]')
     }
 }

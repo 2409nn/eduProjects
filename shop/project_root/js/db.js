@@ -1,10 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    doc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 import { firebaseConfig } from "./firebase.js";
-
-// ТВОЯ КОНФИГУРАЦИЯ
-
-// Инициализация Firebase
 
 export class DataBase {
     constructor(fbConfig) {
@@ -13,14 +17,13 @@ export class DataBase {
         this.db = getFirestore(this.app);
     }
 
-    // Пример: добавление данных в коллекцию "users"
     async addUser(username, email, password, address) {
         try {
             const docRef = await addDoc(collection(this.db, "users"), {
-                username: username,
-                email: email,
-                password: password,
-                address: address
+                username,
+                email,
+                password,
+                address
             });
             console.log("Добавлен документ с ID:", docRef.id);
         } catch (e) {
@@ -28,25 +31,23 @@ export class DataBase {
         }
     }
 
-    // Пример: получение всех пользователей
     async getUsers() {
-        const querySnapshot = await getDocs(collection(this.db, "users"));
-        return querySnapshot;
+        return getDocs(collection(this.db, "users"));
     }
 
     async saveProduct() {
         const docRef = await addDoc(collection(this.db, "catalog"), {
             name: "Iskander",
-        })
+        });
     }
 
     async addToCart(imageURL, title, description, price) {
         try {
             const docRef = await addDoc(collection(this.db, "catalog"), {
-                imageURL: imageURL,
-                title: title,
-                description: description,
-                price: price,
+                imageURL,
+                title,
+                description,
+                price,
                 createdAt: new Date()
             });
             console.log("Товар добавлен с ID:", docRef.id);
@@ -65,10 +66,32 @@ export class DataBase {
                     ...doc.data()
                 });
             });
-            return products; // Возвращает массив объектов с данными товаров
+            return products;
         } catch (e) {
             console.error("Ошибка при получении товаров корзины:", e);
             return [];
+        }
+    }
+
+    // ✅ Метод 1: изменение данных пользователя
+    async updateUser(userId, newData) {
+        try {
+            const userRef = doc(this.db, "users", userId);
+            await updateDoc(userRef, newData);
+            console.log(`Данные пользователя ${userId} успешно обновлены`);
+        } catch (e) {
+            console.error("Ошибка при обновлении пользователя:", e);
+        }
+    }
+
+    // ✅ Метод 2: удаление товара из корзины
+    async deleteCartProduct(productId) {
+        try {
+            const productRef = doc(this.db, "catalog", productId);
+            await deleteDoc(productRef);
+            console.log(`Товар с ID ${productId} успешно удалён из корзины`);
+        } catch (e) {
+            console.error("Ошибка при удалении товара:", e);
         }
     }
 }
