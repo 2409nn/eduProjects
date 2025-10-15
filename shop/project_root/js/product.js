@@ -1,8 +1,16 @@
 import {db} from './db.js'
 import {Modal} from "./models.js";
 
-const loaderSpinner = document.getElementById('loader');
+
+let cartProducts = await db.getCartProducts();
+const loaderSpinner = document.querySelector('#loader');
 loaderSpinner.classList.add('hidden');
+
+const counter = document.querySelector("header .header__cart-amount");
+const cartProductsAmount = cartProducts.length;
+counter.textContent = cartProductsAmount;
+
+
 const params = new URLSearchParams(window.location.search);
 
 // Например, получить параметр "image"

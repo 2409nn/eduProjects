@@ -76,7 +76,6 @@ if (isLoaded) {
 
     const counter = document.querySelector("header .header__cart-amount");
     const cartProductsAmount = cartProducts.length;
-
     counter.textContent = cartProductsAmount;
 
     document.querySelectorAll(".counter").forEach(counter => {

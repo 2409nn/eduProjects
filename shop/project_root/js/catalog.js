@@ -40,8 +40,14 @@ async function getUserByEmail(email) {
     return result;
 }
 
+let cartProducts = await db.getCartProducts();
+const counter = document.querySelector("header .header__cart-amount");
+const cartProductsAmount = cartProducts.length;
+counter.textContent = cartProductsAmount;
+
 // загрузка персональных данных из Firebase
 let isLoaded = {users: false, products: false};
+
 let users = await db.getUsers().then((res) => {
     isLoaded.users = true;
     return res;
