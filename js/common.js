@@ -164,11 +164,9 @@ try {
 }
 
 
-// --- 1️⃣ Запускаем при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
     checkEmptyState();
 
-    // --- 2️⃣ Наблюдатель за изменениями в DOM
     const observer = new MutationObserver(() => {
         checkEmptyState();
     });

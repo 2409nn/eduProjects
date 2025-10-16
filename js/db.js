@@ -73,7 +73,7 @@ export class DataBase {
         }
     }
 
-    // ✅ Метод 1: изменение данных пользователя
+    // изменение данных пользователя
     async updateUser(userId, newData) {
         try {
             const userRef = doc(this.db, "users", userId);
@@ -84,7 +84,7 @@ export class DataBase {
         }
     }
 
-    // ✅ Метод 2: удаление товара из корзины
+    // удаление товара из корзины
     async deleteCartProduct(productId) {
         try {
             const productRef = doc(this.db, "catalog", productId);
