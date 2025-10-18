@@ -161,3 +161,19 @@ submitBtn.addEventListener('click', async (e) => {
         alert("Произошла ошибка. Попробуйте еще раз.");
     }
 });
+
+
+// внедрить
+const switchTab = document.querySelector(".reg__switch-tab");
+const optionalInputs = document.querySelector(".reg__optional-inputs");
+
+checkoutRegTable(optionalInputs, switchTab);
+
+switchTab.addEventListener("click", (e) => {
+    optionalInputs.classList.toggle("active");
+
+    checkoutRegTable(optionalInputs, switchTab);
+})
+
+// -----
+

@@ -1,28 +1,7 @@
 import {db} from './db.js'
 import {Modal} from './models.js'
 
-document.addEventListener('DOMContentLoaded', () => {
-    toggleTheme(localStorage.getItem("theme"));
-});
-
-let isLoaded = false;
-const cartProducts = await db.getCartProducts().then((res) => {
-    isLoaded = true;
-    return res;
-}).catch(e => console.error(e));
-
-
-function checkoutRegTable(optionalInputs, switchTab) {
-    if (optionalInputs.classList.contains("active")) {
-        switchTab.innerText = "Уже есть аккаунт";
-        switchTab.setAttribute("data-status", "noAccount");
-    }
-
-    else {
-        switchTab.innerText = "Еще нет аккаунта";
-        switchTab.setAttribute("data-status", "haveAccount");
-    }
-}
+// ===== Установка темы =====
 
 function toggleTheme(mode) {
     const root = document.documentElement;
@@ -57,6 +36,47 @@ function toggleTheme(mode) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    toggleTheme(localStorage.getItem("theme"));
+});
+
+let isLoaded = false;
+const cartProducts = await db.getCartProducts().then((res) => {
+    isLoaded = true;
+    return res;
+}).catch(e => console.error(e));
+
+// ===== кнопка-переключатель темы =====
+
+const toggles = document.querySelectorAll('.toggle');
+toggles.forEach(toggle => {
+    if (localStorage.getItem("theme") === "dark") {
+        toggle.setAttribute("checked", "true");
+    }
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            toggleTheme('dark');
+
+        } else {
+            toggleTheme('light');
+        }
+    });
+})
+
+// ===== переключить вкладку регистрации =====
+
+export function checkoutRegTable(optionalInputs, switchTab) {
+    if (optionalInputs.classList.contains("active")) {
+        switchTab.innerText = "Уже есть аккаунт";
+        switchTab.setAttribute("data-status", "noAccount");
+    }
+
+    else {
+        switchTab.innerText = "Еще нет аккаунта";
+        switchTab.setAttribute("data-status", "haveAccount");
+    }
+}
+
 // ===== BURGER =====
 
 try {
@@ -79,106 +99,41 @@ try {
     })
 
 } catch (e) {
-    // console.log("burger menu not found");
+    console.warn("Page does not contain burger menu");
 }
 
-// ===== SWITCH THEME =====
+// ===== валидация =====
 
-const toggles = document.querySelectorAll('.toggle');
+export function inputsEmptyCheck(form) {
+    const checkInputs = Array.from(form.querySelectorAll(`input:has([name])`));
+    const allFilled = checkInputs.every(input => input.value.trim() !== "");
+    return allFilled;
+}
 
-toggles.forEach(toggle => {
+export function validateEmail(form) {
+    const email = form.querySelector("input[type='email']").value.trim();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // базовая проверка email
+    return regex.test(email);
+}
 
-    if (localStorage.getItem("theme") === "dark") {
-        toggle.setAttribute("checked", "true");
-    }
-
-
-    toggle.addEventListener('change', () => {
-        if (toggle.checked) {
-            toggleTheme('dark');
-
-        } else {
-            toggleTheme('light');
-        }
-    });
-})
-
-
-// ===== registration switch tab =====
-
-try {
-
-    const switchTab = document.querySelector(".reg__switch-tab");
-    const optionalInputs = document.querySelector(".reg__optional-inputs");
-
-    checkoutRegTable(optionalInputs, switchTab);
-
-    switchTab.addEventListener("click", (e) => {
-        optionalInputs.classList.toggle("active");
-
-        checkoutRegTable(optionalInputs, switchTab);
-    })
-
-} catch (e) {}
-
-// ===== modal edit =====
-
-try {
-
-    function setEditModalData() {
-
-        const editModalData = document.querySelector(".profile__info");
-        const editDataObject = {};
-        editModalData.querySelectorAll("li p").forEach(p => {
-            editDataObject[p.getAttribute("data-inputName")] = p.textContent;
-        });
-
-        Object.keys(editDataObject).forEach((key) => {
-            const input = Array.from(editModal.getInputs()).find(input => input.name === key);
-            if (input) {
-                input.value = editDataObject[key]; // например, подставляем данные
-            }
-        });
-    }
-
-    const editModal = new Modal('edit-modal');
-    const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
-    const editModalSubmit = document.querySelector("#edit-modal input[type='submit']");
-
-    editModalTriggerBtns.forEach(btn => {
-
-        btn.addEventListener("click", (e) => {
-            setEditModalData();
-            editModal.show();
-        })
-
-        editModal.closeBtn.addEventListener("click", (e) => {
-            editModal.close();
-        })
-    })
-
-
-
-} catch (e) {
-    // console.log('edit modal not found')
+export function checkPassword(form) {
+    const email = form.querySelector("input[type='email']").value.trim();
+    const password
 }
 
 
-// --- 1️⃣ Запускаем при загрузке страницы
-document.addEventListener("DOMContentLoaded", () => {
-    checkEmptyState();
 
-    // --- 2️⃣ Наблюдатель за изменениями в DOM
-    const observer = new MutationObserver(() => {
-        checkEmptyState();
-    });
 
-    // --- 3️⃣ Следим за изменениями внутри всех секций
-    document.querySelectorAll("section").forEach((section) => {
-        observer.observe(section, {
-            childList: true,  // следить за добавлением/удалением элементов
-            subtree: true     // учитывать вложенные элементы (например, ul > li)
-        });
-    });
-});
+
+
+
+
+
+
+
+
+
+
+
+
 

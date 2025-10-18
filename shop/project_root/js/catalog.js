@@ -129,3 +129,41 @@ editModalSubmit.addEventListener("click", async (e) => {
     await db.updateUser(id, data);
     editModal.close();
 });
+
+
+// интегрировать:
+
+// ===== modal edit =====
+
+function setEditModalData() {
+
+    const editModalData = document.querySelector(".profile__info");
+    const editDataObject = {};
+    editModalData.querySelectorAll("li p").forEach(p => {
+        editDataObject[p.getAttribute("data-inputName")] = p.textContent;
+    });
+
+    Object.keys(editDataObject).forEach((key) => {
+        const input = Array.from(editModal.getInputs()).find(input => input.name === key);
+        if (input) {
+            input.value = editDataObject[key]; // например, подставляем данные
+        }
+    });
+}
+
+const editModal = new Modal('edit-modal');
+const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
+const editModalSubmit = document.querySelector("#edit-modal input[type='submit']");
+
+editModalTriggerBtns.forEach(btn => {
+
+    btn.addEventListener("click", (e) => {
+        setEditModalData();
+        editModal.show();
+    })
+
+    editModal.closeBtn.addEventListener("click", (e) => {
+        editModal.close();
+    })
+})
+

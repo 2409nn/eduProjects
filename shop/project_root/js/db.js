@@ -10,6 +10,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 import { firebaseConfig } from "./firebase.js";
 
+// На основе уникального fbConfig запускается приложение.
+// С помощью функции gerFirestore, мы получаем базу данных приложения.
+
 export class DataBase {
     constructor(fbConfig) {
         this.fbConfig = fbConfig;
@@ -25,9 +28,10 @@ export class DataBase {
                 password,
                 address
             });
-            // console.log("Добавлен документ с ID:", docRef.id);
+            return docRef.id; // ✅ Возвращаем id
         } catch (e) {
             console.error("Ошибка при добавлении:", e);
+            return null;
         }
     }
 
@@ -35,24 +39,19 @@ export class DataBase {
         return getDocs(collection(this.db, "users"));
     }
 
-    async saveProduct() {
-        const docRef = await addDoc(collection(this.db, "catalog"), {
-            name: "Iskander",
-        });
-    }
-
-    async addToCart(imageURL, title, description, price) {
+    // сохранение товара в базу данных
+    async addToCart(userId, imageURL, title, description, price) {
         try {
-            const docRef = await addDoc(collection(this.db, "catalog"), {
+            const cartRef = collection(this.db, "users", userId, "cart");
+            await addDoc(cartRef, {
                 imageURL,
                 title,
                 description,
                 price,
                 createdAt: new Date()
             });
-            // console.log("Товар добавлен с ID:", docRef.id);
         } catch (e) {
-            console.error("Ошибка при сохранении товара:", e);
+            console.error("Ошибка при добавлении товара:", e);
         }
     }
 

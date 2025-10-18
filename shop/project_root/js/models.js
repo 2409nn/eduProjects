@@ -1,55 +1,54 @@
+import {db} from './db.js'
+
 export class User {
     constructor(name, email, password, address) {
-        this.name = name;
+        this.username = name;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.id = null; // заранее создаём поле id
     }
 
-    // для регистрации на auth.js
-    checkPassword(password) {
-        if (password === this.password) {
-            return true;
-        }
-    }
-}
-
-export class CartItem {
-    constructor(product, quantity = 1) {
-        this.product = product;
-        this.quantity = quantity;
-    }
-
-    getTotalPrice() {
-
+    async init() {
+        const userId = await db.addUser(this.username, this.email, this.password, this.address);
+        this.id = userId; // ✅ сохраняем id в объект
+        return this;
     }
 }
 
 export class Cart {
-    constructor(product, id) {
-        this.id = id;
-        this.title = product.title;
-        this.price = product.price;
-        this.description = product.description;
-        this.image = product.imageURL;
+    constructor(userId) {
+        this.userId = userId;
+    }
+
+    async addProduct(url, title, description, price) {
+        this.productUrl = url
+        this.productTitle = title
+        this.productDescription = description
+        this.productPrice = price
+
+        await db.addToCart(this.userId, url, title, description, price);
+    }
+
+    async init() {
+        const productId = await db.addToCart(this.userId, url, title, description, price);
+        this.productId = productId;
     }
 
     renderProduct() {
-
         const insertBlock = document.querySelector(".cProducts .cProducts__items")
-
         const html = `<li class="cProducts__item">
-                    <div class="cProducts__product" data-productID="${this.id}">
-                        <img class="cProducts__product-pic" src="${this.image}" alt="product_pic">
+                    <div class="cProducts__product">
+                        <img class="cProducts__product-pic" src="${this.productUrl}" alt="product_pic">
                         <div class="cProducts__product-info">
-                            <h2 class="cProducts__product-title title">${this.title}</h2>
+                            <h2 class="cProducts__product-title title">${this.productTitle}</h2>
                             <div class="cProducts__product-counter counter">
                                 <button class="counter-minus counter-btn">-</button>
                                 <span class="counter-amount">1</span>
                                 <button class="counter-plus counter-btn">+</button>
                             </div>
                             <p class="cProducts__product-description description">
-                                ${this.description}
+                                ${this.productDescription}
                             </p>
                         </div>
                         <div class="cProducts__product-decide">
@@ -60,7 +59,7 @@ export class Cart {
                                 </svg>
                             </button>
                             <div class="cProducts__product-buy">
-                                <p class="cProducts__product-price price">$ ${this.price}</p>
+                                <p class="cProducts__product-price price">$ ${this.productPrice}</p>
                                 <button class="cProducts__product-buy buy-button">Купить</button>
                             </div>
 
@@ -72,7 +71,8 @@ export class Cart {
         insertBlock.insertAdjacentHTML("beforeend", html);
     }
 
-    removeProduct(productId) {
+    async removeProduct() {
+        await db.deleteCartProduct(this.productId);
     }
 
     getTotal() {
