@@ -3,193 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-  <link rel="stylesheet" href="./css/styles.css">
+
+    <title>auth</title>
+  <link rel="stylesheet" href="./css/auth.css">
 </head>
 <body>
-<script type="module" src="./js/db.js"></script>
-<header class="header">
-    <div class="header__inner">
-        <ul class="header__items">
-            <li class="header__item" id="header__links">
-                <a href="./index.html" class="header__link nav-link">Главная</a>
-            </li>
-            <li class="header__item" id="header__logo">
-                <img class="header__icon svg" src="./imgs/logos/logo.png" alt="logo" style="width: 80px;">
-            </li>
-            <li class="header__item" id="header__burger-menu">
-                <button class="header__burger-pic">
-                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 9.16663C6.32082 9.16663 5.5 9.98745 5.5 11C5.5 12.0125 6.32082 12.8333 7.33333 12.8333H36.6667C37.6792 12.8333 38.5 12.0125 38.5 11C38.5 9.98745 37.6792 9.16663 36.6667 9.16663H7.33333ZM12.8333 22C12.8333 20.9874 13.6542 20.1666 14.6667 20.1666H36.6667C37.6792 20.1666 38.5 20.9874 38.5 22C38.5 23.0125 37.6792 23.8333 36.6667 23.8333H14.6667C13.6542 23.8333 12.8333 23.0125 12.8333 22ZM23.8333 33C23.8333 31.9874 24.6541 31.1666 25.6667 31.1666H36.6667C37.6792 31.1666 38.5 31.9874 38.5 33C38.5 34.0125 37.6792 34.8333 36.6667 34.8333H25.6667C24.6541 34.8333 23.8333 34.0125 23.8333 33Z" fill="currentColor"/>
-                    </svg>
-                </button>
-            </li>
-            <ul class="header__item" id="header__special-links">
+    <main>
+        <section class="reg">
 
-                <li class="header__special-link">
-                    <p style="color: white; white-space: nowrap; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
-                    <div class="toggle-container">
-
-                        <label class="toggle-label">
-                            <input type="checkbox" class="toggle-input toggle">
-                        </label>
-                    </div>
-                </li>
-                <li class="header__special-link" id="header__cart">
-                    <span class="header__cart-amount">0</span>
-                    <a href="./cart.html" class="header__cart">
-                        <svg fill="currentColor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             viewBox="0 0 902.86 902.86"
-                             xml:space="preserve">
-<g>
-	<g>
-		<path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
-			 M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"/>
-        <path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
-			c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744
-			c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742
-			C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744
-			c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z
-			 M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
-			S619.162,694.432,619.162,716.897z"/>
-	</g>
-</g>
-</svg>
-                    </a>
-                </li>
-                <li class="header__item" id="header__login">
-                    <a href="./auth.html" class="header__login">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2C10.2386 2 8 4.23858 8 7C8 7.55228 8.44772 8 9 8C9.55228 8 10 7.55228 10 7C10 5.34315 11.3431 4 13 4H17C18.6569 4 20 5.34315 20 7V17C20 18.6569 18.6569 20 17 20H13C11.3431 20 10 18.6569 10 17C10 16.4477 9.55228 16 9 16C8.44772 16 8 16.4477 8 17C8 19.7614 10.2386 22 13 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2H13Z" fill="currentColor"/>
-                            <path d="M3 11C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11.2821C11.1931 13.1098 11.1078 13.2163 11.0271 13.318C10.7816 13.6277 10.5738 13.8996 10.427 14.0945C10.3536 14.1921 10.2952 14.2705 10.255 14.3251L10.2084 14.3884L10.1959 14.4055L10.1915 14.4115C10.1914 14.4116 10.191 14.4122 11 15L10.1915 14.4115C9.86687 14.8583 9.96541 15.4844 10.4122 15.809C10.859 16.1336 11.4843 16.0346 11.809 15.5879L11.8118 15.584L11.822 15.57L11.8638 15.5132C11.9007 15.4632 11.9553 15.3897 12.0247 15.2975C12.1637 15.113 12.3612 14.8546 12.5942 14.5606C13.0655 13.9663 13.6623 13.2519 14.2071 12.7071L14.9142 12L14.2071 11.2929C13.6623 10.7481 13.0655 10.0337 12.5942 9.43937C12.3612 9.14542 12.1637 8.88702 12.0247 8.7025C11.9553 8.61033 11.9007 8.53682 11.8638 8.48679L11.822 8.43002L11.8118 8.41602L11.8095 8.41281C11.4848 7.96606 10.859 7.86637 10.4122 8.19098C9.96541 8.51561 9.86636 9.14098 10.191 9.58778L11 9C10.191 9.58778 10.1909 9.58773 10.191 9.58778L10.1925 9.58985L10.1959 9.59454L10.2084 9.61162L10.255 9.67492C10.2952 9.72946 10.3536 9.80795 10.427 9.90549C10.5738 10.1004 10.7816 10.3723 11.0271 10.682C11.1078 10.7837 11.1931 10.8902 11.2821 11H3Z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </ul>
-
-        <ul class="header__burger-list">
-            <li class="header__burger-item" id="header__burger-main-page"><a class="main-btn" href="index.html">Главная страница</a></li>
-            <li class="header__burger-item" id="header__burger-cart-page"><a class="main-btn" href="cart.html">Карзина</a></li>
-            <li class="header__burger-item" id="header__burger-auth-page"><a class="danger-btn" href="auth.html">Выйти</a></li>
-            <li class="header__special-link">
-                <p style="color: white; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
-                <div class="toggle-container">
-
-                    <label class="toggle-label">
-                        <input type="checkbox" class="toggle-input toggle">
-                    </label>
+            <div class="reg__inner">
+                <div class="reg__heading heading">
+                    <h2>Регистрация</h2>
                 </div>
-            </li>
-        </ul>
-    </div>
-</header>
-<main>
+                <form action="#" class="reg__form">
 
-    <div id="loader">
-        <svg class="spinner" fill="currentColor" width="100px" height="100px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
-            <path d="M64,136H32a8,8,0,0,1,0-16H64a8,8,0,0,1,0,16ZM173.25488,90.74512a7.97769,7.97769,0,0,0,5.65723-2.34278l22.62695-22.62695a8.00052,8.00052,0,1,0-11.31445-11.31445l-22.627,22.627a8,8,0,0,0,5.65722,13.65723ZM65.77539,54.46094A8.00052,8.00052,0,0,0,54.46094,65.77539l22.627,22.62695A8.00052,8.00052,0,0,0,88.40234,77.08789Zm11.3125,113.13672-22.62695,22.627a8.00052,8.00052,0,0,0,11.31445,11.31445l22.62695-22.62695a8.00052,8.00052,0,0,0-11.31445-11.31445ZM224,120H192a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16Zm-45.08789,47.59766a8.00052,8.00052,0,0,0-11.31445,11.31445l22.627,22.62695a8.00052,8.00052,0,1,0,11.31445-11.31445ZM128,184a8.00039,8.00039,0,0,0-8,8v32a8,8,0,0,0,16,0V192A8.00039,8.00039,0,0,0,128,184Zm0-160a8.00039,8.00039,0,0,0-8,8V64a8,8,0,0,0,16,0V32A8.00039,8.00039,0,0,0,128,24Z"/>
-        </svg>
-    </div>
+                    <div class="reg__local-strategy">
+                        <label for="email">Электронная почта</label>
+                        <input required placeholder="helloworld@gmail.com" name="email" type="email" class="reg__input" id="email">
 
-    <section class="profile">
-        <div class="profile__inner">
-            <h2 class="profile__heading" style="padding-bottom: 10px">Профиль</h2>
-            <ul class="profile__info">
-                <li class="profile__greeting">
-                    <span class="profile__greeting-title">Имя:</span>
-                    <p class="profile__greeting-value" data-inputName="username"></p>
-                </li>
-                <li class="profile__address">
-                    <span class="profile__address-title">Адрес:</span>
-                    <p class="profile__address-value" data-inputName="address"></p>
-                </li>
-                <li class="profile__email">
-                    <span class="profile__email-title">Электронная почта:</span>
-                    <p class="profile__email-value" data-inputName="email"></p>
-                </li>
-            </ul>
+                        <label for="password">Пароль</label>
+                        <input required placeholder="qwerty" type="password" name="password" class="reg__input" id="password" minlength="6">
 
-            <button class="main-btn edit-btn">Редактировать</button>
+                        <div class="reg__optional-inputs active">
 
-        </div>
-    </section>
+                            <label for="username">Имя пользователя</label>
+                            <input required placeholder="Neo Anderson" name="username" type="text" id="username">
 
-    <section class="products">
-        <div class="products__inner">
-            <h2 class="products__heading heading">ТОВАРЫ</h2>
-            <ul class="products__items">
+                            <label for="address">Адрес</label>
+                            <input required placeholder="Бекерстрит 221" name="address" type="text" id="address">
+                        </div>
 
-            </ul>
-        </div>
-    </section>
+                    </div>
 
-    <div class="modal" id="edit-modal">
-        <div class="modal__inner">
+                    <button id="reg__google-signIn" class="reg__google-signIn secondary-btn">
+                        <img src="imgs/logos/google.svg" alt="google_ico" width="30px">
+                        <span>Войти через Google</span>
+                    </button>
 
-            <button class="modal__closeBtn close-btn">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="36.8789" y="10.0001" width="4.95814" height="38.0124" rx="2.47907" transform="rotate(45 36.8789 10.0001)" fill="currentColor"></rect>
-                    <rect x="40.3848" y="36.8788" width="4.95814" height="38.0124" rx="2.47907" transform="rotate(135 40.3848 36.8788)" fill="currentColor"></rect>
-                </svg>
-            </button>
+                    <input type="submit" value="Войти" class="main-btn">
+                </form>
 
-            <h4 class="modal__heading">Профиль</h4>
-            <form action="#" class="modal__edit-form" method="post">
+                <button class="reg__switch-tab" data-status="noAccount">Еще нет аккаунта</button>
+            </div>
 
-                <label for="modal__username-input">Имя</label>
-                <input name="username" type="text" id="modal__username-input" placeholder="Нео Андерсон">
+        </section>
+    </main>
 
-                <label for="modal__address-input">Адрес</label>
-                <input name="address" type="text" id="modal__address-input" placeholder="Адрес">
-
-                <input type="submit" value="Сохранить" class="modal__edit-btn main-btn">
-            </form>
-        </div>
-    </div>
-</main>
-
-<footer class="footer">
-    <div class="footer__inner">
-        <ul class="footer__items">
-
-            <li class="footer__item" id="footer__copyright" style="text-align: center">Все права защищены</li>
-
-            <ul class="footer__social-networks">
-                <li class="footer__item" id="footer__email">
-                    <svg fill="currentColor" width="50px" height="50px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <title/>
-                        <g id="Gmail">
-                            <path d="M25.49,30H4.5A3.35,3.35,0,0,1,2,29a3.35,3.35,0,0,1-1-2.48V5.5A3.35,3.35,0,0,1,2,3,3.35,3.35,0,0,1,4.5,2h21A3.35,3.35,0,0,1,28,3,3.35,3.35,0,0,1,29,5.5v21A3.52,3.52,0,0,1,25.49,30Zm-3-7.17a2.93,2.93,0,0,0,1.71-.37,1.41,1.41,0,0,0,.49-1.22V10.36a1.55,1.55,0,0,0-.47-1.13,1.51,1.51,0,0,0-1.13-.47H6.83a1.55,1.55,0,0,0-1.13.47,1.53,1.53,0,0,0-.47,1.12V21.24a1.53,1.53,0,0,0,.47,1.12,1.55,1.55,0,0,0,1.13.47Zm-14.7-.76V13.14l6.46,4.45Zm14.14.37H8l6.63-4.63a.6.6,0,0,0,.34.16,1,1,0,0,0,.33-.16Zm-7-8.15L8,9.16H21.9Zm7.14,7.78-6.46-4.48,6.46-4.45Z"/>
-                        </g>
-                    </svg>
-                    <p>IScompany.support@gmail.com</p>
-                </li>
-                <li class="footer__item">
-                    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="currentColor"/>
-                        <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#0F0F0F"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="currentColor"/>
-                    </svg>
-                    <p>iandsshop</p>
-                </li>
-                <li class="footer__item">
-                    <svg fill="currentColor" height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                         viewBox="-337 273 123.5 256" xml:space="preserve">
-<path d="M-260.9,327.8c0-10.3,9.2-14,19.5-14c10.3,0,21.3,3.2,21.3,3.2l6.6-39.2c0,0-14-4.8-47.4-4.8c-20.5,0-32.4,7.8-41.1,19.3
-	c-8.2,10.9-8.5,28.4-8.5,39.7v25.7H-337V396h26.5v133h49.6V396h39.3l2.9-38.3h-42.2V327.8z"/>
-</svg>
-                    <p>is_shop</p>
-                </li>
-            </ul>
-
-            </li>
-            </li>
-        </ul>
-    </div>
-</footer>
-
-<script type="module" src="./js/common.js"></script>
-<script type="module" src="./js/catalog.js"></script>
+    <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/auth.js"></script>
 </body>
 </html>

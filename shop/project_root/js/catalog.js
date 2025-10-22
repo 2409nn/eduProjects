@@ -151,9 +151,7 @@ function setEditModalData() {
     });
 }
 
-const editModal = new Modal('edit-modal');
 const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
-const editModalSubmit = document.querySelector("#edit-modal input[type='submit']");
 
 editModalTriggerBtns.forEach(btn => {
 

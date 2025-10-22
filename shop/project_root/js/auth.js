@@ -1,179 +1,116 @@
-import {signInWithGoogle, signUserOut, observeAuthState, firebaseConfig, auth} from './firebase.js'
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js';
 import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signOut,
-    onAuthStateChanged
+    signInWithGoogle,
+    signUserOut,
+    observeAuthState,
+    auth,
+    signInWithEmail,
+    verifyUserPassword
+} from './firebase.js';
+
+import {
+    signInWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js';
-import {db} from "./db.js";
 
-function validateLogin(email) {
-    if (!email || email.length === 0) {
-        return false;
-    }
+import { db } from "./db.js";
+import { inputsEmptyCheck, validateEmail, checkoutRegTable } from "./common.js";
 
-    // Более гибкое регулярное выражение для email
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    return regex.test(email);
-}
-
-function validateForm(username, password, address, email, status) {
-    // Обязательные поля для обеих форм
-    if (!email || !password) {
-        alert("Заполните email и пароль");
-        return false;
-    }
-
-    if (!validateLogin(email)) {
-        alert("Введите корректный email");
-        return false;
-    }
-
-    if (password.length < 6) {
-        alert("Пароль должен содержать минимум 6 символов");
-        return false;
-    }
-
-    // Дополнительные проверки для регистрации
-    if (status === 'noAccount') {
-        if (!username || username.length === 0) {
-            alert("Введите имя пользователя");
-            return false;
-        }
-        if (!address || address.length === 0) {
-            alert("Введите адрес");
-            return false;
-        }
-    }
-
-    return true;
-}
-
-async function getUserByEmail(email) {
-    let users = await db.getUsers();
-    let result = {isTaken: false};
-
-    users.forEach((user) => {
-        let savedEmail = user.data()['email'];
-        if (savedEmail === email) {
-            result.isTaken = true;
-            result.email = email;
-            result.username = user.data()['username'];
-            result.password = user.data()['password'];
-            result.address = user.data()['address'];
-            result.userData = user.data(); // сохраняем все данные пользователя
-        }
-    });
-
-    return result;
-}
-
-// === Работа с DOM ===
+// === Элементы DOM ===
 const signInGoogle = document.getElementById('reg__google-signIn');
+const submitBtn = document.querySelector('.reg input[type="submit"]');
+const switchTab = document.querySelector(".reg__switch-tab");
+const optionalInputs = document.querySelector(".reg__optional-inputs");
+const form = document.querySelector('.reg__form');
 
-// Обработчик кнопки входа через Google
+var accountStatus = "hoAccount";
+
+// === Обработчик кнопки входа через Google ===
 signInGoogle.addEventListener('click', async (e) => {
     e.preventDefault();
     try {
         const user = await signInWithGoogle();
-        let userEmail = user.email;
-        let isTransfered = false;
+        console.log('Google вход:', user);
 
-        let users = await db.getUsers()
-            .then((users) => { return users })
-            .catch((e) => { console.error(e) });
-
-        users.forEach((user) => {
-            if (userEmail === user.data().email) {
-                window.location.href = './index.html';
-                isTransfered = true;
-                localStorage.setItem("email", userEmail);
-            }
-        });
-
-        if (!isTransfered) {
-            alert('Вы еще не зарегистрированы. Пожалуйста, зарегистрируйтесь сначала.');
-            // Можно предложить регистрацию или выход
-            await signUserOut();
+        // Проверяем, есть ли документ пользователя в базе
+        const existingUser = await db.getUserByEmail(user.email);
+        if (!existingUser) {
+            await db.addUser(
+                user.displayName || "Без имени",
+                user.email,
+                "google-auth",
+                "Не указан"
+            );
         }
 
+        window.location.href = './catalog.html';
     } catch (e) {
-        console.error('Ошибка входа:', e);
+        console.error('Ошибка входа через Google:', e);
         alert('Ошибка входа через Google');
     }
 });
 
-const submitBtn = document.querySelector('.reg input[type="submit"]');
-const switchTab = document.querySelector('.reg__switch-tab');
 
+// === Обработка нажатия кнопки регистрации/входа ===
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
-    const address = document.getElementById('address').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const password = form.querySelector('input[name="password"]').value.trim();
+    const username = form.querySelector('input[name="username"]')?.value.trim();
+    const address = form.querySelector('input[name="address"]')?.value.trim();
 
-    const status = switchTab.getAttribute('data-status');
+    // Проверяем корректность email
+    if (!validateEmail(form)) return alert("Введите корректный email");
 
-    // Валидация формы
-    if (!validateForm(username, password, address, email, status)) {
-        return;
-    }
-
-    try {
-        if (status === 'noAccount') {
-            // РЕГИСТРАЦИЯ
-            let result = await getUserByEmail(email);
-
-            if (result.isTaken) {
-                alert("Данный email уже занят");
-            } else {
-                await db.addUser(username, email, password, address);
-                localStorage.setItem("email", email);
-                alert("Регистрация успешна!");
-                window.location.href = './index.html';
-            }
-
-        } else if (status === 'haveAccount') {
-            // ВХОД
-            let result = await getUserByEmail(email);
-
-            if (!result.isTaken) {
-                alert("Пользователь с таким email не найден");
+    if (accountStatus === "noAccount") {
+        // === Регистрация нового пользователя ===
+        try {
+            if (password.length < 6) {
+                alert("Пароль должен содержать не менее 6 символов");
                 return;
             }
 
-            // Проверяем пароль (предполагая, что пароль хранится в открытом виде)
-            // В реальном приложении используйте хеширование!
-            if (password === result.password) {
-                localStorage.setItem("email", email);
-                alert("Вход выполнен успешно!");
-                window.location.href = './index.html';
-            } else {
-                alert("Неверный пароль");
+            if (inputsEmptyCheck(form) === false) {
+                throw new Error('Не все необходимые поля были заполнены')
+                return alert("Пожалуйста, заполните все поля")
             }
+
+            const user = await signInWithEmail(email, password);
+            if (user) {
+                await db.addUser(username, email, password, address);
+                console.log("Пользователь создан и добавлен в базу:", user.uid);
+                window.location.href = './catalog.html';
+            }
+        } catch (error) {
+            console.error("Ошибка регистрации:", error);
+            alert("Не удалось зарегистрировать пользователя.");
         }
-    } catch (error) {
-        console.error('Ошибка:', error);
-        alert("Произошла ошибка. Попробуйте еще раз.");
+    }
+    else if (accountStatus === "haveAccount") {
+        // === Вход существующего пользователя ===
+        try {
+            const loginResult = await verifyUserPassword(email, password);
+            if (loginResult.success) {
+                window.location.href = './catalog.html';
+            }
+            else if (loginResult.message) {
+                alert(loginResult.message);
+            }
+
+        } catch (error) {
+            console.error("Ошибка входа:", error);
+            alert("Неверный email или пароль.");
+        }
     }
 });
 
-
-// внедрить
-const switchTab = document.querySelector(".reg__switch-tab");
-const optionalInputs = document.querySelector(".reg__optional-inputs");
-
-checkoutRegTable(optionalInputs, switchTab);
-
-switchTab.addEventListener("click", (e) => {
+// === Переключение вкладки регистрации/входа ===
+switchTab.addEventListener("click", () => {
     optionalInputs.classList.toggle("active");
-
     checkoutRegTable(optionalInputs, switchTab);
-})
 
-// -----
+    accountStatus = optionalInputs.classList.contains("active")
+        ? "noAccount"
+        : "haveAccount";
 
+    console.log(accountStatus);
+    });

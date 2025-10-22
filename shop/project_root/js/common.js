@@ -105,7 +105,8 @@ try {
 // ===== валидация =====
 
 export function inputsEmptyCheck(form) {
-    const checkInputs = Array.from(form.querySelectorAll(`input:has([name])`));
+    const checkInputs = Array.from(form.querySelectorAll("input[name]"));
+
     const allFilled = checkInputs.every(input => input.value.trim() !== "");
     return allFilled;
 }
@@ -115,25 +116,3 @@ export function validateEmail(form) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // базовая проверка email
     return regex.test(email);
 }
-
-export function checkPassword(form) {
-    const email = form.querySelector("input[type='email']").value.trim();
-    const password
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,5 @@
-import {CartItem, Cart, Modal} from './models.js';
+import {Cart, Modal} from './models.js';
 import {db} from './db.js'
-
 
 function calcPrice(priceElem, amount, operation=null) {
 

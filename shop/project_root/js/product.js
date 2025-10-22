@@ -21,7 +21,9 @@ const cartBtn = document.querySelector(".productPage__cart-btn");
 cartBtn.addEventListener("click", async (e) => {
 
     loaderSpinner.classList.remove('hidden');
-    await db.addToCart(image, title, description, price);
+    const userId = await db.getCurrentUserId();
+
+    await db.addToCart(userId, image, title, description, price);
     loaderSpinner.classList.add('hidden');
 
     alert("Товар добавлен в карзину");

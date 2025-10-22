@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shop/project_root/catalog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/auth.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/catalog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/project_root/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +79,8 @@
       <recent name="$PROJECT_DIR$/shop/project_root/imgs/nav" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.auth.html">
-    <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/auth.html" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="catalog.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/catalog.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/projects/shop/project_root/index.html" useBuiltInWebServerPort="true">
@@ -90,8 +97,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.auth.html" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.catalog.html" />
         <item itemvalue="Node.js.catalog.js" />
         <item itemvalue="JavaScript Debug.product.html" />
         <item itemvalue="Node.js.db.js" />
@@ -134,7 +141,13 @@
       <workItem from="1760517217073" duration="4432000" />
       <workItem from="1760532427125" duration="4507000" />
       <workItem from="1760702874091" duration="81000" />
-      <workItem from="1760780768768" duration="7994000" />
+      <workItem from="1760780768768" duration="8310000" />
+      <workItem from="1760873632484" duration="765000" />
+      <workItem from="1760944100004" duration="11002000" />
+      <workItem from="1760968285293" duration="3957000" />
+      <workItem from="1760972434922" duration="93000" />
+      <workItem from="1761053534653" duration="1444000" />
+      <workItem from="1761139863037" duration="8086000" />
     </task>
     <servers />
   </component>

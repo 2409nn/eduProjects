@@ -6,19 +6,49 @@ import {
     getDocs,
     updateDoc,
     deleteDoc,
-    doc
+    doc,
+    query,
+    where,
+    getDocs as getQueryDocs
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import {
+    getAuth
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 import { firebaseConfig } from "./firebase.js";
 
 // На основе уникального fbConfig запускается приложение.
-// С помощью функции gerFirestore, мы получаем базу данных приложения.
+// С помощью функции getFirestore, мы получаем базу данных приложения.
 
 export class DataBase {
     constructor(fbConfig) {
         this.fbConfig = fbConfig;
         this.app = initializeApp(firebaseConfig);
         this.db = getFirestore(this.app);
+        this.auth = getAuth(this.app);
     }
+
+    async getUserByEmail(email) {
+        try {
+            const usersRef = collection(this.db, "users");
+            const q = query(usersRef, where("email", "==", email));
+            const querySnapshot = await getQueryDocs(q);
+
+            if (querySnapshot.empty) {
+                return null; // Нет такого пользователя
+            }
+
+            // Если пользователь найден, возвращаем первый документ
+            const userDoc = querySnapshot.docs[0];
+            return {
+                id: userDoc.id,
+                ...userDoc.data()
+            };
+        } catch (e) {
+            console.error("Ошибка при поиске пользователя по email:", e);
+            return null;
+        }
+    }
+
 
     async addUser(username, email, password, address) {
         try {
@@ -39,12 +69,28 @@ export class DataBase {
         return getDocs(collection(this.db, "users"));
     }
 
-    // сохранение товара в базу данных
+    // ✅ Получить ID текущего пользователя
+    getCurrentUserId() {
+        const user = this.auth.currentUser;
+        if (user) {
+            return user.uid; // UID из Firebase Authentication
+        } else {
+            console.warn("Пользователь не авторизован");
+            return null;
+        }
+    }
+
+    // ✅ Добавление товара в корзину
     async addToCart(userId, imageURL, title, description, price) {
         try {
+            // если передали некорректный URL, экранируем его
+
+            const safeImageURL = encodeURIComponent(imageURL);
+            console.log(imageURL);
+
             const cartRef = collection(this.db, "users", userId, "cart");
             await addDoc(cartRef, {
-                imageURL,
+                imageURL: decodeURIComponent(safeImageURL), // храним как обычный URL
                 title,
                 description,
                 price,
@@ -72,23 +118,19 @@ export class DataBase {
         }
     }
 
-    // ✅ Метод 1: изменение данных пользователя
     async updateUser(userId, newData) {
         try {
             const userRef = doc(this.db, "users", userId);
             await updateDoc(userRef, newData);
-            // console.log(`Данные пользователя ${userId} успешно обновлены`);
         } catch (e) {
             console.error("Ошибка при обновлении пользователя:", e);
         }
     }
 
-    // ✅ Метод 2: удаление товара из корзины
     async deleteCartProduct(productId) {
         try {
             const productRef = doc(this.db, "catalog", productId);
             await deleteDoc(productRef);
-            // console.log(`Товар с ID ${productId} успешно удалён из корзины`);
         } catch (e) {
             console.error("Ошибка при удалении товара:", e);
         }

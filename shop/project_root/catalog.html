@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product</title>
+    <title>index</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+<script type="module" src="./js/db.js"></script>
 <header class="header">
     <div class="header__inner">
         <ul class="header__items">
@@ -14,7 +15,7 @@
                 <a href="./catalog.html" class="header__link nav-link">Главная</a>
             </li>
             <li class="header__item" id="header__logo">
-                <img class="header__icon svg" src="./imgs/logos/logo.png" alt="logo" style="width: 80px">
+                <img class="header__icon svg" src="./imgs/logos/logo.png" alt="logo" style="width: 80px;">
             </li>
             <li class="header__item" id="header__burger-menu">
                 <button class="header__burger-pic">
@@ -26,7 +27,7 @@
             <ul class="header__item" id="header__special-links">
 
                 <li class="header__special-link">
-                    <p style="color: white; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
+                    <p style="color: white; white-space: nowrap; font-weight: 600; font-size: 12px; text-align: center; padding-bottom: 5px;">Темная тема</p>
                     <div class="toggle-container">
 
                         <label class="toggle-label">
@@ -91,33 +92,39 @@
         </svg>
     </div>
 
-    <section class="productPage">
-        <div class="productPage__inner">
-            <h1 class="productPage__heading heading">СТРАНИЦА ТОВАРА</h1>
-            <img class="productPage__image" src="#" alt="product_pic">
-            <div class="productPage__info">
+    <section class="profile">
+        <div class="profile__inner">
+            <h2 class="profile__heading" style="padding-bottom: 10px">Профиль</h2>
+            <ul class="profile__info">
+                <li class="profile__greeting">
+                    <span class="profile__greeting-title">Имя:</span>
+                    <p class="profile__greeting-value" data-inputName="username"></p>
+                </li>
+                <li class="profile__address">
+                    <span class="profile__address-title">Адрес:</span>
+                    <p class="profile__address-value" data-inputName="address"></p>
+                </li>
+                <li class="profile__email">
+                    <span class="profile__email-title">Электронная почта:</span>
+                    <p class="profile__email-value" data-inputName="email"></p>
+                </li>
+            </ul>
 
-                <div class="productPage-main">
-                    <h2 class="productPage__title">Видеокарта kdma;ls;kldmk;ldmaskldmas;l alksdmsadmals; adladamsk</h2>
-                    <p class="productPage__price">42000тг</p>
-                </div>
+            <button class="main-btn edit-btn">Редактировать</button>
 
-                <div class="productPage__description">
-                    <h3 class="productPage__description-heading">Описание:</h3>
-                    <p class="productPage__description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Ipsam porro quasi repellendus suscipit tenetur veniam, voluptatem! Iure, officiis, sint! Animi
-                        architecto cum delectus eius esse ex porro quidem rerum unde.
-                    </p>
-                </div>
-            </div>
-            <div class="productPage__buttons">
-                <button class="productPage__buy-btn main-btn buy-button">Купить</button>
-                <button class="productPage__cart-btn secondary-btn">Карзина</button>
-            </div>
         </div>
     </section>
 
-    <div class="modal" id="purchase-modal">
+    <section class="products">
+        <div class="products__inner">
+            <h2 class="products__heading heading">ТОВАРЫ</h2>
+            <ul class="products__items">
+
+            </ul>
+        </div>
+    </section>
+
+    <div class="modal" id="edit-modal">
         <div class="modal__inner">
 
             <button class="modal__closeBtn close-btn">
@@ -127,43 +134,21 @@
                 </svg>
             </button>
 
-            <h4 class="modal__heading">Оформление покупки</h4>
-            <form action="#" class="modal__purchase-form" method="post">
+            <h4 class="modal__heading">Профиль</h4>
+            <form action="#" class="modal__edit-form" method="post">
 
-                <label for="modal__card-number">Номер карты</label>
-                <input type="number" name="card-number" id="modal__card-number" placeholder="0123 4567 8901">
+                <label for="modal__username-input">Имя</label>
+                <input name="username" type="text" id="modal__username-input" placeholder="Нео Андерсон">
 
-                <div class="modal__small-inputs">
-                    <div class="modal__expiry">
-                        <label for="modal__expiry-date">Дата истечения</label>
-                        <input type="date" name="expiry-date" id="modal__expiry-date" placeholder="MM:YY">
-                    </div>
+                <label for="modal__address-input">Адрес</label>
+                <input name="address" type="text" id="modal__address-input" placeholder="Адрес">
 
-                    <div class="modal__cvv">
-                        <label for="modal__cvv">CVV</label>
-                        <input type="password" name="password" maxlength="3" id="modal__cvv" placeholder="CVV">
-                    </div>
-                </div>
-
-                <label for="modal__card-user">Имя владельца</label>
-                <input type="text" id="modal__card-user" placeholder="Имя Фамилия">
-
-                <div class="modal__save-data" style="padding: 0">
-                    <label>
-                        Сохранить данные
-                        <input type="checkbox" id="modal__save-data" style="margin-bottom: 10px">
-                        <span class="custom-checkbox"></span>
-
-                    </label>
-
-                </div>
-
-
-                <input type="submit" value="Оплатить" class="modal__pay-btn main-btn">
+                <input type="submit" value="Сохранить" class="modal__edit-btn main-btn">
             </form>
         </div>
     </div>
 </main>
+
 <footer class="footer">
     <div class="footer__inner">
         <ul class="footer__items">
@@ -205,6 +190,6 @@
 </footer>
 
 <script type="module" src="./js/common.js"></script>
-<script type="module" src="./js/product.js"></script>
+<script type="module" src="./js/catalog.js"></script>
 </body>
 </html>
