@@ -1,15 +1,13 @@
 import {db} from './db.js'
-import {onSnapshot, collection} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 
 // ===== Установка темы =====
 
 const userId = localStorage.getItem("userId");
-console.log(userId);
 let isLoaded = false;
 
 // отображение количества товаров в корзине в header
 
-async function renderCart() {
+export async function renderCart() {
     const cartProducts = await db.getCartProducts(userId).then((res) => {
         isLoaded = true;
         return res;
@@ -21,10 +19,7 @@ async function renderCart() {
 }
 
 // отслеживание изменений в корзине
-await renderCart();
-onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
-    await renderCart();
-})
+
 
 function toggleTheme(mode) {
     const root = document.documentElement;

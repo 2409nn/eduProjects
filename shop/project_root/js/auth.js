@@ -5,7 +5,7 @@ import {
     auth,
     signInWithEmail,
     verifyUserPassword,
-    registerWithEmail
+    registerWithEmail,
 } from './firebase.js';
 
 import {
@@ -42,6 +42,7 @@ signInGoogle.addEventListener('click', async (e) => {
         }
 
         localStorage.setItem("email", user.email);
+        localStorage.setItem("userId", existingUser);
         window.location.href = './catalog.html';
     } catch (e) {
         console.error('Ошибка входа через Google:', e);
@@ -79,6 +80,7 @@ submitBtn.addEventListener('click', async (e) => {
             if (user) {
                 await db.addUser(username, email, address, user.uid);
                 console.log("Пользователь создан и добавлен в базу:", user.uid);
+                localStorage.setItem("email", user.email);
                 window.location.href = "./catalog.html";
             }
         } catch (error) {

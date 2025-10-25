@@ -1,5 +1,7 @@
 import {Cart, Modal} from './models.js';
 import {db} from './db.js'
+import {renderCart} from './common.js';
+import {onSnapshot, collection} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 
 function calcPrice(priceElem, amount, operation=null) {
 
@@ -26,11 +28,19 @@ function calcPrice(priceElem, amount, operation=null) {
     return total;
 }
 
+// отображение количества товаров в корзине
+let userId = localStorage.getItem("userId");
+
+await renderCart();
+onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
+    await renderCart();
+})
+
 // загрузка данных
+
 
 const ul = document.querySelector('section ul');
 let isLoaded = false;
-let userId = localStorage.getItem("userId");
 let cartProducts = await db.getCartProducts(userId)
     .then((res) => {
         isLoaded = true;
@@ -108,9 +118,6 @@ if (isLoaded) {
         const productId = productEl.getAttribute('data-productId');
         productEl.remove();
         // можно обновить БД асинхронно
-
-        console.log(userId)
-        console.log(productId);
 
         await db.deleteCartProduct(userId, productId);
 

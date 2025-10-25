@@ -2,7 +2,8 @@ import * as api from './api.js';
 import {Product} from './models.js';
 import {db} from './db.js';
 import {Modal} from './models.js';
-
+import {renderCart} from './common.js';
+import {onSnapshot, collection} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 
 function setEditModalData() {
     const editModalData = document.querySelector(".profile__info");
@@ -55,6 +56,13 @@ async function getUserByEmail(email) {
     return result;
 }
 
+const userId = localStorage.getItem("userId");
+
+await renderCart();
+onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
+    await renderCart();
+})
+
 // загрузка персональных данных из Firebase
 let isLoaded = {users: false, products: false};
 let users = await db.getUsers().then((res) => {
@@ -92,7 +100,6 @@ if (allLoaded) {
         appendBlock.insertAdjacentHTML('beforeend', card);
     })
 }
-
 
 // Модальное окно редактирования профиля
 

@@ -1,8 +1,18 @@
 import {db} from './db.js'
 import {Modal} from "./models.js";
+import {renderCart} from './common.js';
+import {onSnapshot, collection} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 
 const loaderSpinner = document.getElementById('loader');
 loaderSpinner.classList.add('hidden');
+
+// отображение количества товаров в корзине
+const userId = localStorage.getItem("userId");
+
+await renderCart();
+onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
+    await renderCart();
+})
 
 // подгрузка данных о товаре
 const params = new URLSearchParams(window.location.search);
