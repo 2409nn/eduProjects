@@ -20,42 +20,6 @@ function setEditModalData() {
     });
 }
 
-async function getUserIdByEmail(email) {
-    let users = await db.getUsers()
-        .then((users) => {return users})
-        .catch((e) => {console.error(e)})
-
-    let result;
-
-    users.forEach((user) => {
-
-        if (email == user.data().email) {
-            result = user.id;
-        }
-    })
-
-    return result;
-}
-
-async function getUserByEmail(email) {
-
-// проверка на уникальность email
-    let result = {isTaken: false};
-
-    users.forEach((user) => {
-        let savedEmail = user.data()['email'];
-        if (savedEmail === email) {
-            result.isTaken = true;
-            result.username = user.data()['username'];
-            result.email = email;
-            result.password = user.data()['password'];
-            result.address = user.data()['address'];
-        }
-    });
-
-    return result;
-}
-
 const userId = localStorage.getItem("userId");
 
 await renderCart();
@@ -82,12 +46,11 @@ if (allLoaded) {
 
 // Отображение профиля:
     let email = localStorage.getItem('email');
-    let userInfo = await getUserByEmail(email)
-        .then()
-        .catch((e) => console.error(e));
+    const userInfo = await db.getUserInfo(userId);
 
     const profileInfo = document.querySelectorAll('.profile__info li p');
     profileInfo.forEach((li) => {
+
         let attribute = li.getAttribute('data-inputName');
         li.innerText = userInfo[attribute];
     })
@@ -143,7 +106,6 @@ editModalSubmit.addEventListener("click", async (e) => {
 
     // Если валидация прошла успешно, продолжаем изменение данных пользователя
     let oldEmail = document.querySelector(".profile .profile__email-value").textContent;
-    let id = await getUserIdByEmail(oldEmail);
     let data = {};
 
     inputs.forEach(input => {
@@ -158,6 +120,6 @@ editModalSubmit.addEventListener("click", async (e) => {
         }
     });
 
-    await db.updateUser(id, data);
+    await db.updateUser(userId, data);
     editModal.close();
 });

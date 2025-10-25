@@ -42,7 +42,7 @@ signInGoogle.addEventListener('click', async (e) => {
         }
 
         localStorage.setItem("email", user.email);
-        localStorage.setItem("userId", existingUser);
+        localStorage.setItem("userId", user.uid);
         window.location.href = './catalog.html';
     } catch (e) {
         console.error('Ошибка входа через Google:', e);
@@ -80,7 +80,9 @@ submitBtn.addEventListener('click', async (e) => {
             if (user) {
                 await db.addUser(username, email, address, user.uid);
                 console.log("Пользователь создан и добавлен в базу:", user.uid);
+
                 localStorage.setItem("email", user.email);
+                localStorage.setItem("userId", user.uid);
                 window.location.href = "./catalog.html";
             }
         } catch (error) {
@@ -95,6 +97,8 @@ submitBtn.addEventListener('click', async (e) => {
             if (loginResult.success) {
                 localStorage.setItem("email", email);
                 db.addUser()
+                localStorage.setItem("email", user.email);
+                localStorage.setItem("userId", user.uid);
                 window.location.href = './catalog.html';
             }
             else if (loginResult.message) {

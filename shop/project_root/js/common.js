@@ -5,6 +5,8 @@ import {db} from './db.js'
 const userId = localStorage.getItem("userId");
 let isLoaded = false;
 
+console.log(localStorage.getItem("email"));
+
 // отображение количества товаров в корзине в header
 
 export async function renderCart() {

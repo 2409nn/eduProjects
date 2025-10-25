@@ -10,6 +10,7 @@ import {
     setDoc,
     query,
     where,
+    getDoc,
     getDocs as getQueryDocs
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 import {
@@ -48,6 +49,17 @@ export class DataBase {
         } catch (e) {
             console.error("Ошибка при поиске пользователя по email:", e);
             return null;
+        }
+    }
+
+    async getUserInfo(userId){
+        try {
+            const userRef = doc(this.db, "users", userId);
+            const userInfo = await getDoc(userRef);
+            return userInfo.data();
+
+        }catch(e) {
+            console.error(e);
         }
     }
 

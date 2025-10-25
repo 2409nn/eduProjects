@@ -561,6 +561,11 @@ section [class*=__inner] {
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
+@media (max-width: 1000px) {
+  .header__items {
+    grid-template-columns: 40% 20% 40%;
+  }
+}
 @media (max-width: 700px) {
   .header__items {
     display: flex;
@@ -582,6 +587,7 @@ section [class*=__inner] {
   align-items: center;
   flex-direction: row;
   gap: 40px;
+  margin-left: auto;
 }
 @media (max-width: 700px) {
   .header__items #header__special-links {
