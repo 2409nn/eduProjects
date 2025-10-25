@@ -65,6 +65,18 @@ export async function signInWithEmail(email, password) {
     return result.user;
 }
 
+
+export async function registerWithEmail(email, password) {
+    try {
+        const result = await createUserWithEmailAndPassword(auth, email, password);
+        console.log("Регистрация по email:", result.user);
+        return result.user;
+    } catch (error) {
+        console.error("Ошибка регистрации:", error);
+        throw error;
+    }
+}
+
 // === Выход ===
 export async function signUserOut() {
     await signOut(auth);
@@ -78,7 +90,6 @@ export function observeAuthState(callback) {
 
 export async function verifyUserPassword(email, password) {
     try {
-        const auth = getAuth(this.app);
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
         // Если успешно — возвращаем объект пользователя

@@ -4,6 +4,21 @@ import {db} from './db.js';
 import {Modal} from './models.js';
 
 
+function setEditModalData() {
+    const editModalData = document.querySelector(".profile__info");
+    const editDataObject = {};
+    editModalData.querySelectorAll("li p").forEach(p => {
+        editDataObject[p.getAttribute("data-inputName")] = p.textContent;
+    });
+
+    Object.keys(editDataObject).forEach((key) => {
+        const input = Array.from(editModal.getInputs()).find(input => input.name === key);
+        if (input) {
+            input.value = editDataObject[key]; // например, подставляем данные
+        }
+    });
+}
+
 async function getUserIdByEmail(email) {
     let users = await db.getUsers()
         .then((users) => {return users})
@@ -51,8 +66,6 @@ const loaderSpinner = document.querySelector('#loader');
 
 // получение данных из fakeAPI:
 let products = await api.getProducts().then(isLoaded.products = true).catch(e => console.error(e));
-
-
 const allLoaded = Object.values(isLoaded).every(v => v === true);
 
 if (allLoaded) {
@@ -80,10 +93,22 @@ if (allLoaded) {
     })
 }
 
-// modal
 
+// Модальное окно редактирования профиля
+
+const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
 const editModal = new Modal("edit-modal");
 const editModalSubmit = document.querySelector('#edit-modal input[type="submit"]');
+
+editModalTriggerBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        setEditModalData();
+        editModal.show();
+    })
+    editModal.closeBtn.addEventListener("click", (e) => {
+        editModal.close();
+    })
+})
 
 editModalSubmit.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -129,39 +154,3 @@ editModalSubmit.addEventListener("click", async (e) => {
     await db.updateUser(id, data);
     editModal.close();
 });
-
-
-// интегрировать:
-
-// ===== modal edit =====
-
-function setEditModalData() {
-
-    const editModalData = document.querySelector(".profile__info");
-    const editDataObject = {};
-    editModalData.querySelectorAll("li p").forEach(p => {
-        editDataObject[p.getAttribute("data-inputName")] = p.textContent;
-    });
-
-    Object.keys(editDataObject).forEach((key) => {
-        const input = Array.from(editModal.getInputs()).find(input => input.name === key);
-        if (input) {
-            input.value = editDataObject[key]; // например, подставляем данные
-        }
-    });
-}
-
-const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
-
-editModalTriggerBtns.forEach(btn => {
-
-    btn.addEventListener("click", (e) => {
-        setEditModalData();
-        editModal.show();
-    })
-
-    editModal.closeBtn.addEventListener("click", (e) => {
-        editModal.close();
-    })
-})
-

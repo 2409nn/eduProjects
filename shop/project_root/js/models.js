@@ -22,33 +22,23 @@ export class Cart {
     }
 
     async addProduct(url, title, description, price) {
-        this.productUrl = url
-        this.productTitle = title
-        this.productDescription = description
-        this.productPrice = price
-
         await db.addToCart(this.userId, url, title, description, price);
     }
 
-    async init() {
-        const productId = await db.addToCart(this.userId, url, title, description, price);
-        this.productId = productId;
-    }
-
-    renderProduct() {
+    renderProduct(productUrl, productTitle, productDescription, productPrice, productId) {
         const insertBlock = document.querySelector(".cProducts .cProducts__items")
         const html = `<li class="cProducts__item">
-                    <div class="cProducts__product">
-                        <img class="cProducts__product-pic" src="${this.productUrl}" alt="product_pic">
+                    <div class="cProducts__product" data-productId=${productId}>
+                        <img class="cProducts__product-pic" src="${productUrl}" alt="product_pic">
                         <div class="cProducts__product-info">
-                            <h2 class="cProducts__product-title title">${this.productTitle}</h2>
+                            <h2 class="cProducts__product-title title">${productTitle}</h2>
                             <div class="cProducts__product-counter counter">
                                 <button class="counter-minus counter-btn">-</button>
                                 <span class="counter-amount">1</span>
                                 <button class="counter-plus counter-btn">+</button>
                             </div>
                             <p class="cProducts__product-description description">
-                                ${this.productDescription}
+                                ${productDescription}
                             </p>
                         </div>
                         <div class="cProducts__product-decide">
@@ -59,7 +49,7 @@ export class Cart {
                                 </svg>
                             </button>
                             <div class="cProducts__product-buy">
-                                <p class="cProducts__product-price price">$ ${this.productPrice}</p>
+                                <p class="cProducts__product-price price">$ ${productPrice}</p>
                                 <button class="cProducts__product-buy buy-button">Купить</button>
                             </div>
 

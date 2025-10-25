@@ -7,6 +7,7 @@ import {
     updateDoc,
     deleteDoc,
     doc,
+    setDoc,
     query,
     where,
     getDocs as getQueryDocs
@@ -25,6 +26,7 @@ export class DataBase {
         this.app = initializeApp(firebaseConfig);
         this.db = getFirestore(this.app);
         this.auth = getAuth(this.app);
+        this.firestore = getFirestore(this.app);
     }
 
     async getUserByEmail(email) {
@@ -49,18 +51,23 @@ export class DataBase {
         }
     }
 
-
-    async addUser(username, email, password, address) {
+    async addUser(username, email, address, userId) {
         try {
-            const docRef = await addDoc(collection(this.db, "users"), {
+            // Создаём ссылку на документ users/{userId}
+            const userRef = doc(this.db, "users", userId);
+
+            // Сохраняем данные
+            await setDoc(userRef, {
                 username,
                 email,
-                password,
-                address
+                address,
+                createdAt: new Date()
             });
-            return docRef.id; // ✅ Возвращаем id
+
+            console.log(`Пользователь добавлен с ID: ${userId}`);
+            return userId;
         } catch (e) {
-            console.error("Ошибка при добавлении:", e);
+            console.error("Ошибка при добавлении пользователя:", e);
             return null;
         }
     }
@@ -86,7 +93,6 @@ export class DataBase {
             // если передали некорректный URL, экранируем его
 
             const safeImageURL = encodeURIComponent(imageURL);
-            console.log(imageURL);
 
             const cartRef = collection(this.db, "users", userId, "cart");
             await addDoc(cartRef, {
@@ -101,17 +107,24 @@ export class DataBase {
         }
     }
 
-    async getCartProducts() {
+    async getCartProducts(userId) {
         try {
-            const querySnapshot = await getDocs(collection(this.db, "catalog"));
-            const products = [];
-            querySnapshot.forEach((doc) => {
-                products.push({
-                    id: doc.id,
-                    ...doc.data()
-                });
-            });
+            if (!userId) {
+                console.warn("Не указан userId при получении корзины");
+                return [];
+            }
+
+            // путь: users/{userId}/cart
+            const cartRef = collection(this.db, "users", userId, "cart");
+            const querySnapshot = await getDocs(cartRef);
+
+            const products = querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
             return products;
+
         } catch (e) {
             console.error("Ошибка при получении товаров корзины:", e);
             return [];
@@ -127,9 +140,9 @@ export class DataBase {
         }
     }
 
-    async deleteCartProduct(productId) {
+    async deleteCartProduct(userId, productId) {
         try {
-            const productRef = doc(this.db, "catalog", productId);
+            const productRef = doc(this.db, "users", userId, "cart", productId);
             await deleteDoc(productRef);
         } catch (e) {
             console.error("Ошибка при удалении товара:", e);

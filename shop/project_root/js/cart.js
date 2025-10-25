@@ -26,12 +26,12 @@ function calcPrice(priceElem, amount, operation=null) {
     return total;
 }
 
-const ul = document.querySelector('section ul');
-const emptyState = document.querySelector('section .empty-state');
+// загрузка данных
 
-// после асинхронного рендера — скрываем лоадер и делаем проверку
+const ul = document.querySelector('section ul');
 let isLoaded = false;
-let cartProducts = await db.getCartProducts()
+let userId = localStorage.getItem("userId");
+let cartProducts = await db.getCartProducts(userId)
     .then((res) => {
         isLoaded = true;
         return res;
@@ -41,13 +41,15 @@ const loaderSpinner = document.querySelector('#loader');
 
 if (isLoaded) {
 
-    // ===== рендеринг товаров =====
-    cartProducts.forEach(cProduct => {
-        const cart = new Cart(cProduct, cProduct.id);
-        cart.renderProduct();
+    // отображение элементов корзины
+
+    const cart = new Cart(userId);
+    cartProducts.forEach((product) => {
+        cart.renderProduct(product.imageURL, product.title, product.description, product.price, product.id);
     })
 
-    // ===== modals =====
+    // модальные окна
+
     const modal = new Modal("purchase-modal");
     const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
     const purchaseModalSubmit = document.querySelector("#purchase-modal input[type='submit']");
@@ -57,26 +59,16 @@ if (isLoaded) {
         alert("Заказ оформлен!");
         modal.close();
     })
-
     modalTriggerBtns.forEach(btn => {
         btn.addEventListener("click", (e) => {
             modal.show();
         })
     })
-
     modal.closeBtn.addEventListener("click", (e) => {
         modal.close();
     })
 
-
-// ===== counter ======
-
-    // ===== счетчик товаров в карзине =====
-
-    const counter = document.querySelector("header .header__cart-amount");
-    const cartProductsAmount = cartProducts.length;
-
-    counter.textContent = cartProductsAmount;
+    // выбор количества штук товара
 
     document.querySelectorAll(".counter").forEach(counter => {
         let minusButton = counter.querySelector(".counter-minus");
@@ -106,9 +98,9 @@ if (isLoaded) {
             }
         })
 
-    // ===== удаление товаров =====
+    // удаление товаров
 
-    ul.addEventListener('click', (e) => {
+    ul.addEventListener('click', async (e) => {
         const closeBtn = e.target.closest('.close-btn');
         if (!closeBtn) return;
         const productEl = closeBtn.closest('.cProducts__product');
@@ -117,7 +109,10 @@ if (isLoaded) {
         productEl.remove();
         // можно обновить БД асинхронно
 
-        db.deleteCartProduct(productId);
+        console.log(userId)
+        console.log(productId);
+
+        await db.deleteCartProduct(userId, productId);
 
     });
 

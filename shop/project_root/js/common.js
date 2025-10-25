@@ -1,7 +1,30 @@
 import {db} from './db.js'
-import {Modal} from './models.js'
+import {onSnapshot, collection} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 
 // ===== Установка темы =====
+
+const userId = localStorage.getItem("userId");
+console.log(userId);
+let isLoaded = false;
+
+// отображение количества товаров в корзине в header
+
+async function renderCart() {
+    const cartProducts = await db.getCartProducts(userId).then((res) => {
+        isLoaded = true;
+        return res;
+    }).catch(e => console.error(e));
+
+    const counter = document.querySelector("header .header__cart-amount");
+    const cartProductsAmount = cartProducts.length;
+    counter.textContent = cartProductsAmount;
+}
+
+// отслеживание изменений в корзине
+await renderCart();
+onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
+    await renderCart();
+})
 
 function toggleTheme(mode) {
     const root = document.documentElement;
@@ -40,11 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleTheme(localStorage.getItem("theme"));
 });
 
-let isLoaded = false;
-const cartProducts = await db.getCartProducts().then((res) => {
-    isLoaded = true;
-    return res;
-}).catch(e => console.error(e));
 
 // ===== кнопка-переключатель темы =====
 

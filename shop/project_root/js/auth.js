@@ -4,7 +4,8 @@ import {
     observeAuthState,
     auth,
     signInWithEmail,
-    verifyUserPassword
+    verifyUserPassword,
+    registerWithEmail
 } from './firebase.js';
 
 import {
@@ -21,7 +22,7 @@ const switchTab = document.querySelector(".reg__switch-tab");
 const optionalInputs = document.querySelector(".reg__optional-inputs");
 const form = document.querySelector('.reg__form');
 
-var accountStatus = "hoAccount";
+var accountStatus = "noAccount";
 
 // === Обработчик кнопки входа через Google ===
 signInGoogle.addEventListener('click', async (e) => {
@@ -36,11 +37,11 @@ signInGoogle.addEventListener('click', async (e) => {
             await db.addUser(
                 user.displayName || "Без имени",
                 user.email,
-                "google-auth",
                 "Не указан"
             );
         }
 
+        localStorage.setItem("email", user.email);
         window.location.href = './catalog.html';
     } catch (e) {
         console.error('Ошибка входа через Google:', e);
@@ -74,11 +75,11 @@ submitBtn.addEventListener('click', async (e) => {
                 return alert("Пожалуйста, заполните все поля")
             }
 
-            const user = await signInWithEmail(email, password);
+            const user = await registerWithEmail(email, password);
             if (user) {
-                await db.addUser(username, email, password, address);
+                await db.addUser(username, email, address, user.uid);
                 console.log("Пользователь создан и добавлен в базу:", user.uid);
-                window.location.href = './catalog.html';
+                window.location.href = "./catalog.html";
             }
         } catch (error) {
             console.error("Ошибка регистрации:", error);
@@ -90,6 +91,8 @@ submitBtn.addEventListener('click', async (e) => {
         try {
             const loginResult = await verifyUserPassword(email, password);
             if (loginResult.success) {
+                localStorage.setItem("email", email);
+                db.addUser()
                 window.location.href = './catalog.html';
             }
             else if (loginResult.message) {
@@ -112,5 +115,4 @@ switchTab.addEventListener("click", () => {
         ? "noAccount"
         : "haveAccount";
 
-    console.log(accountStatus);
     });
