@@ -691,7 +691,7 @@ section .heading {
 }
 @media (max-width: 500px) {
   .products .product__description-text {
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
     overflow: hidden;
   }
 }
@@ -1114,7 +1114,7 @@ section .heading {
 }
 @media (max-width: 500px) {
   .products .product__description-text {
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
     overflow: hidden;
   }
 }

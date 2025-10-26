@@ -50,7 +50,6 @@ signInGoogle.addEventListener('click', async (e) => {
     }
 });
 
-
 // === Обработка нажатия кнопки регистрации/входа ===
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -96,9 +95,13 @@ submitBtn.addEventListener('click', async (e) => {
             const loginResult = await verifyUserPassword(email, password);
             if (loginResult.success) {
                 localStorage.setItem("email", email);
-                db.addUser()
-                localStorage.setItem("email", user.email);
-                localStorage.setItem("userId", user.uid);
+                let userId = await db.getUserByEmail(email);
+                userId = userId.id;
+                await db.addUser(username, email, address, userId)
+
+                localStorage.setItem("email", email);
+                localStorage.setItem("userId", userId);
+
                 window.location.href = './catalog.html';
             }
             else if (loginResult.message) {
