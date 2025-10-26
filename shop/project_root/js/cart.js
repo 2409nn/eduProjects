@@ -38,7 +38,6 @@ onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
 
 // загрузка данных
 
-
 const ul = document.querySelector('section ul');
 let isLoaded = false;
 let cartProducts = await db.getCartProducts(userId)
@@ -54,9 +53,17 @@ if (isLoaded) {
     // отображение элементов корзины
 
     const cart = new Cart(userId);
-    cartProducts.forEach((product) => {
-        cart.renderProduct(product.imageURL, product.title, product.description, product.price, product.id);
-    })
+
+    if (cartProducts.length > 0) {
+        cartProducts.forEach((product) => {
+            cart.renderProduct(product.imageURL, product.title, product.description, product.price, product.id);
+        })
+    }
+
+    else {
+        loaderSpinner.classList.add('hidden');
+        alert("Корзина пуста");
+    }
 
     // модальные окна
 

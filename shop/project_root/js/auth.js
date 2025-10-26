@@ -71,8 +71,9 @@ submitBtn.addEventListener('click', async (e) => {
             }
 
             if (inputsEmptyCheck(form) === false) {
-                throw new Error('Не все необходимые поля были заполнены')
-                return alert("Пожалуйста, заполните все поля")
+                const error = new Error('Не все необходимые поля были заполнены')
+                error.code = "not-every-input-filled"
+                throw error;
             }
 
             const user = await registerWithEmail(email, password);
@@ -85,8 +86,24 @@ submitBtn.addEventListener('click', async (e) => {
                 window.location.href = "./catalog.html";
             }
         } catch (error) {
-            console.error("Ошибка регистрации:", error);
-            alert("Не удалось зарегистрировать пользователя.");
+
+            console.group("%cОшибка регистрации", "color: red; font-weight: bold;");
+            console.log("Код:", error.code);
+            console.log("Сообщение:", error.message);
+            console.groupEnd();
+
+            if (error.code === "auth/email-already-in-use") {
+                alert("Пользователь с такой почтой уже зарегистрирован. Попробуйте поменять вкладку на \"Уже есть аккаунт\"");
+            }
+
+            else if (error.code === "not-every-input-filled") {
+                alert("Пожалуйста, введите все поля");
+            }
+
+            else {
+                alert("Не удалось зарегистрировать пользователя.");
+            }
+
         }
     }
     else if (accountStatus === "haveAccount") {
@@ -104,13 +121,23 @@ submitBtn.addEventListener('click', async (e) => {
 
                 window.location.href = './catalog.html';
             }
-            else if (loginResult.message) {
-                alert(loginResult.message);
+
+            else if (!loginResult.success) {
+                const error = new Error("Неверная почта или пароль");
+                error.code = "auth/invalid-credential";
+                throw error;
             }
 
         } catch (error) {
-            console.error("Ошибка входа:", error);
-            alert("Неверный email или пароль.");
+
+            if (error.code === "auth/invalid-credential") {
+                alert(error.message);
+            }
+
+            console.group("%cОшибка регистрации", "color: red; font-weight: bold;");
+            console.log("Код:", error.code);
+            console.log("Сообщение:", error.message);
+            console.groupEnd();
         }
     }
 });

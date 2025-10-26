@@ -106,7 +106,6 @@ export async function verifyUserPassword(email, password) {
         } else if (error.code === "auth/too-many-requests") {
             return {success: false, message: "Слишком много попыток входа. Попробуйте позже."};
         } else {
-            console.error("Ошибка проверки пароля:", error);
             return {success: false, message: "Ошибка проверки пароля"};
         }
     }

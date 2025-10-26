@@ -770,6 +770,9 @@ section .heading {
   --border-radius: 10px;
 }
 
+.cProducts {
+  min-height: 50vh;
+}
 .cProducts__items .cProducts__product {
   display: grid;
   grid-template-columns: 25% 50% 25%;

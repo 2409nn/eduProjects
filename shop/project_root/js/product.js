@@ -33,12 +33,17 @@ cartBtn.addEventListener("click", async (e) => {
     loaderSpinner.classList.remove('hidden');
 
     const userId = await db.getCurrentUserId();
-    localStorage.setItem("userId", userId);
-    console.log(userId);
-    await db.addToCart(userId, image, title, description, price);
+
+    if (userId !== null) {
+        localStorage.setItem("userId", userId);
+        await db.addToCart(userId, image, title, description, price);
+        alert("Товар добавлен в корзину");
+    }
+    else {
+        alert("Вы не авторизованы. Зарегистрируйтесь пожалуйста");
+    }
 
     loaderSpinner.classList.add('hidden');
-    alert("Товар добавлен в корзину");
 })
 
 // Модальное окно оформления покупки

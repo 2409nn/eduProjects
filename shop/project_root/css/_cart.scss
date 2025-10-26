@@ -3,6 +3,9 @@
 }
 
 .cProducts {
+
+  min-height: 50vh;
+
   &__items {
     .cProducts__product {
       display: grid;

@@ -48,12 +48,17 @@ if (allLoaded) {
     let email = localStorage.getItem('email');
     const userInfo = await db.getUserInfo(userId);
 
-    const profileInfo = document.querySelectorAll('.profile__info li p');
-    profileInfo.forEach((li) => {
+    if (userInfo !== undefined) {
+        const profileInfo = document.querySelectorAll('.profile__info li p');
+        profileInfo.forEach((li) => {
 
-        let attribute = li.getAttribute('data-inputName');
-        li.innerText = userInfo[attribute];
-    })
+            let attribute = li.getAttribute('data-inputName');
+            li.innerText = userInfo[attribute];
+        })
+    }
+    else {
+        alert("Вы не авторизованы. Зарегистрируйтесь пожалуйста");
+    }
 
 // рендеринг каждого товара в карты
 
