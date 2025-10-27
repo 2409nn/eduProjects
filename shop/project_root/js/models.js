@@ -1,5 +1,21 @@
 import {db} from './db.js'
 
+//
+export class User {
+    constructor(name, email, password, address) {
+        this.username = name;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.id = null; // заранее создаём поле id
+    }
+
+    async init() {
+        const userId = await db.addUser(this.username, this.email, this.password, this.address);
+        this.id = userId; // ✅ сохраняем id в объект
+        return this;
+    }
+}
 
 export class Cart {
     constructor(userId) {

@@ -114,7 +114,6 @@ submitBtn.addEventListener('click', async (e) => {
                 localStorage.setItem("email", email);
                 let userId = await db.getUserByEmail(email);
                 userId = userId.id;
-                await db.addUser(username, email, address, userId)
 
                 localStorage.setItem("email", email);
                 localStorage.setItem("userId", userId);

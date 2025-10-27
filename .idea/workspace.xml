@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/catalog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/firebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/models.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop/project_root/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/product.js" afterDir="false" />
     </list>

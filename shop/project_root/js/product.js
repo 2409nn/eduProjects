@@ -14,9 +14,8 @@ onSnapshot(collection(db.firestore, "users", userId, "cart"), async () => {
     await renderCart();
 })
 
-// подгрузка данных о товаре
+// данных о товаре
 const params = new URLSearchParams(window.location.search);
-
 const image = params.get("image");
 const title = params.get("title");
 const description = params.get("description");
