@@ -653,6 +653,7 @@ section .heading {
 .profile .edit-btn {
   display: block;
   margin: 20px auto;
+  padding: 15px 20px;
 }
 
 .ctgs__items {
@@ -676,6 +677,7 @@ section .heading {
 
 .products {
   user-select: none;
+  min-height: 50vh;
 }
 .products .description {
   font-size: 12px;
@@ -1019,7 +1021,6 @@ section .heading {
   .footer__item {
     flex-direction: row;
     width: 100%;
-    padding: 20px;
     text-align: left;
   }
 }

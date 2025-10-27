@@ -13,6 +13,7 @@ import {
     EmailAuthProvider
 } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js';
 
+// Уникальная конфигурация firebase
 export const firebaseConfig = {
     apiKey: "AIzaSyBKdXRgRkme2L_pTIguNCP3veWO9VP2QTM",
     authDomain: "is-shop-project.firebaseapp.com",
@@ -24,13 +25,12 @@ export const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const provider = new GoogleAuthProvider();
+export const auth = getAuth(app); // для регистрации через почту и пароль
+export const provider = new GoogleAuthProvider(); // для регистрации через google
 
-// === Настраиваем сохранение авторизации ===
-setPersistence(auth, browserLocalPersistence);
+setPersistence(auth, browserLocalPersistence); // при входе токен пользователя сохраняется в localStorage
 
-// === Вход через Google ===
+// Вход через Google
 export async function signInWithGoogle() {
     try {
         const result = await signInWithPopup(auth, provider);
@@ -58,14 +58,14 @@ export async function signInWithGoogle() {
     }
 }
 
-// === Регистрация пользователя ===
+// Вход через почту и пароль
 export async function signInWithEmail(email, password) {
     const result = await signInWithEmailAndPassword(auth, email, password);
     console.log("Вход по email:", result.user);
     return result.user;
 }
 
-
+// Регистрация пользователя
 export async function registerWithEmail(email, password) {
     try {
         const result = await createUserWithEmailAndPassword(auth, email, password);
@@ -77,22 +77,21 @@ export async function registerWithEmail(email, password) {
     }
 }
 
-// === Выход ===
+// Выход пользователя (Будет внедрено в будущем)
 export async function signUserOut() {
     await signOut(auth);
     console.log("Пользователь вышел");
 }
 
-// === Отслеживание состояния ===
+// Отслеживание состояния аккаунта пользователя (Будет внедрено в будущем)
 export function observeAuthState(callback) {
     return onAuthStateChanged(auth, user => callback(user));
 }
 
+// Проверка правильности введенного пользователя
 export async function verifyUserPassword(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
-        // Если успешно — возвращаем объект пользователя
         return {
             success: true,
             user: userCredential.user

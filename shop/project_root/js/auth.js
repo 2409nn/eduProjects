@@ -15,7 +15,7 @@ import {
 import { db } from "./db.js";
 import { inputsEmptyCheck, validateEmail, checkoutRegTable } from "./common.js";
 
-// === Элементы DOM ===
+// Элементы DOM
 const signInGoogle = document.getElementById('reg__google-signIn');
 const submitBtn = document.querySelector('.reg input[type="submit"]');
 const switchTab = document.querySelector(".reg__switch-tab");
@@ -24,7 +24,7 @@ const form = document.querySelector('.reg__form');
 
 var accountStatus = "noAccount";
 
-// === Обработчик кнопки входа через Google ===
+// Обработчик кнопки входа через Google
 signInGoogle.addEventListener('click', async (e) => {
     e.preventDefault();
     try {
@@ -50,7 +50,7 @@ signInGoogle.addEventListener('click', async (e) => {
     }
 });
 
-// === Обработка нажатия кнопки регистрации/входа ===
+// Обработка нажатия кнопки регистрации/входа
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
@@ -142,7 +142,7 @@ submitBtn.addEventListener('click', async (e) => {
     }
 });
 
-// === Переключение вкладки регистрации/входа ===
+// Переключение вкладки регистрации/входа
 switchTab.addEventListener("click", () => {
     optionalInputs.classList.toggle("active");
     checkoutRegTable(optionalInputs, switchTab);

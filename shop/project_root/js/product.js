@@ -22,6 +22,8 @@ const title = params.get("title");
 const description = params.get("description");
 const price = params.get("price");
 
+document.title = `Страница товара – ${title}`;
+
 document.querySelector(".productPage__image").src = image;
 document.querySelector(".productPage__title").innerText = title;
 document.querySelector(".productPage__description-text").innerText = description;
@@ -51,18 +53,21 @@ const modal = new Modal("purchase-modal");
 const modalTriggerBtns = Array.from(document.querySelectorAll(".buy-button"));
 const purchaseModalSubmit = document.querySelector("#purchase-modal input[type='submit']");
 
+// обработка submit модального окна для оформления покупки
 purchaseModalSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     alert("Заказ оформлен!");
     modal.close();
 })
 
+// навешивание обработчика события на все кнопки, которые должны вызывать модальное окно
 modalTriggerBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         modal.show();
     })
 })
 
+// закрытие модального окна
 modal.closeBtn.addEventListener("click", (e) => {
     modal.close();
 })

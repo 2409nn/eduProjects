@@ -30,15 +30,14 @@ export class DataBase {
         this.firestore = getFirestore(this.app);
     }
 
+    // возвращает id пользователя по email
     async getUserByEmail(email) {
         try {
             const usersRef = collection(this.db, "users");
             const q = query(usersRef, where("email", "==", email));
             const querySnapshot = await getQueryDocs(q);
 
-            if (querySnapshot.empty) {
-                return null; // Нет такого пользователя
-            }
+            if (querySnapshot.empty) {return null;} // Нет такого пользователя
 
             // Если пользователь найден, возвращаем первый документ
             const userDoc = querySnapshot.docs[0];
@@ -52,6 +51,7 @@ export class DataBase {
         }
     }
 
+    // получает данные о пользователе из базы данных, обращаясь к документу через userId
     async getUserInfo(userId){
         try {
             const userRef = doc(this.db, "users", userId);
@@ -63,32 +63,31 @@ export class DataBase {
         }
     }
 
+    // сохранение пользователя в базу данных
     async addUser(username, email, address, userId) {
         try {
-            // Создаём ссылку на документ users/{userId}
             const userRef = doc(this.db, "users", userId);
-
-            // Сохраняем данные
             await setDoc(userRef, {
                 username,
                 email,
                 address,
                 createdAt: new Date()
             });
-
             console.log(`Пользователь добавлен с ID: ${userId}`);
             return userId;
+
         } catch (e) {
             console.error("Ошибка при добавлении пользователя:", e);
             return null;
         }
     }
 
+    // получение всех пользователей в базе данных
     async getUsers() {
         return getDocs(collection(this.db, "users"));
     }
 
-    // ✅ Получить ID текущего пользователя
+    // Получение ID текущего пользователя
     getCurrentUserId() {
         const user = this.auth.currentUser;
         if (user) {
@@ -99,13 +98,10 @@ export class DataBase {
         }
     }
 
-    // ✅ Добавление товара в корзину
+    // Добавление товара в корзину
     async addToCart(userId, imageURL, title, description, price) {
         try {
-            // если передали некорректный URL, экранируем его
-
-            const safeImageURL = encodeURIComponent(imageURL);
-
+            const safeImageURL = encodeURIComponent(imageURL); // если передали некорректный URL, экранируем его
             const cartRef = collection(this.db, "users", userId, "cart");
             await addDoc(cartRef, {
                 imageURL: decodeURIComponent(safeImageURL), // храним как обычный URL
@@ -119,17 +115,15 @@ export class DataBase {
         }
     }
 
+    // Возвращает массив товаров в корзине пользователя
     async getCartProducts(userId) {
         try {
             if (!userId) {
                 console.warn("Не указан userId при получении корзины");
                 return [];
             }
-
-            // путь: users/{userId}/cart
             const cartRef = collection(this.db, "users", userId, "cart");
             const querySnapshot = await getDocs(cartRef);
-
             const products = querySnapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
@@ -143,15 +137,18 @@ export class DataBase {
         }
     }
 
+    // Изменение данных о пользователе
     async updateUser(userId, newData) {
         try {
             const userRef = doc(this.db, "users", userId);
             await updateDoc(userRef, newData);
         } catch (e) {
+            alert("Ошибка при обновлении пользователя");
             console.error("Ошибка при обновлении пользователя:", e);
         }
     }
 
+    // Удаление продукта из коллекции корзины
     async deleteCartProduct(userId, productId) {
         try {
             const productRef = doc(this.db, "users", userId, "cart", productId);

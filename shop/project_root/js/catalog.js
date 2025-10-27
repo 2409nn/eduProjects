@@ -1,10 +1,10 @@
 import * as api from './api.js';
-import {Product} from './models.js';
+import {Product, Modal} from './models.js';
 import {db} from './db.js';
-import {Modal} from './models.js';
-import {renderCart} from './common.js';
+import {renderCart, inputsEmptyCheck} from './common.js';
 import {onSnapshot, collection} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 
+// установка данных из профиля в модальное окно editModal
 function setEditModalData() {
     const editModalData = document.querySelector(".profile__info");
     const editDataObject = {};
@@ -19,7 +19,6 @@ function setEditModalData() {
         }
     });
 }
-
 const userId = localStorage.getItem("userId");
 
 await renderCart();
@@ -60,8 +59,7 @@ if (allLoaded) {
         alert("Вы не авторизованы. Зарегистрируйтесь пожалуйста");
     }
 
-// рендеринг каждого товара в карты
-
+// рендеринг каждого товара в карточки
     products.forEach(product => {
         let item = new Product(product.id, product.title, product.price, product.description, product.image, product.category);
         let card = item.renderCard(item.image, product.title, product.description, product.price);
@@ -70,7 +68,6 @@ if (allLoaded) {
 }
 
 // Модальное окно редактирования профиля
-
 const editModalTriggerBtns = Array.from(document.querySelectorAll(".edit-btn"));
 const editModal = new Modal("edit-modal");
 const editModalSubmit = document.querySelector('#edit-modal input[type="submit"]');
@@ -90,41 +87,32 @@ editModalSubmit.addEventListener("click", async (e) => {
 
     // Валидация формы - проверка, что все поля заполнены
     let inputs = document.querySelectorAll("#edit-modal input[name]");
-    let isValid = true;
-    let emptyFields = [];
+    let modalForm = document.querySelector("#edit-modal form");
+    let isValid = inputsEmptyCheck(modalForm);
 
-    inputs.forEach(input => {
-        let inputValue = input.value.trim();
-        if (!inputValue) {
-            isValid = false;
-            let fieldName = input.getAttribute("name");
-            emptyFields.push(fieldName);
+    // Если валидация прошла успешно, продолжаем изменение данных пользователя
+    if (isValid) {
+        let oldEmail = document.querySelector(".profile .profile__email-value").textContent;
+        let data = {};
 
-        }
-    });
+        inputs.forEach(input => {
+            let inputName = input.getAttribute("name");
+            let inputValue = input.value.trim();
+            data[inputName] = inputValue;
 
-    // Если есть незаполненные поля, показываем ошибку и прерываем выполнение
-    if (!isValid) {
+            // Обновляем данные в интерфейсе
+            let profileElement = document.querySelector(`.profile__info li p[data-inputName="${inputName}"]`);
+            if (profileElement) {
+                profileElement.innerText = inputValue;
+            }
+        });
+
+        await db.updateUser(userId, data);
+        editModal.close();
+    }
+    else {
         alert("Пожалуйста, заполните все поля");
         return;
     }
 
-    // Если валидация прошла успешно, продолжаем изменение данных пользователя
-    let oldEmail = document.querySelector(".profile .profile__email-value").textContent;
-    let data = {};
-
-    inputs.forEach(input => {
-        let inputName = input.getAttribute("name");
-        let inputValue = input.value.trim();
-        data[inputName] = inputValue;
-
-        // Обновляем данные в интерфейсе
-        let profileElement = document.querySelector(`.profile__info li p[data-inputName="${inputName}"]`);
-        if (profileElement) {
-            profileElement.innerText = inputValue;
-        }
-    });
-
-    await db.updateUser(userId, data);
-    editModal.close();
 });

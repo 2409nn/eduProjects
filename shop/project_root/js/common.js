@@ -1,12 +1,10 @@
 import {db} from './db.js'
 
-// ===== Установка темы =====
 
 const userId = localStorage.getItem("userId");
 let isLoaded = false;
 
 // отображение количества товаров в корзине в header
-
 export async function renderCart() {
     const cartProducts = await db.getCartProducts(userId).then((res) => {
         isLoaded = true;
@@ -19,8 +17,6 @@ export async function renderCart() {
 }
 
 // отслеживание изменений в корзине
-
-
 function toggleTheme(mode) {
     const root = document.documentElement;
     const currentBg = getComputedStyle(root).getPropertyValue('--body-background-color').trim();
@@ -54,30 +50,40 @@ function toggleTheme(mode) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    toggleTheme(localStorage.getItem("theme"));
-});
+// Функции валидации для форм: проверка на заполненность всех input-ов
+export function inputsEmptyCheck(form) {
+    const checkInputs = Array.from(form.querySelectorAll("input[name]"));
 
+    const allFilled = checkInputs.every(input => input.value.trim() !== "");
+    return allFilled;
+}
 
-// ===== кнопка-переключатель темы =====
+// Функции валидации для форм: проверка на правильность электронной почты
+export function validateEmail(form) {
+    const email = form.querySelector("input[type='email']").value.trim();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // базовая проверка email
+    return regex.test(email);
+}
 
+toggleTheme(localStorage.getItem("theme"));
+
+// кнопка-переключатель темы
 const toggles = document.querySelectorAll('.toggle');
 toggles.forEach(toggle => {
+
     if (localStorage.getItem("theme") === "dark") {
         toggle.setAttribute("checked", "true");
     }
     toggle.addEventListener('change', () => {
         if (toggle.checked) {
             toggleTheme('dark');
-
         } else {
             toggleTheme('light');
         }
     });
 })
 
-// ===== переключить вкладку регистрации =====
-
+// переключить вкладку регистрации
 export function checkoutRegTable(optionalInputs, switchTab) {
     if (optionalInputs.classList.contains("active")) {
         switchTab.innerText = "Уже есть аккаунт";
@@ -90,8 +96,7 @@ export function checkoutRegTable(optionalInputs, switchTab) {
     }
 }
 
-// ===== BURGER =====
-
+// Бургер-меню
 try {
     class Burger {
         constructor() {
@@ -112,20 +117,5 @@ try {
     })
 
 } catch (e) {
-    console.warn("Page does not contain burger menu");
-}
-
-// ===== валидация =====
-
-export function inputsEmptyCheck(form) {
-    const checkInputs = Array.from(form.querySelectorAll("input[name]"));
-
-    const allFilled = checkInputs.every(input => input.value.trim() !== "");
-    return allFilled;
-}
-
-export function validateEmail(form) {
-    const email = form.querySelector("input[type='email']").value.trim();
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // базовая проверка email
-    return regex.test(email);
+    // console.warn("Page does not contain burger menu");
 }
