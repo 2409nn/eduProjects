@@ -86,12 +86,12 @@ toggles.forEach(toggle => {
 // переключить вкладку регистрации
 export function checkoutRegTable(optionalInputs, switchTab) {
     if (optionalInputs.classList.contains("active")) {
-        switchTab.innerText = "Уже есть аккаунт";
+        switchTab.innerText = "Уже есть аккаунт?";
         switchTab.setAttribute("data-status", "noAccount");
     }
 
     else {
-        switchTab.innerText = "Еще нет аккаунта";
+        switchTab.innerText = "Еще нет аккаунта?";
         switchTab.setAttribute("data-status", "haveAccount");
     }
 }

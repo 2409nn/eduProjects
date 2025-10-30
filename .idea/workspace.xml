@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="558e6d31-decd-421c-ae1f-a55d1460b46d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/project_root/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/shop/project_root/js/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,34 +32,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.auth.html.executor": "Run",
-    "JavaScript Debug.cart.html.executor": "Run",
-    "JavaScript Debug.catalog.html (1).executor": "Run",
-    "JavaScript Debug.index.html (1).executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "JavaScript Debug.product.html.executor": "Run",
-    "Node.js.api.js.executor": "Run",
-    "Node.js.catalog.js.executor": "Run",
-    "Node.js.db.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.auth.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.cart.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.catalog.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html (1).executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.product.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.api.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.catalog.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.db.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Колледж\3 курс\projects" />
@@ -101,7 +98,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
       </set>
     </attachedChunks>
   </component>
@@ -146,6 +143,10 @@
       <workItem from="1761397739679" duration="9770000" />
       <workItem from="1761413448773" duration="4665000" />
       <workItem from="1761463694407" duration="5138000" />
+      <workItem from="1761594282057" duration="4000" />
+      <workItem from="1761595689702" duration="66000" />
+      <workItem from="1761631173915" duration="644000" />
+      <workItem from="1761830976701" duration="321000" />
     </task>
     <servers />
   </component>
